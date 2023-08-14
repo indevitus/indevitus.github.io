@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro';
 <Layout title="Welcome to Indevitus d.o.o.">
 	<Header />
 	<main class="dark:text-white">
-		<section class="container">
+		<section id="home" class="container">
 			<div class="py-4 lg:py-16 font-display text-4xl lg:text-9xl uppercase border-b border-black dark:border-white">
 				<p class="px-8 lg:px-0">Welcome</p>
 			</div>
@@ -15,7 +15,7 @@ import Footer from '../components/Footer.astro';
 				<p class="px-8 lg:px-0">We are Indevitus. We source exceptional talent and embed them within your company remotely for a reasonable monthly fee.</p>
 			</div>
 		</section>
-		<div class="container team grid grid-cols-1 lg:grid-cols-4 lg:gap-1 py-8 lg:py-16 px-8 lg:px-0 border-b border-black dark:border-white">
+		<div id="team" class="container team grid grid-cols-1 lg:grid-cols-4 lg:gap-1 py-8 lg:py-16 px-8 lg:px-0 border-b border-black dark:border-white">
 			<img src="/team/adnan.png" alt="Adnan" />
 			<img src="/team/work1.png" alt="Team" class="lg:col-span-2" />
 			<img src="/team/haris.png" alt="Haris" />			
@@ -27,7 +27,7 @@ import Footer from '../components/Footer.astro';
 			<img src="/team/aldin.png" alt="Aldin" />
 			<img src="/team/wall.png" alt="We are Indevitus" />
 		</div>
-		<section class="container">
+		<section class="container" id="skills">
 			<div class="py-4 lg:py-16 font-display text-xl lg:text-3xl lg:leading-10 uppercase border-b border-black dark:border-white ">
 				<p class="px-8 lg:px-0 pb-4 lg:pb-8">Our skills</p>
 				<ul class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:gap-8">
@@ -80,12 +80,12 @@ import Footer from '../components/Footer.astro';
 				</ul>
 			</div>
 		</section>	
-		<section class="container">
+		<section id="clients" class="container">
 			<div class="py-4 lg:py-16 font-display text-xl lg:text-3xl lg:leading-10 uppercase border-b border-black dark:border-white ">
 				<p class="px-8 lg:px-0">Our clients think we are a big deal</p>
 			</div>
 		</section>
-		<section class="container">
+		<section id="contact" class="container">
 			<div class="py-8 lg:py-16 font-display lg:leading-10 uppercase border-b border-black dark:border-white text-center">
 				<p class="px-8 lg:px-0 text-xl lg:text-5xl mb-8 lg:mb-12">Ready to talk?</p>
 				<p class="px-8 lg:px-0 text-xl lg:text-3xl">
