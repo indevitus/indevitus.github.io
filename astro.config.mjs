@@ -14,5 +14,5 @@ export default defineConfig({
     // Useful if you need to define and/or import your own custom `base.css`.
     applyBaseStyles: false
   }), sitemap(), robotsTxt(), mdx(), alpinejs()],
-  trailingSlash: 'never'
+  trailingSlash: 'never',
 });
