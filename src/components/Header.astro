@@ -1,8 +1,8 @@
 <header x-data="{ mobileMenuOpen: false }" :class="mobileMenuOpen ? 'relative w-full h-screen' : ''" class="lg:h-auto lg:w-auto container border-b border-black dark:border-white flex flex-col lg:flex-row items-center justify-between">
     <div class="flex w-full lg:w-auto px-8 lg:px-0 items-center justify-between lg:justify-start">
-        <a href="/" title="Indevitus d.o.o">
-            <img x-show="darkMode" src="/logo-white.svg" alt="Indevitus d.o.o" class="w-44 lg:w-56 my-8" />
-            <img x-show="!darkMode" src="/logo-black.svg" alt="Indevitus d.o.o" class="w-44 lg:w-56 my-8" />
+        <a href="/" title="Indevitus">
+            <img x-show="darkMode" src="/logo-white.svg" alt="Indevitus" class="w-44 lg:w-56 my-8" />
+            <img x-show="!darkMode" src="/logo-black.svg" alt="Indevitus" class="w-44 lg:w-56 my-8" />
         </a>
         <a class="lg:hidden" @click="mobileMenuOpen = true" href="#" x-show="!mobileMenuOpen">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8" viewBox="0 0 16 16" :class="darkMode ? 'text-white' : 'text-black'">
