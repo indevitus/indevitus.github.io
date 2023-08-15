@@ -26,10 +26,10 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 		<section id="team">
 			<Team />
 		</section>
-		
+
 		<section class="container" id="skills">
 			<Skills />
-		</section>	
+		</section>
 		<section id="clients" class="container">
 			<Testimonials />
 		</section>
@@ -37,12 +37,12 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 			<div class="py-16 font-display lg:leading-10 uppercase border-b border-black dark:border-white text-center">
 				<p class="px-8 lg:px-0 text-xl lg:text-3xl mb-8 lg:mb-12">Ready to talk?</p>
 				<p class="px-8 lg:px-0 text-xl lg:text-3xl">
-					<a href="https://www.linkedin.com/company/indevitus/" class="rounded-full bg-black dark:bg-white text-white dark:text-black whitespace-nowrap px-4 lg:px-8 py-4">
+					<a href="https://www.linkedin.com/company/indevitus/" target="_blank" class="rounded-full bg-black dark:bg-white text-white dark:text-black whitespace-nowrap px-4 lg:px-8 py-4 contact-us-btn">
 						Contact us today
 					</a>
 				</p>
 			</div>
-		</section>		
+		</section>
 	</main>
 	<Footer />
 </Layout>
@@ -53,4 +53,13 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 	}
     .glide__bullet--active { background: black; }
     html.dark .glide__bullet--active { background: white !important; }
+
+	.contact-us-btn {
+		transition: background .3s ease-in-out;
+	}
+
+	.contact-us-btn:hover {
+		background: #BDBDBD;
+        transition: background .3s ease-in-out;
+	}
 </style>
