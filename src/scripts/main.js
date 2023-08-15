@@ -10,14 +10,6 @@ import Glide from '@glidejs/glide';
         }
     }
 
-    const traverseAndRemoveClass = (parentClass, childClass) => {
-        if (document.querySelectorAll(parentClass) && document.querySelectorAll(parentClass).length > 0) {
-            document.querySelectorAll(parentClass).forEach(element => {
-                element.classList.remove(childClass); 
-            });        
-        }
-    }    
-
     if (window.isMobile()) {
         if (document.querySelector('.glide-team') || document.querySelector('.glide-skills')) {
             traverseAndAddClass('.__glide', 'glide');
@@ -39,6 +31,17 @@ import Glide from '@glidejs/glide';
         if (document.querySelector('.glide-skills')) {
             skillsGlider = new Glide('.glide-skills', { autoplay: 3000, gap: 0 }).mount();
         }
+    }
+
+    if (document.querySelector('.glide-testimonials')) {
+        traverseAndAddClass('.glide-testimonials .__glide', 'glide');
+        traverseAndAddClass('.glide-testimonials .__glide__track', 'glide__track');
+        traverseAndAddClass('.glide-testimonials .__glide__bullets', 'glide__bullets');
+        traverseAndAddClass('.glide-testimonials .__glide__bullet', 'glide__bullet');
+        traverseAndAddClass('.glide-testimonials .__glide__slides', 'glide__slides');
+        traverseAndAddClass('.glide-testimonials .__glide__slide', 'glide__slide');
+
+        new Glide('.glide-testimonials', { autoplay: 3500, gap: 0 }).mount();
     }
   
  })();
