@@ -2,13 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import TeamDesktop from '../components/TeamDesktop.astro';
-import TeamMobile from '../components/TeamMobile.astro';
-import SkillsDesktop from '../components/SkillsDesktop.astro';
-import SkillsMobile from '../components/SkillsMobile.astro';
+import Team from '../components/Team.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Skills from '../components/Skills.astro';
 
 import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 ---
+
+<script src="../scripts/main.js"></script>
 
 <Layout title="Welcome to Indevitus">
 	<Header />
@@ -23,22 +24,18 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 		</section>
 
 		<section id="team">
-			<TeamDesktop />
-			<TeamMobile />
+			<Team />
 		</section>
 		
 		<section class="container" id="skills">
-			<SkillsDesktop />
-			<SkillsMobile />
+			<Skills />
 		</section>	
 		<section id="clients" class="container">
-			<div class="py-8 lg:py-16 font-display text-xl lg:text-3xl lg:leading-10 uppercase border-b border-black dark:border-white ">
-				<p class="px-8 lg:px-0 text-center">Our clients think we are kind of a big deal</p>
-			</div>
+			<Testimonials />
 		</section>
 		<section id="contact" class="container">
 			<div class="py-16 font-display lg:leading-10 uppercase border-b border-black dark:border-white text-center">
-				<p class="px-8 lg:px-0 text-xl lg:text-5xl mb-8 lg:mb-12">Ready to talk?</p>
+				<p class="px-8 lg:px-0 text-xl lg:text-3xl mb-8 lg:mb-12">Ready to talk?</p>
 				<p class="px-8 lg:px-0 text-xl lg:text-3xl">
 					<a href="https://www.linkedin.com/company/indevitus/" class="rounded-full bg-black dark:bg-white text-white dark:text-black whitespace-nowrap px-4 lg:px-8 py-4">
 						Contact us today
@@ -49,17 +46,6 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 	</main>
 	<Footer />
 </Layout>
-
-<script>
-	import Glide from '@glidejs/glide';
-
-	if (document.querySelector('.glide-team')) {
-		new Glide('.glide-team').mount();
-	}
-	if (document.querySelector('.glide-skills')) {
-		new Glide('.glide-skills').mount();
-	}
-</script>
 
 <style is:global>
 	.glide__slide { 
