@@ -40,8 +40,5 @@ import Glide from '@glidejs/glide';
             skillsGlider = new Glide('.glide-skills', { autoplay: 3000, gap: 0 }).mount();
         }
     }
-
-    window.addEventListener('resize', () => {
-        location.reload();
-    }, true);       
+  
  })();
