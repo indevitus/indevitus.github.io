@@ -55,7 +55,7 @@ window.isMobile = function() {
     AOS.init({
         once: true,
         easing: 'ease-in-sine',
-        anchorPlacement: 'top-bottom',
+        // anchorPlacement: 'top-bottom',
         disable: 'mobile'
     });       
  
