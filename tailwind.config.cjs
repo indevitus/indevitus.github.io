@@ -13,6 +13,10 @@ module.exports = {
 			},
 			colors: {
 				'gold': '#c6932a',
+				'gray': {
+					'default': '#808080',
+					'light': '#bdbdbd'
+				}
 			},
 			screens: {
 				'2xl': '1280px',
