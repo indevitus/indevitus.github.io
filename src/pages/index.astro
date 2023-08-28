@@ -60,49 +60,4 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 
 	.glide__bullet--active { background: black; }
 	html.dark .glide__bullet--active { background: white !important; }
-
-	[data-tooltip] {
-		position: relative;
-		z-index: 2;
-	}
-
-	[data-tooltip]:before,
-	[data-tooltip]:after {
-		opacity: 0;
-		pointer-events: none;
-		transition: all 300ms ease-in-out;
-		z-index: 10;
-	}
-
-	[data-tooltip]:before {
-		position: absolute;
-		left: 50%;
-		top: -20%;
-		transform: translate(-50%, 20%);
-		padding: 6px;
-		width: 160px;
-		border-radius: 4px;
-		background-color: hsla(0, 0%, 20%, 0.9);
-		color: #fff;
-		content: attr(data-tooltip);
-		text-align: center;
-		font-size: 14px;
-		line-height: 1.2;
-	}
-
-	[data-tooltip]:after {
-		position: absolute;
-		left: 50%;
-		top: -8%;
-		transform: translate(-50%, 8%);
-		width: 0;
-		border-width: 5px 5px 0;
-		border-color: hsla(0, 0%, 20%, 0.9) transparent;
-		content: "";
-	}
-
-	[data-tooltip]:hover:before,
-	[data-tooltip]:hover:after {
-		opacity: 1;
-	}
 </style>
