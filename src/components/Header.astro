@@ -1,7 +1,8 @@
-<header
-  x-data="{ mobileMenuOpen: false }"
-  class="fixed left-0 top-0 w-full bg-white dark:bg-black z-50 font-display"
->
+---
+import ThemeSwitcher from './ThemeSwitcher.astro';
+---
+
+<header class="fixed left-0 top-0 w-full bg-white dark:bg-black z-50 font-display">
   <div class="container flex justify-between items-center lg:justify-start select-none border-b-2 border-black dark:border-neutral-100 py-6 bg-white dark:bg-black z-50">
     <a href="/" title="Indevitus" class="flex items-center gap-3">
       <img
@@ -25,10 +26,9 @@
     </a>
 
     <button
+      id="hamburger"
       class="no-tap-highlight cursor-pointer bg-transparent lg:hidden"
-      :class="mobileMenuOpen ? 'is-opened': ''"
       aria-controls="menu"
-      @click="mobileMenuOpen = !mobileMenuOpen"
     >
       <span class="line" />
       <span class="line" />
@@ -37,8 +37,7 @@
 
     <nav
       id="menu"
-      class="flex flex-col overflow-y-auto fixed w-full top-[114px] bottom-0 left-0 pt-8 pb-24 bg-white dark:bg-black z-50 lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase"
-      :class="mobileMenuOpen ? 'visible' : 'invisible'"
+      class="flex flex-col overflow-y-auto fixed w-full top-[114px] bottom-0 left-0 pt-8 pb-24 bg-white dark:bg-black z-50 invisible lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase"
     >
       <ul class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white">
         <li class="mb-6 lg:mb-0">
@@ -56,42 +55,42 @@
       </ul>
 
       <div class="container flex space-x-3 items-center lg:px-0 lg:ml-8">
+        <ThemeSwitcher />
       </div>
     </nav>
   </div>
 </header>
 
 
-<!-- <script>
-import { onMount, onDestroy } from 'astro'
+<script>
+  const BREAKPOINT_LG = 1024;
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+  let mobileMenuOpen = false;
 
-// Define BREAKPOINT_MD value
-const BREAKPOINT_MD = 768; // Example value, adjust as needed
-
-// Define reactive state for mobileMenuOpen
-let mobileMenuOpen = false;
-
-// Function to toggle mobile menu state
-function mobileMenuToggle(state: boolean) {
-  mobileMenuOpen = state;
-  document.body.style.overflowY = mobileMenuOpen ? 'hidden' : 'auto';
-}
-
-// Function to handle window resize
-function onResize() {
-  if (window.innerWidth > BREAKPOINT_MD) {
-    mobileMenuToggle(false);
+  function mobileMenuToggle () {
+    mobileMenuOpen = !mobileMenuOpen;
+    const visibilityClass = mobileMenuOpen ? 'visible' : 'invisible';
+    menu?.classList.replace(visibilityClass === 'visible' ? 'invisible' : 'visible', visibilityClass);
+    hamburger?.classList.toggle('is-opened', mobileMenuOpen);
+    document.body.style.overflowY = mobileMenuOpen ? 'hidden' : 'auto';
   }
-}
 
-onMount(() => {
-  window.addEventListener('resize', onResize);
-});
+  function onResize() {
+    if (window.innerWidth > BREAKPOINT_LG) {
+      hamburger?.classList.remove('is-opened');
+      menu?.classList.replace('visible', 'invisible');
+      mobileMenuOpen = false;
+      document.body.style.overflowY = mobileMenuOpen ? 'hidden' : 'auto';
+    }
+  }
 
-onDestroy(() => {
-  window.removeEventListener('resize', onResize);
-});
-</script> -->
+  window.onresize = onResize;
+
+  if (hamburger) {
+    hamburger.addEventListener("click", mobileMenuToggle);
+  }
+</script>
 
 <style>
   .line {
