@@ -3,15 +3,11 @@ module.exports = {
 	darkMode: 'class',
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		fontFamily: {
-			// 'sans': ['Work Sans', 'Arial', 'sans-serif'],
-			'display': ['Poppins', 'sans-serif']
-		},
 		extend: {
-			// fontFamily: {
-			// 	'sans': ['Work Sans', 'Arial', 'sans-serif'],
-			// 	'display': ['Poppins', 'sans-serif'],
-			// },
+			fontFamily: {
+				sans: ['Work Sans', 'Arial', 'sans-serif'],
+				display: ['Poppins', 'sans-serif']
+			},
 			container: {
 				center: true,
 				padding: '1rem'
