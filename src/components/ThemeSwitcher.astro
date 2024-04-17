@@ -1,0 +1,45 @@
+<label class="relative h-10 w-20 block">
+  <input id="theme-toggle" type="checkbox" class="checkbox invisible peer">
+  <span class="thumb absolute h-full w-full left-0 top-0 rounded-full bg-blue-950 dark:bg-white cursor-pointer z-50"></span>
+</label>
+
+<script is:inline>
+  const element = document.documentElement;
+  const themeToggler = document.getElementById("theme-toggle");
+
+  const theme = (() => {
+    const windowThemePreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const themePreference = localStorage.getItem('theme') ? localStorage.getItem('theme') : windowThemePreference;
+    return themePreference;
+  })();
+
+  const setThemePreference = () => {
+    if (theme === 'light') {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+
+    window.localStorage.setItem('theme', theme);
+  }
+
+  setThemePreference();
+
+  const toggleThemePreference = () => {
+    element.classList.toggle("dark");
+    localStorage.setItem("theme", element.classList.contains("dark") ? "dark" : "light");
+    themeToggler.setAttribute('checked', element.classList.contains("dark"));
+  }
+
+  themeToggler.addEventListener("click", toggleThemePreference);
+
+  if (element.classList.contains("dark")) {
+    themeToggler.setAttribute('checked', element.classList.contains("dark"));
+  }
+</script>
+
+<style>
+ .thumb {
+    @apply before:absolute before:rounded-full before:bg-white before:left-1 before:top-1/2 before:-translate-y-1/2 before:h-8 before:w-8 before:transition-all before:duration-300 peer-checked:before:shadow-[inset_-14px_-5px_0_0px_#172554] peer-checked:before:translate-x-[122%];
+ }
+</style>

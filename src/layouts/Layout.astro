@@ -1,4 +1,4 @@
---- 
+---
 interface Props {
 	title: string;
 }
@@ -8,11 +8,10 @@ const { title } = Astro.props;
 // Astro will bundle and optimize this CSS for you automatically
 // This also works for preprocessor files like .scss, .styl, etc.
 import '../styles/base.css';
-
 ---
 
 <!DOCTYPE html>
-<html lang="en" x-data="{ darkMode: true }" :class="darkMode ? 'dark' : ''" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Indevitus">
@@ -21,10 +20,11 @@ import '../styles/base.css';
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="dark:bg-black bg-white">
+	<body class="dark:bg-black bg-white transition-all duration-300">
 		<slot />
 	</body>
 </html>
+
 <style is:global>
 	html {
 		font-family: system-ui, sans-serif;
