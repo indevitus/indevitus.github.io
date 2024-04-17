@@ -7,18 +7,13 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     id="header-content"
     class="container flex justify-between items-center lg:justify-start select-none py-6 bg-white dark:bg-black transition-all duration-300"
   >
-    <a id="company-logo" href="/" title="Indevitus" class="flex items-center gap-3">
+    <a href="/" title="Indevitus" class="flex items-center gap-3">
       <img
+        id="company-logo"
         src="/badge-white.svg"
         alt="Indevitus"
         height="80px"
-        class="h-12 lg:h-16 hidden dark:block"
-      />
-
-      <img
-        src="/badge-black.svg"
-        alt="Indevitus"
-        class="h-12 lg:h-16 dark:hidden"
+        class="h-12 lg:h-16 mix-blend-difference transition-height duration-300"
       />
 
       <span id="company-title" class="dark:text-white font-bold text-2xl lg:text-4xl transition-opacity duration-300">INDEVITUS</span>
@@ -96,9 +91,10 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
   function headerStickyToggle () {
     const headerContent = document.getElementById('header-content');
     const companyTitle = document.getElementById('company-title');
+    const companyLogo = document.getElementById('company-logo');
     const footerRect = document.querySelector('footer')?.getBoundingClientRect();
 
-    if (header && footerRect) {
+    if (header && footerRect && companyLogo) {
       const isHeaderFixed = footerRect.top <= header?.offsetHeight;
       header?.classList.toggle('-translate-y-full', isHeaderFixed);
       header?.classList.toggle('translate-y-0', !isHeaderFixed);
@@ -110,6 +106,8 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       headerContent?.classList.toggle('!py-4', isScrolled);
       companyTitle?.classList.toggle('opacity-100', !isScrolled);
       companyTitle?.classList.toggle('opacity-0', isScrolled);
+      companyLogo?.classList.toggle('lg:!h-12', isScrolled);
+      companyLogo?.classList.toggle('!h-10', isScrolled);
     }
   }
 

@@ -19,6 +19,9 @@ module.exports = {
 					'light': '#bdbdbd'
 				}
 			},
+			transitionProperty: {
+        'height': 'height',
+      },
 			screens: {
 				'2xl': '1280px',
 				'3xl': '1280px',
