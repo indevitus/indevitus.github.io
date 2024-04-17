@@ -5,11 +5,12 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				'sans': ['Work Sans', 'Arial', 'sans-serif'],
-				'display': ['Poppins', 'Arial', 'sans-serif'],
-			},			
+				sans: ['Work Sans', 'Arial', 'sans-serif'],
+				display: ['Poppins', 'sans-serif']
+			},
 			container: {
 				center: true,
+				padding: '1rem'
 			},
 			colors: {
 				'gold': '#c6932a',
@@ -18,10 +19,13 @@ module.exports = {
 					'light': '#bdbdbd'
 				}
 			},
+			transitionProperty: {
+        'height': 'height',
+      },
 			screens: {
 				'2xl': '1280px',
 				'3xl': '1280px',
-			}				
+			}
 		},
 	},
 	plugins: [],
