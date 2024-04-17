@@ -58,6 +58,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
 <script>
   const BREAKPOINT_LG = 1024;
+  const FOOTER_COLLISION_OFFSET = 10;
   const header = document.querySelector('header');
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
@@ -95,7 +96,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     const footerRect = document.querySelector('footer')?.getBoundingClientRect();
 
     if (header && footerRect && companyLogo) {
-      const isHeaderFixed = footerRect.top <= header?.offsetHeight;
+      const isHeaderFixed = footerRect.top <= header?.offsetHeight - FOOTER_COLLISION_OFFSET;
       header?.classList.toggle('-translate-y-full', isHeaderFixed);
       header?.classList.toggle('translate-y-0', !isHeaderFixed);
 
