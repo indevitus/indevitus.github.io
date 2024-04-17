@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Team from '../components/Team.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Skills from '../components/Skills.astro';
+import Hero from '../components/Hero.astro';
 
 import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 ---
@@ -14,15 +15,8 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 <Layout title="Welcome to Indevitus">
 	<Header />
 	<main class="dark:text-white">
-		<section id="home" class="container border-b border-black dark:border-neutral-100">
-			<div data-aos="fade" data-aos-delay="100" data-aos-duration="1400" class="pt-[106px] lg:pt-[120px]">
-				<div class="pt-8 lg:pt-16 font-display text-5xl lg:text-9xl">
-					<p class="px-8 lg:px-0">Hello</p>
-				</div>
-				<div class="px-8 lg:px-0 py-4 pb-8 lg:py-8 lg:pb-16">
-					<p class="font-display text-xl lg:text-3xl lg:leading-[3rem]">We are Indevitus. We source exceptional talent and remotely embed them within your company for a reasonable monthly fee.</p>
-				</div>
-			</div>
+		<section id="home" class="container border-b border-black dark:border-neutral-100 grid grid-cols-1 lg:grid-cols-12">
+			<Hero />
 		</section>
 
 		<section id="team">
