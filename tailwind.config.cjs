@@ -18,6 +18,8 @@ module.exports = {
 			},
 			colors: {
 				'gold': '#c6932a',
+				black: 'rgb(26 25 25)',
+				white: 'rgb(250 250 250)',
 				'gray': {
 					'default': '#808080',
 					'light': '#bdbdbd'
