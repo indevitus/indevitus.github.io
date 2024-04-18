@@ -16,7 +16,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
         class="h-12 lg:h-16 mix-blend-difference transition-height duration-300"
       />
 
-      <span id="company-title" class="dark:text-white font-bold text-2xl lg:text-4xl transition-opacity duration-300">INDEVITUS</span>
+      <span id="company-title" class="dark:text-white font-bold text-2xl lg:text-4xl pt-2 transition-opacity hidden lg:inline-block">INDEVITUS</span>
     </a>
 
     <button
@@ -33,22 +33,22 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       id="menu"
       class="flex flex-col overflow-y-auto fixed w-full h-[100dvh] lg:h-auto bottom-0 left-0 pt-8 pb-24 bg-white dark:bg-black transition-colors duration-300 z-50 invisible lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase"
     >
-      <ul class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white">
+      <ul class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white text-sm">
         <li class="mb-6 lg:mb-0">
           <a
             href="#clients"
-            class="relative pb-1 after:content-[''] after:absolute after:bottom-0 after:h-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:left-0 after:w-0 after:bg-black dark:after:bg-white hover:after:w-full"
+            class="relative pb-1 after:content-[''] after:absolute after:bottom-0 after:h-[1px] after:transition-[width] after:duration-300 after:ease-in-out after:left-0 after:w-0 after:bg-black dark:after:bg-white hover:after:w-full"
             >Clients</a>
         </li>
         <li class="mb-6 lg:mb-0">
           <a
             href="#contact"
-            class="relative pb-1 after:content-[''] after:absolute after:bottom-0 after:h-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:left-0 after:w-0 after:bg-black dark:after:bg-white hover:after:w-full"
+            class="relative pb-1 after:content-[''] after:absolute after:bottom-0 after:h-[1px] after:transition-[width] after:duration-300 after:ease-in-out after:left-0 after:w-0 after:bg-black dark:after:bg-white hover:after:w-full"
             >Contact</a>
         </li>
       </ul>
 
-      <div class="container lg:px-0 lg:ml-8">
+      <div class="container lg:px-0 lg:ml-8 mt-auto py-2 lg:py-0">
         <ThemeSwitcher />
       </div>
     </nav>
@@ -101,10 +101,10 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       header?.classList.toggle('translate-y-0', !isHeaderFixed);
 
       const isScrolled = window.scrollY >= header?.offsetHeight;
-      headerContent?.classList.toggle('border-b-2', isScrolled);
+      headerContent?.classList.toggle('border-b', isScrolled);
       headerContent?.classList.toggle('border-black', isScrolled);
       headerContent?.classList.toggle('dark:border-neutral-100', isScrolled);
-      headerContent?.classList.toggle('!py-4', isScrolled);
+      headerContent?.classList.toggle('!py-2', isScrolled);
       companyTitle?.classList.toggle('opacity-100', !isScrolled);
       companyTitle?.classList.toggle('opacity-0', isScrolled);
       companyLogo?.classList.toggle('lg:!h-12', isScrolled);

@@ -5,8 +5,14 @@
 @tailwind utilities;
 
 @layer base {
+  @media (max-width: 640px) {
+    .container {
+      max-width: 100% !important;
+    }
+  }
+
   .container {
-    @apply xs:mx-auto;
+    @apply sm:mx-auto;
   }
 }
 
