@@ -93,22 +93,24 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     const headerContent = document.getElementById('header-content');
     const companyTitle = document.getElementById('company-title');
     const companyLogo = document.getElementById('company-logo');
+    const hero = document.getElementById('hero');
     const footerRect = document.querySelector('footer')?.getBoundingClientRect();
 
-    if (header && footerRect && companyLogo) {
-      const isHeaderFixed = footerRect.top <= header?.offsetHeight - FOOTER_COLLISION_OFFSET;
-      header?.classList.toggle('-translate-y-full', isHeaderFixed);
-      header?.classList.toggle('translate-y-0', !isHeaderFixed);
+    if (header && footerRect && companyLogo && hero) {
+      const isFooterObserved = footerRect.top <= header?.offsetHeight - FOOTER_COLLISION_OFFSET
+      const isSticky = window.scrollY >= (hero?.offsetHeight - header?.offsetHeight);
 
-      const isScrolled = window.scrollY >= header?.offsetHeight;
-      headerContent?.classList.toggle('border-b', isScrolled);
-      headerContent?.classList.toggle('border-black', isScrolled);
-      headerContent?.classList.toggle('dark:border-neutral-100', isScrolled);
-      headerContent?.classList.toggle('!py-2', isScrolled);
-      companyTitle?.classList.toggle('opacity-100', !isScrolled);
-      companyTitle?.classList.toggle('opacity-0', isScrolled);
-      companyLogo?.classList.toggle('lg:!h-12', isScrolled);
-      companyLogo?.classList.toggle('!h-10', isScrolled);
+      header?.classList.toggle('-translate-y-full', isFooterObserved);
+      header?.classList.toggle('translate-y-0', !isFooterObserved);
+
+      headerContent?.classList.toggle('border-b', isSticky);
+      headerContent?.classList.toggle('border-black', isSticky);
+      headerContent?.classList.toggle('dark:border-neutral-100', isSticky);
+      headerContent?.classList.toggle('!py-2', isSticky);
+      companyTitle?.classList.toggle('opacity-100', !isSticky);
+      companyTitle?.classList.toggle('opacity-0', isSticky);
+      companyLogo?.classList.toggle('lg:!h-12', isSticky);
+      companyLogo?.classList.toggle('!h-10', isSticky);
     }
   }
 
