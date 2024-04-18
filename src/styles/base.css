@@ -4,3 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .container {
+    @apply xs:mx-auto;
+  }
+}
+

@@ -1,15 +1,19 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
 	darkMode: 'class',
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
+		screens: {
+			'xs': '420px',
+			...defaultTheme.screens
+		},
 		extend: {
 			fontFamily: {
 				sans: ['Work Sans', 'Arial', 'sans-serif'],
 				display: ['Poppins', 'sans-serif']
 			},
 			container: {
-				center: true,
 				padding: '1rem'
 			},
 			colors: {
