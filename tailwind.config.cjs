@@ -18,7 +18,7 @@ module.exports = {
 			},
 			colors: {
 				'gold': '#c6932a',
-				black: 'rgb(26 25 25)',
+				black: 'rgb(21 21 21)',
 				white: 'rgb(250 250 250)',
 				'gray': {
 					'default': '#808080',
