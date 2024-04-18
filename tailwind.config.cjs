@@ -11,7 +11,8 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				sans: ['Work Sans', 'Arial', 'sans-serif'],
-				display: ['Poppins', 'sans-serif']
+				display: ['Poppins', 'sans-serif'],
+				archivoBlack: ['Archivo Black', 'Poppins', 'sans-serif']
 			},
 			container: {
 				padding: '1rem'
