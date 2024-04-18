@@ -15,8 +15,6 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
         height="80px"
         class="h-12 lg:h-16 mix-blend-difference transition-height duration-300"
       />
-
-      <span id="company-title" class="dark:text-white font-bold text-2xl lg:text-4xl pt-2 hidden lg:inline-block">INDEVITUS</span>
     </a>
 
     <button
@@ -91,14 +89,13 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
   function headerStickyToggle () {
     const headerContent = document.getElementById('header-content');
-    const companyTitle = document.getElementById('company-title');
     const companyLogo = document.getElementById('company-logo');
     const hero = document.getElementById('hero');
     const footerRect = document.querySelector('footer')?.getBoundingClientRect();
 
     if (header && footerRect && companyLogo && hero) {
       const isFooterObserved = footerRect.top <= header?.offsetHeight - FOOTER_COLLISION_OFFSET
-      const isSticky = window.scrollY >= (hero?.offsetHeight - header?.offsetHeight);
+      const isSticky = window.scrollY >= (hero?.offsetHeight - 112) + 40;
 
       header?.classList.toggle('-translate-y-full', isFooterObserved);
       header.classList.toggle('!fixed', isSticky);
@@ -107,9 +104,6 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       headerContent?.classList.toggle('border-black', isSticky);
       headerContent?.classList.toggle('dark:border-neutral-100', isSticky);
       headerContent?.classList.toggle('!py-2', isSticky);
-      companyTitle?.classList.toggle('!hidden', isSticky)
-      // companyTitle?.classList.toggle('opacity-100', !isSticky);
-      // companyTitle?.classList.toggle('opacity-0', isSticky);
       companyLogo?.classList.toggle('lg:!h-12', isSticky);
       companyLogo?.classList.toggle('!h-10', isSticky);
     }
