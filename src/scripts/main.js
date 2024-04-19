@@ -32,7 +32,7 @@ window.isMobile = function() {
             });
         }
 
-        let teamGlider, skillsGlider;
+        let teamGlider;
         if (document.querySelector('.glide-team')) {
             teamGlider = new Glide('.glide-team', { autoplay: 2000, gap: 0 }).mount();
         }
@@ -46,7 +46,7 @@ window.isMobile = function() {
         traverseAndAddClass('.__glide__slides', 'glide__slides');
         traverseAndAddClass('.__glide__slide', 'glide__slide');
 
-        new Glide('.glide-clients', { autoplay: 3000, gap: 0 }).mount();
+        new Glide('.glide-clients', {type: 'carousel', autoplay: 3000, gap: 0 }).mount();
     }
 
     if (document.querySelector('.glide-testimonials')) {
@@ -57,7 +57,7 @@ window.isMobile = function() {
         traverseAndAddClass('.glide-testimonials .__glide__slides', 'glide__slides');
         traverseAndAddClass('.glide-testimonials .__glide__slide', 'glide__slide');
 
-        new Glide('.glide-testimonials', { autoplay: 3500, gap: 0 }).mount();
+        new Glide('.glide-testimonials', {type: 'carousel', autoplay: 3500, gap: 0 }).mount();
     }
 
     AOS.init({
