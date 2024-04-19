@@ -61,6 +61,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
   let mobileMenuOpen = false;
+  let lastScrollTop = 0;
 
   function bodyScrollLock () {
     document.body.style.overflowY = mobileMenuOpen ? 'hidden' : 'auto';
@@ -80,8 +81,8 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
   function onResize() {
     if (window.innerWidth > BREAKPOINT_LG) {
-      hamburger?.classList.remove('is-opened');
       menu?.classList.replace('visible', 'invisible');
+      hamburger?.classList.remove('is-opened');
       mobileMenuOpen = false;
       bodyScrollLock();
     }
@@ -97,15 +98,51 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       const isFooterObserved = footerRect.top <= header?.offsetHeight - FOOTER_COLLISION_OFFSET
       const isSticky = window.scrollY >= (hero?.offsetHeight - 112) + 40;
 
-      header?.classList.toggle('-translate-y-full', isFooterObserved);
-      header.classList.toggle('!fixed', isSticky);
+      const st = document.documentElement.scrollTop;
 
-      headerContent?.classList.toggle('border-b', isSticky);
-      headerContent?.classList.toggle('border-black', isSticky);
-      headerContent?.classList.toggle('dark:border-neutral-100', isSticky);
-      headerContent?.classList.toggle('!py-2', isSticky);
-      companyLogo?.classList.toggle('lg:!h-12', isSticky);
-      companyLogo?.classList.toggle('!h-10', isSticky);
+      if (window.scrollY < 220) {
+        header.classList.remove('!fixed');
+        header.classList.remove('animate-slide-up');
+      }
+
+      if (st < lastScrollTop) {
+        if (st < (hero?.offsetHeight - 112) + 40 && !(window.scrollY < 220)) {
+          console.log('u hero sekciji');
+          header.classList.remove('animate-slide-down');
+          header.classList.add('animate-slide-up');
+
+          setTimeout(() => {
+            headerContent?.classList.remove('border-b');
+            headerContent?.classList.remove('border-black');
+            headerContent?.classList.remove('dark:border-neutral-100');
+            headerContent?.classList.remove('!py-2');
+            companyLogo?.classList.remove('lg:!h-12');
+            companyLogo?.classList.remove('!h-10');
+          }, 500)
+        }
+      } else {
+        if (isSticky) {
+          header.classList.add('!fixed');
+          header.classList.remove('animate-slide-up');
+          header.classList.add('animate-slide-down');
+          headerContent?.classList.add('border-black');
+          headerContent?.classList.add('border-b');
+          headerContent?.classList.add('dark:border-neutral-100');
+          headerContent?.classList.add('!py-2');
+          companyLogo?.classList.add('lg:!h-12');
+          companyLogo?.classList.add('!h-10');
+        }
+      }
+
+      lastScrollTop = st <= 0 ? 0 : st;
+
+      if (isFooterObserved && isSticky) {
+        header.classList.remove('animate-slide-down');
+        header.classList.add('animate-slide-up');
+      } else if (!isFooterObserved && isSticky) {
+        header.classList.remove('animate-slide-up');
+        header.classList.add('animate-slide-down');
+      }
     }
   }
 

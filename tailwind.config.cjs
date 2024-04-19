@@ -13,6 +13,10 @@ module.exports = {
 				sans: ['Work Sans', 'Arial', 'sans-serif'],
 				display: ['Poppins', 'sans-serif']
 			},
+			animation: {
+				'slide-down': 'slideDown 0.5s linear',
+				'slide-up': 'slideUp 0.5s linear forwards',
+			},
 			container: {
 				padding: '1rem'
 			},
