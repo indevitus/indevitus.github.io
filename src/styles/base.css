@@ -6,8 +6,32 @@
 @tailwind utilities;
 
 @layer base {
+  @media (max-width: 640px) {
+    .container {
+      max-width: 100% !important;
+    }
+  }
+
   .container {
-    @apply xs:mx-auto;
+    @apply sm:mx-auto;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
   }
 
   .dark ::selection {
