@@ -60,6 +60,9 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
   const header = document.querySelector('header');
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
+  const headerContent = document.getElementById('header-content');
+  const companyLogo = document.getElementById('company-logo');
+
   let mobileMenuOpen = false;
   let lastScrollTop = 0;
 
@@ -88,60 +91,64 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     }
   }
 
+  function animateSlideUpHeader() {
+    header?.classList.remove('animate-slide-down');
+    header?.classList.add('animate-slide-up');
+
+    setTimeout(() => {
+      headerContent?.classList.remove('border-b', 'border-black', 'dark:border-neutral-100', '!py-2');
+      companyLogo?.classList.remove('lg:!h-12', '!h-10');
+    }, 500)
+  }
+
+  function animateSlideDownHeader() {
+    header?.classList.add('!fixed');
+    header?.classList.remove('animate-slide-up');
+    header?.classList.add('animate-slide-down');
+    headerContent?.classList.add('border-b', 'border-black', 'dark:border-neutral-100', '!py-2');
+    companyLogo?.classList.add('lg:!h-12', '!h-10');
+  }
+
+  function animateFromFooterCollision(isFooterObserved: boolean) {
+    if (isFooterObserved) {
+      header?.classList.remove('animate-slide-down');
+      header?.classList.add('animate-slide-up');
+    } else {
+      header?.classList.remove('animate-slide-up');
+      header?.classList.add('animate-slide-down');
+    }
+  }
+
   function headerStickyToggle () {
-    const headerContent = document.getElementById('header-content');
-    const companyLogo = document.getElementById('company-logo');
     const hero = document.getElementById('hero');
     const footerRect = document.querySelector('footer')?.getBoundingClientRect();
 
     if (header && footerRect && companyLogo && hero) {
       const isFooterObserved = footerRect.top <= header?.offsetHeight - FOOTER_COLLISION_OFFSET
-      const isSticky = window.scrollY >= (hero?.offsetHeight - 112) + 40;
-
+      const heroOffset = (hero?.offsetHeight - 112) + 40;
+      const isSticky = window.scrollY >= heroOffset;
+      const isHeaderInitialPosition = window.scrollY < 220;
       const st = document.documentElement.scrollTop;
 
-      if (window.scrollY < 220) {
+      if (isHeaderInitialPosition) {
         header.classList.remove('!fixed');
         header.classList.remove('animate-slide-up');
       }
 
       if (st < lastScrollTop) {
-        if (st < (hero?.offsetHeight - 112) + 40 && !(window.scrollY < 220)) {
-          console.log('u hero sekciji');
-          header.classList.remove('animate-slide-down');
-          header.classList.add('animate-slide-up');
-
-          setTimeout(() => {
-            headerContent?.classList.remove('border-b');
-            headerContent?.classList.remove('border-black');
-            headerContent?.classList.remove('dark:border-neutral-100');
-            headerContent?.classList.remove('!py-2');
-            companyLogo?.classList.remove('lg:!h-12');
-            companyLogo?.classList.remove('!h-10');
-          }, 500)
+        if (st < heroOffset && !isHeaderInitialPosition) {
+          animateSlideUpHeader();
         }
       } else {
         if (isSticky) {
-          header.classList.add('!fixed');
-          header.classList.remove('animate-slide-up');
-          header.classList.add('animate-slide-down');
-          headerContent?.classList.add('border-black');
-          headerContent?.classList.add('border-b');
-          headerContent?.classList.add('dark:border-neutral-100');
-          headerContent?.classList.add('!py-2');
-          companyLogo?.classList.add('lg:!h-12');
-          companyLogo?.classList.add('!h-10');
+          animateSlideDownHeader();
         }
       }
 
       lastScrollTop = st <= 0 ? 0 : st;
 
-      if (isFooterObserved && isSticky) {
-        header.classList.remove('animate-slide-down');
-        header.classList.add('animate-slide-up');
-      } else if (!isFooterObserved && isSticky) {
-        header.classList.remove('animate-slide-up');
-        header.classList.add('animate-slide-down');
+      if (isSticky) {
+        animateFromFooterCollision(isFooterObserved);
       }
     }
   }
