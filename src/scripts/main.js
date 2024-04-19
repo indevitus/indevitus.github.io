@@ -13,13 +13,13 @@ window.isMobile = function() {
     const traverseAndAddClass = (parentClass, childClass) => {
         if (document.querySelectorAll(parentClass) && document.querySelectorAll(parentClass).length > 0) {
             document.querySelectorAll(parentClass).forEach(element => {
-                element.classList.add(childClass); 
-            });        
+                element.classList.add(childClass);
+            });
         }
     }
 
     if (window.isMobile()) {
-        if (document.querySelector('.glide-team') || document.querySelector('.glide-skills')) {
+        if (document.querySelector('.glide-team')) {
             traverseAndAddClass('.__glide', 'glide');
             traverseAndAddClass('.__glide__track', 'glide__track');
             traverseAndAddClass('.__glide__bullets', 'glide__bullets');
@@ -36,9 +36,17 @@ window.isMobile = function() {
         if (document.querySelector('.glide-team')) {
             teamGlider = new Glide('.glide-team', { autoplay: 2000, gap: 0 }).mount();
         }
-        if (document.querySelector('.glide-skills')) {
-            skillsGlider = new Glide('.glide-skills', { autoplay: 3000, gap: 0 }).mount();
-        }
+    }
+
+    if(document.querySelector('.glide-clients')) {
+        traverseAndAddClass('.__glide', 'glide');
+        traverseAndAddClass('.__glide__track', 'glide__track');
+        traverseAndAddClass('.__glide__bullets', 'glide__bullets');
+        traverseAndAddClass('.__glide__bullet', 'glide__bullet');
+        traverseAndAddClass('.__glide__slides', 'glide__slides');
+        traverseAndAddClass('.__glide__slide', 'glide__slide');
+
+        new Glide('.glide-clients', { autoplay: 3000, gap: 0 }).mount();
     }
 
     if (document.querySelector('.glide-testimonials')) {
@@ -57,6 +65,5 @@ window.isMobile = function() {
         easing: 'ease-in-sine',
         // anchorPlacement: 'top-bottom',
         disable: 'mobile'
-    });       
- 
+    });
  })();

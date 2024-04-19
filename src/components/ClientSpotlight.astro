@@ -1,0 +1,14 @@
+---
+import Clients from './Clients.astro';
+import Testimonials from './Testimonials.astro';
+---
+
+<div class="md:grid md:grid-cols-2 md:gap-x-10 lg:gap-x-16 pt-16 pb-8 border-b border-black dark:border-neutral-100 font-display">
+  <div class="flex items-center justify-center">
+    <p class="text-center md:text-left text-xl md:text-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores adipisci aliquam itaque sit. Enim eius tempore numquam quae quibusdam error perspiciatis incidunt voluptas doloremque. Nobis nemo commodi corrupti mollitia voluptatum?</p>
+  </div>
+  <div class="flex flex-col pt-8 md:pt-0">
+    <Clients />
+    <Testimonials />
+  </div>
+</div>
