@@ -9,5 +9,16 @@
   .container {
     @apply xs:mx-auto;
   }
+
+  .dark ::selection {
+    background-color: theme('colors.white');
+    color: theme('colors.black');
+  }
+
+  ::selection {
+    background-color: theme('colors.black');
+    color: theme('colors.white');
+  }
 }
+
 
