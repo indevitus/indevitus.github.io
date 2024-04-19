@@ -15,6 +15,16 @@
   .container {
     @apply sm:mx-auto;
   }
+
+  .dark ::selection {
+    background-color: theme('colors.white');
+    color: theme('colors.black');
+  }
+
+  ::selection {
+    background-color: theme('colors.black');
+    color: theme('colors.white');
+  }
 }
 
 @keyframes slideDown {
@@ -33,16 +43,4 @@
   100% {
     transform: translateY(-100%);
   }
-
-  .dark ::selection {
-    background-color: theme('colors.white');
-    color: theme('colors.black');
-  }
-
-  ::selection {
-    background-color: theme('colors.black');
-    color: theme('colors.white');
-  }
 }
-
-
