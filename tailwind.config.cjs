@@ -14,6 +14,10 @@ module.exports = {
 				display: ['Poppins', 'sans-serif'],
 				archivoBlack: ['Archivo Black', 'Poppins', 'sans-serif']
 			},
+			animation: {
+				'slide-down': 'slideDown 0.5s linear',
+				'slide-up': 'slideUp 0.5s linear forwards',
+			},
 			container: {
 				padding: '1rem'
 			},

@@ -2,7 +2,7 @@
 import ThemeSwitcher from './ThemeSwitcher.astro';
 ---
 
-<header class="fixed left-0 top-0 w-full bg-white dark:bg-black z-50 font-display transition-all duration-300">
+<header class="absolute left-0 top-0 w-full bg-white dark:bg-black z-50 font-display transition-all duration-300">
   <div
     id="header-content"
     class="container flex justify-between items-center lg:justify-start select-none py-6 bg-white dark:bg-black transition-all duration-300"
@@ -15,8 +15,6 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
         height="80px"
         class="h-12 lg:h-16 mix-blend-difference transition-height duration-300"
       />
-
-      <span id="company-title" class="dark:text-white font-bold text-2xl lg:text-4xl transition-opacity duration-300">INDEVITUS</span>
     </a>
 
     <button
@@ -33,22 +31,22 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       id="menu"
       class="flex flex-col overflow-y-auto fixed w-full h-[100dvh] lg:h-auto bottom-0 left-0 pt-8 pb-24 bg-white dark:bg-black transition-colors duration-300 z-50 invisible lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase"
     >
-      <ul class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white">
+      <ul class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white text-sm">
         <li class="mb-6 lg:mb-0">
           <a
             href="#clients"
-            class="relative pb-1 after:content-[''] after:absolute after:bottom-0 after:h-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:left-0 after:w-0 after:bg-black dark:after:bg-white hover:after:w-full"
+            class="relative pb-1 after:content-[''] after:absolute after:bottom-0 after:h-[1px] after:transition-[width] after:duration-300 after:ease-in-out after:left-0 after:w-0 after:bg-black dark:after:bg-white hover:after:w-full"
             >Clients</a>
         </li>
         <li class="mb-6 lg:mb-0">
           <a
             href="#contact"
-            class="relative pb-1 after:content-[''] after:absolute after:bottom-0 after:h-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:left-0 after:w-0 after:bg-black dark:after:bg-white hover:after:w-full"
+            class="relative pb-1 after:content-[''] after:absolute after:bottom-0 after:h-[1px] after:transition-[width] after:duration-300 after:ease-in-out after:left-0 after:w-0 after:bg-black dark:after:bg-white hover:after:w-full"
             >Contact</a>
         </li>
       </ul>
 
-      <div class="container lg:px-0 lg:ml-8">
+      <div class="container lg:px-0 lg:ml-8 mt-auto py-2 lg:py-0">
         <ThemeSwitcher />
       </div>
     </nav>
@@ -62,7 +60,11 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
   const header = document.querySelector('header');
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
+  const headerContent = document.getElementById('header-content');
+  const companyLogo = document.getElementById('company-logo');
+
   let mobileMenuOpen = false;
+  let lastScrollTop = 0;
 
   function bodyScrollLock () {
     document.body.style.overflowY = mobileMenuOpen ? 'hidden' : 'auto';
@@ -82,33 +84,72 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
   function onResize() {
     if (window.innerWidth > BREAKPOINT_LG) {
-      hamburger?.classList.remove('is-opened');
       menu?.classList.replace('visible', 'invisible');
+      hamburger?.classList.remove('is-opened');
       mobileMenuOpen = false;
       bodyScrollLock();
     }
   }
 
+  function animateSlideUpHeader() {
+    header?.classList.remove('animate-slide-down');
+    header?.classList.add('animate-slide-up');
+
+    setTimeout(() => {
+      headerContent?.classList.remove('border-b', 'border-black', 'dark:border-neutral-100', '!py-2');
+      companyLogo?.classList.remove('lg:!h-12', '!h-10');
+    }, 500)
+  }
+
+  function animateSlideDownHeader() {
+    header?.classList.add('!fixed');
+    header?.classList.remove('animate-slide-up');
+    header?.classList.add('animate-slide-down');
+    headerContent?.classList.add('border-b', 'border-black', 'dark:border-neutral-100', '!py-2');
+    companyLogo?.classList.add('lg:!h-12', '!h-10');
+  }
+
+  function animateFromFooterCollision(isFooterObserved: boolean) {
+    if (isFooterObserved) {
+      header?.classList.remove('animate-slide-down');
+      header?.classList.add('animate-slide-up');
+    } else {
+      header?.classList.remove('animate-slide-up');
+      header?.classList.add('animate-slide-down');
+    }
+  }
+
   function headerStickyToggle () {
-    const headerContent = document.getElementById('header-content');
-    const companyTitle = document.getElementById('company-title');
-    const companyLogo = document.getElementById('company-logo');
+    const hero = document.getElementById('hero');
     const footerRect = document.querySelector('footer')?.getBoundingClientRect();
 
-    if (header && footerRect && companyLogo) {
-      const isHeaderFixed = footerRect.top <= header?.offsetHeight - FOOTER_COLLISION_OFFSET;
-      header?.classList.toggle('-translate-y-full', isHeaderFixed);
-      header?.classList.toggle('translate-y-0', !isHeaderFixed);
+    if (header && footerRect && companyLogo && hero) {
+      const isFooterObserved = footerRect.top <= header?.offsetHeight - FOOTER_COLLISION_OFFSET
+      const heroOffset = (hero?.offsetHeight - 112) + 40;
+      const isSticky = window.scrollY >= heroOffset;
+      const isHeaderInitialPosition = window.scrollY < 220;
+      const st = document.documentElement.scrollTop;
 
-      const isScrolled = window.scrollY >= header?.offsetHeight;
-      headerContent?.classList.toggle('border-b-2', isScrolled);
-      headerContent?.classList.toggle('border-black', isScrolled);
-      headerContent?.classList.toggle('dark:border-neutral-100', isScrolled);
-      headerContent?.classList.toggle('!py-4', isScrolled);
-      companyTitle?.classList.toggle('opacity-100', !isScrolled);
-      companyTitle?.classList.toggle('opacity-0', isScrolled);
-      companyLogo?.classList.toggle('lg:!h-12', isScrolled);
-      companyLogo?.classList.toggle('!h-10', isScrolled);
+      if (isHeaderInitialPosition) {
+        header.classList.remove('!fixed');
+        header.classList.remove('animate-slide-up');
+      }
+
+      if (st < lastScrollTop) {
+        if (st < heroOffset && !isHeaderInitialPosition) {
+          animateSlideUpHeader();
+        }
+      } else {
+        if (isSticky) {
+          animateSlideDownHeader();
+        }
+      }
+
+      lastScrollTop = st <= 0 ? 0 : st;
+
+      if (isSticky) {
+        animateFromFooterCollision(isFooterObserved);
+      }
     }
   }
 
