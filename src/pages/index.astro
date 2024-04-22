@@ -1,18 +1,21 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Team from '../components/Team.astro';
-import Testimonials from '../components/Testimonials.astro';
-import Skills from '../components/Skills.astro';
-import Hero from '../components/Hero.astro';
-import Map from '../components/Map.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Team from "../components/Team.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Skills from "../components/Skills.astro";
+import Hero from "../components/Hero.astro";
+import Map from "../components/Map.astro";
 
 import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 ---
 
 <script src="../scripts/main.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="crossorigin=""></script>
+<script
+	src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+	integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+	crossorigin=""></script>
 
 <Layout title="Welcome to Indevitus">
 	<Header />
@@ -31,10 +34,9 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 		<section id="clients" class="container">
 			<Testimonials />
 		</section>
-		<section id="clients" class="container">
+		<section id="clients">
 			<Map />
 		</section>
-
 	</main>
 	<Footer />
 </Layout>
@@ -43,6 +45,10 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 	.glide__slide {
 		height: auto !important;
 	}
-    .glide__bullet--active { background: black; }
-    html.dark .glide__bullet--active { background: white !important; }
+	.glide__bullet--active {
+		background: black;
+	}
+	html.dark .glide__bullet--active {
+		background: white !important;
+	}
 </style>

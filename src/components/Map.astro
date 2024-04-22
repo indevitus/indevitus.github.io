@@ -1,49 +1,50 @@
-<div id="map"></div>
-
-<style>
-  #map {
-    height: 500px;
-  }
-</style>
+<div id="map" class="h-[500px] sm:h-[600px]"></div>
 
 <script>
   let map = L.map('map', {zoomControl: false, attributionControl: false}).setView([44.053798, 17.449204], 25);
   let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
   osm.addTo(map);
 
-  var light_mode_map = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.{ext}', {
+  let dark_mode_map = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.{ext}', {
     minZoom: 0,
     maxZoom: 20,
     attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     ext: 'png'
   });
 
-  var dark_mode_map = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  let light_mode_map = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 20
   });
 
-  var myIcon = L.icon({
-    iconUrl: 'location-black.svg',
+  let myIconDark = L.icon({
+    iconUrl: 'location-icon-white.png',
     iconSize: [40, 40]
   });
 
-  let singleMarker = L.marker([44.053798, 17.449204], {icon: myIcon});
-  let popup = singleMarker.bindPopup('Indevitus').openPopup();
-  popup.addTo(map);
+  let myIconLight = L.icon({
+    iconUrl: 'location-icon-black.png',
+    iconSize: [40, 40]
+  });
 
   let currentMapLayer = light_mode_map;
 
   const toggleMapLayer = () => {
     if (element.classList.contains("dark")) {
-      map.removeLayer(light_mode_map);
-      map.addLayer(dark_mode_map);
-      currentMapLayer = dark_mode_map;
-    } else {
       map.removeLayer(dark_mode_map);
       map.addLayer(light_mode_map);
+      currentMapLayer = dark_mode_map;
+      let singleMarkerDark = L.marker([44.053798, 17.449204], {icon: myIconDark});
+      let popup = singleMarkerDark.bindPopup('Indevitus').openPopup();
+      popup.addTo(map);
+    } else {
+      map.removeLayer(light_mode_map);
+      map.addLayer(dark_mode_map);
       currentMapLayer = light_mode_map;
+      let singleMarkerLight = L.marker([44.053798, 17.449204], {icon: myIconLight});
+      let popup = singleMarkerLight.bindPopup('Indevitus').openPopup();
+      popup.addTo(map);
     }
   }
 
