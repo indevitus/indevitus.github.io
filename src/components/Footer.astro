@@ -51,16 +51,27 @@
         </div>
     </div>
 
-    <button id="logo" class="absolute bottom-36 opacity-90 h-[240px] -right-[100px] -rotate-[10deg] sm:h-[350px] sm:bottom-[60px] xl:h-[550px] xl:-right-[150px] xl:bottom-5">
+    <a id="logo" class="absolute bottom-36 opacity-90 h-[240px] -right-[100px] -rotate-[10deg] cursor-pointer sm:h-[350px] sm:bottom-[60px] xl:h-[550px] xl:-right-[150px] xl:bottom-5">
         <img class="dark:hidden h-full" src="/badge-black.svg" alt="Indevitus" />
         <img class="hidden dark:block h-full" src="/badge-white.svg" alt="Indevitus" />
-    </button>
+    </a>
 </footer>
 
 <script>
+    const SLIDE_UP_ANIMATION_DURATION = 500;
     const logo = document.getElementById('logo');
+    const headerContent = document.getElementById('header-content');
+    const companyLogo = document.getElementById('company-logo');
+
+    const scrollToTop = () => {
+        setTimeout(() => {
+            headerContent?.classList.remove('border-b', 'border-black', 'dark:border-neutral-100', '!py-2');
+            companyLogo?.classList.remove('lg:!h-12', '!h-10');
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        }, SLIDE_UP_ANIMATION_DURATION)
+    }
 
     if (logo) {
-        logo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }))
+        logo.addEventListener('click', scrollToTop)
     }
 </script>
