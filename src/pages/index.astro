@@ -3,9 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Team from "../components/Team.astro";
-import Testimonials from "../components/Testimonials.astro";
-import Skills from "../components/Skills.astro";
 import Hero from "../components/Hero.astro";
+import ClientSpotlight from "../components/ClientSpotlight.astro";
 import Map from "../components/Map.astro";
 
 import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
@@ -28,11 +27,11 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 			<Team />
 		</section>
 
-		<section class="container" id="skills">
-			<Skills />
-		</section>
-		<section id="clients" class="container">
-			<Testimonials />
+		<section
+			id="clients"
+			class="container border-b border-black dark:border-neutral-100"
+		>
+			<ClientSpotlight />
 		</section>
 		<section id="clients">
 			<Map />
