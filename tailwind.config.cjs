@@ -23,16 +23,16 @@ module.exports = {
 			},
 			colors: {
 				'gold': '#c6932a',
-				black: 'rgb(21 21 21)',
-				white: 'rgb(250 250 250)',
+				black: '#080808',
+				white: '#ffffff',
 				'gray': {
 					'default': '#808080',
 					'light': '#bdbdbd'
 				}
 			},
 			transitionProperty: {
-        'height': 'height',
-      },
+				'height': 'height',
+			},
 			screens: {
 				'2xl': '1280px',
 				'3xl': '1280px',
