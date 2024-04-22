@@ -31,6 +31,7 @@
   let currentMapLayer = light_mode_map;
 
   const toggleMapLayer = () => {
+  const element = document.documentElement;
     if (element.classList.contains("dark")) {
       map.removeLayer(dark_mode_map);
       map.addLayer(light_mode_map);
@@ -48,22 +49,15 @@
     }
   }
 
+  const htmlElement = document.querySelector('html');
+
+  function observerCallback(mutationList: any) {
+    if (mutationList[0].attributeName === 'class') {
+      toggleMapLayer()
+    }
+  }
+  const observer = new MutationObserver(observerCallback)
+  observer.observe(htmlElement as Node, { attributes: true })
+
   toggleMapLayer();
-
-  const toggleDark = () => {
-    localStorage.setItem("theme", "dark");
-    element.classList.add("dark");
-    toggleMapLayer();
-    setThemeIconColors();
-  }
-
-  const toggleLight = () => {
-    localStorage.setItem("theme", "light");
-    element.classList.remove("dark");
-    toggleMapLayer();
-    setThemeIconColors();
-  }
-
-  themeLightToggle.addEventListener("click", toggleLight);
-  themeDarkToggle.addEventListener("click", toggleDark);
 </script>
