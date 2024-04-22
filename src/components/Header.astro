@@ -57,6 +57,8 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 <script>
   const BREAKPOINT_LG = 1024;
   const FOOTER_COLLISION_OFFSET = 10;
+  const BORDER_HEIGHT = 1;
+
   const header = document.querySelector('header');
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
@@ -76,8 +78,15 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
     if (menu) {
       menu?.classList.replace(visibilityClass === 'visible' ? 'invisible' : 'visible', visibilityClass);
-      menu.style.top = `${header?.offsetHeight}px`;
+      console.log(headerContent?.clientHeight, 'header content')
+      menu.style.top = `${header?.offsetHeight - BORDER_HEIGHT}px`;
       hamburger?.classList.toggle('is-opened', mobileMenuOpen);
+      if (mobileMenuOpen) {
+        headerContent?.classList.remove('border-b', 'border-black', 'dark:border-neutral-100', 'transition-all', 'duration-300');
+      } else {
+        headerContent?.classList.add('border-b', 'border-black', 'dark:border-neutral-100', 'transition-all', 'duration-300');
+      }
+
       bodyScrollLock();
     }
   }
