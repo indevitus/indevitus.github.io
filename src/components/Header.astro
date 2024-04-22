@@ -67,7 +67,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
   let lastScrollTop = 0;
 
   function bodyScrollLock () {
-    document.body.style.overflowY = mobileMenuOpen ? 'hidden' : 'auto';
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'auto';
   }
 
   function mobileMenuToggle () {
