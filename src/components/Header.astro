@@ -79,7 +79,6 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
     if (menu) {
       menu?.classList.replace(visibilityClass === 'visible' ? 'invisible' : 'visible', visibilityClass);
-      console.log(headerContent?.clientHeight, 'header content')
       menu.style.top = `${header?.offsetHeight - BORDER_HEIGHT}px`;
       hamburger?.classList.toggle('is-opened', mobileMenuOpen);
       if (mobileMenuOpen) {
