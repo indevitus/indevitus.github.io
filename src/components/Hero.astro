@@ -1,13 +1,16 @@
-<div id="hero" data-aos="fade" data-aos-delay="100" data-aos-duration="1400" class="container border-b border-black dark:border-neutral-100 grid grid-cols-1 lg:grid-cols-12 min-h-screen items-center">
-  <div class="lg:col-span-7 lg:pt-28">
+---
+import ComputerLogo from './ComputerLogo.astro'
+---
+
+<div id="hero" data-aos="fade" data-aos-delay="100" data-aos-duration="1400" class="container border-b border-black dark:border-neutral-100 grid lg:grid-cols-12 gap-x-12 min-h-screen items-center overflow-hidden">
+  <div class="lg:col-span-7 lg:pt-28 order-last lg:order-first">
     <p class="font-display text-xl lg:text-3xl lg:leading-[3rem] pb-5">
       <span class="block">At <span class="font-bold font-archivoBlack tracking-tighter uppercase">Indevitus</span>, we believe that success is built on collaboration.</span>
       <span>
         That's why we foster a culture of teamwork and innovation, where every member of our team is empowered to contribute their unique skills and insights.
       </span>
     </p>
-
-    <p class=" text-base lg:text-lg pb-7">By harnessing the collective expertise of our talented professionals, we deliver solutions that drive real business results and create value for our clients.</p>
+    <p class="text-base lg:text-lg pb-7">By harnessing the collective expertise of our talented professionals, we deliver solutions that drive real business results and create value for our clients.</p>
     <a
       href="https://www.linkedin.com/company/indevitus/"
       class="font-display rounded inline-block transition-colors duration-300 ease-in-out bg-black dark:bg-white hover:!bg-black/70 dark:hover:!bg-white/90 text-white dark:text-black whitespace-nowrap px-3 lg:px-5 py-1 lg:py-2"
@@ -15,5 +18,8 @@
     >
       Get in touch
     </a>
+  </div>
+  <div class="lg:col-span-5 mx-auto  text-black w-[300px] lg:w-full pt-[96px] lg:pt-0 xl:mr-[-70px]">
+    <ComputerLogo />
   </div>
 </div>

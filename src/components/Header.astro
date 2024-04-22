@@ -57,6 +57,8 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 <script>
   const BREAKPOINT_LG = 1024;
   const FOOTER_COLLISION_OFFSET = 10;
+  const SLIDE_UP_ANIMATION_DURATION = 500;
+
   const header = document.querySelector('header');
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
@@ -78,6 +80,12 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       menu?.classList.replace(visibilityClass === 'visible' ? 'invisible' : 'visible', visibilityClass);
       menu.style.top = `${header?.offsetHeight}px`;
       hamburger?.classList.toggle('is-opened', mobileMenuOpen);
+      if (mobileMenuOpen) {
+        headerContent?.classList.remove('transition-all', 'duration-300');
+      } else {
+        headerContent?.classList.add('transition-all', 'duration-300');
+      }
+
       bodyScrollLock();
     }
   }
@@ -96,16 +104,16 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     header?.classList.add('animate-slide-up');
 
     setTimeout(() => {
-      headerContent?.classList.remove('border-b', 'border-black', 'dark:border-neutral-100', '!py-2');
+      headerContent?.classList.remove('!py-2');
       companyLogo?.classList.remove('lg:!h-12', '!h-10');
-    }, 500)
+    }, SLIDE_UP_ANIMATION_DURATION)
   }
 
   function animateSlideDownHeader() {
     header?.classList.add('!fixed');
     header?.classList.remove('animate-slide-up');
     header?.classList.add('animate-slide-down');
-    headerContent?.classList.add('border-b', 'border-black', 'dark:border-neutral-100', '!py-2');
+    headerContent?.classList.add('!py-2');
     companyLogo?.classList.add('lg:!h-12', '!h-10');
   }
 
