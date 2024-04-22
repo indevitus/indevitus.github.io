@@ -1,3 +1,7 @@
+---
+import Logo from './Icons/Logo.astro';
+---
+
 <footer class="relative overflow-hidden pb-6">
     <div class="container dark:text-white min-h-screen flex flex-col justify-around font-display">
         <div class="pt-12 flex flex-col justify-evenly flex-1">
@@ -51,9 +55,8 @@
         </div>
     </div>
 
-    <a id="logo" class="absolute bottom-36 opacity-90 h-[240px] -right-[100px] -rotate-[10deg] cursor-pointer sm:h-[350px] sm:bottom-[60px] xl:h-[550px] xl:-right-[150px] xl:bottom-5">
-        <img class="dark:hidden h-full" src="/badge-black.svg" alt="Indevitus" />
-        <img class="hidden dark:block h-full" src="/badge-white.svg" alt="Indevitus" />
+    <a id="logo" class="absolute bottom-36 opacity-90 h-[240px] -right-[100px] -rotate-[10deg] cursor-pointer dark:text-white sm:h-[350px] sm:bottom-[60px] xl:h-[550px] xl:-right-[150px] xl:bottom-5">
+        <Logo class="h-full" />
     </a>
 </footer>
 
