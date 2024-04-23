@@ -135,7 +135,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       const isFooterObserved = footerRect.top <= header?.offsetHeight - FOOTER_COLLISION_OFFSET
       const heroOffset = (hero?.offsetHeight - 112) + 40;
       const isSticky = window.scrollY >= heroOffset;
-      const isHeaderInitialPosition = window.scrollY < 220;
+      const isHeaderInitialPosition = window.scrollY === 0;
       const st = document.documentElement.scrollTop;
 
       if (isHeaderInitialPosition) {
