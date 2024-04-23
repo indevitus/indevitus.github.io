@@ -104,7 +104,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     header?.classList.add('animate-slide-up');
 
     setTimeout(() => {
-      headerContent?.classList.remove('!py-2');
+      headerContent?.classList.remove('!py-2', '!pt-[10px]');
       companyLogo?.classList.remove('lg:!h-12', '!h-10');
     }, SLIDE_UP_ANIMATION_DURATION)
   }
@@ -113,7 +113,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     header?.classList.add('!fixed');
     header?.classList.remove('animate-slide-up');
     header?.classList.add('animate-slide-down');
-    headerContent?.classList.add('!py-2');
+    headerContent?.classList.add('!py-2', '!pt-[10px]');
     companyLogo?.classList.add('lg:!h-12', '!h-10');
   }
 
