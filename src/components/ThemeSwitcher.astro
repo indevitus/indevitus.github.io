@@ -2,11 +2,11 @@
 import Moon from './Icons/Moon.astro';
 import Sun from './Icons/Sun.astro';
 ---
-<div>
+<div class="flex">
   <button
     id="theme-toggle"
     aria-label="toggle light theme"
-    class="w-6 hidden dark:block text-white"
+    class="w-6 h-6 hidden dark:block text-white"
   >
     <Sun />
   </button>
@@ -14,7 +14,7 @@ import Sun from './Icons/Sun.astro';
   <button
     id="theme-toggle"
     aria-label="toggle dark theme"
-    class="w-6 dark:hidden"
+    class="block w-6 h-6 dark:hidden"
   >
     <Moon />
   </button>

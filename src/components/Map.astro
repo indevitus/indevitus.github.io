@@ -31,8 +31,7 @@
   let currentMapLayer = light_mode_map;
 
   const toggleMapLayer = () => {
-  const element = document.documentElement;
-    if (element.classList.contains("dark")) {
+    if (document.documentElement.classList.contains("dark")) {
       map.removeLayer(dark_mode_map);
       map.addLayer(light_mode_map);
       currentMapLayer = dark_mode_map;
