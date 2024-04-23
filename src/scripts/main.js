@@ -46,7 +46,20 @@ window.isMobile = function() {
         traverseAndAddClass('.__glide__slides', 'glide__slides');
         traverseAndAddClass('.__glide__slide', 'glide__slide');
 
-        new Glide('.glide-clients', {type: 'carousel', autoplay: 3000, gap: 0, swipeThreshold: false, dragThreshold: false }).mount();
+        new Glide('.glide-clients', {
+            type: 'carousel',
+            autoplay: 3000,
+            gap: 80,
+            swipeThreshold: false,
+            dragThreshold: false,
+            perView: 3,
+            breakpoints: {
+                768: {
+                    perView: 2,
+                    gap: 20
+                }
+            }
+        }).mount();
     }
 
     if (document.querySelector('.glide-testimonials')) {
