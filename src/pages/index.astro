@@ -8,6 +8,7 @@ import ClientSpotlight from "../components/ClientSpotlight.astro";
 import Map from "../components/Map.astro";
 
 import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
+import Hiring from '../components/Hiring.astro';
 ---
 
 <script src="../scripts/main.js"></script>
@@ -32,6 +33,13 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 			class="border-b border-t border-black dark:border-white z-[1]"
 		>
 			<Map />
+		</section>
+
+		<section
+			id="hiring"
+			class="border-b border-black dark:border-neutral-100"
+		>
+			<Hiring />
 		</section>
 
 		<section
