@@ -16,7 +16,7 @@ module.exports = {
 			},
 			animation: {
 				'slide-down': 'slideDown 0.5s linear',
-				'slide-up': 'slideUp 0.5s linear forwards',
+				'slide-up': 'slideUp 0.5s linear forwards'
 			},
 			container: {
 				padding: '1rem'

@@ -6,7 +6,7 @@ import Sun from './Icons/Sun.astro';
   <button
     id="theme-toggle"
     aria-label="toggle light theme"
-    class="w-6 h-6 hidden dark:block text-white"
+    class="w-6 h-6 hidden dark:block text-white transition-transform hover:scale-75 duration-300"
   >
     <Sun />
   </button>
@@ -14,7 +14,7 @@ import Sun from './Icons/Sun.astro';
   <button
     id="theme-toggle"
     aria-label="toggle dark theme"
-    class="block w-6 h-6 dark:hidden"
+    class="block w-6 h-6 dark:hidden transition-transform hover:scale-75 duration-300"
   >
     <Moon />
   </button>
