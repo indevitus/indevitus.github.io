@@ -49,14 +49,13 @@ window.isMobile = function() {
         new Glide('.glide-clients', {
             type: 'carousel',
             // autoplay: 3000,
-            gap: 40,
+            gap: 60,
             // swipeThreshold: false,
             // dragThreshold: false,
             perView: 3,
             breakpoints: {
                 768: {
                     perView: 2,
-                    gap: 20
                 }
             }
         }).mount();
