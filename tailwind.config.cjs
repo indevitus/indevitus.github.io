@@ -22,7 +22,7 @@ module.exports = {
 				padding: '1rem'
 			},
 			colors: {
-				'gold': '#c6932a',
+				'gold': '#c6932e',
 				black: '#080808',
 				white: '#ffffff',
 				'gray': {
