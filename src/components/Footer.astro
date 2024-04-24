@@ -3,10 +3,52 @@ import Logo from './Icons/Logo.astro';
 import ThemeSwitcher from './ThemeSwitcher.astro';
 
 const { simplified } = Astro.props;
+
+const SOCIAL_ICONS = [
+  {
+    id: 'facebook',
+    icon: 'facebook.svg',
+    iconDark: 'facebook-dark.svg',
+    url: 'https://www.facebook.com/'
+  },
+  {
+    id: 'twitter',
+    icon: 'twitter.svg',
+    iconDark: 'twitter.svg',
+    url: 'https://twitter.com/'
+  },
+  {
+    id: 'linkedin',
+    icon: 'linkedin.svg',
+    iconDark: 'linkedin-dark.svg',
+    url: 'https://www.linkedin.com/'
+  },
+  {
+    id: 'instagram',
+    icon: 'instagram.svg',
+    iconDark: 'instagram-dark.svg',
+    url: 'https://www.instagram.com/'
+  }
+]
 ---
 
 <footer class="relative overflow-hidden pb-6">
   <div class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around font-display`}>
+    <div class={simplified ? 'block' : 'hidden'}>
+      <p>Share:</p>
+      <div class="flex items-center mt-4 mb-8">
+        {
+          SOCIAL_ICONS.map(item => {
+            return (
+              <a href={ item.url } aria-label={item.id} target="_blank" class="hover:scale-75 transition-transform">
+                <img class="dark:hidden" src={item.icon} alt={item?.id} width="48"/>
+                <img class="hidden dark:block" src={item.iconDark} alt={item?.id} width="48"/>
+              </a>
+            )
+          })
+        }
+      </div>
+    </div>
     <div class="pt-12 flex flex-col justify-evenly flex-1">
       {
         !simplified ?
