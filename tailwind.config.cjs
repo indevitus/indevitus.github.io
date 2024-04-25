@@ -14,10 +14,6 @@ module.exports = {
 				display: ['Poppins', 'sans-serif'],
 				archivoBlack: ['Archivo Black', 'Poppins', 'sans-serif']
 			},
-			animation: {
-				'slide-down': 'slideDown 0.5s linear',
-				'slide-up': 'slideUp 0.5s linear forwards'
-			},
 			container: {
 				padding: '1rem'
 			},
@@ -36,7 +32,11 @@ module.exports = {
 			screens: {
 				'2xl': '1280px',
 				'3xl': '1280px',
-			}
+			},
+			zIndex: {
+        '100': '100',
+      }
+
 		},
 	},
 	plugins: [],

@@ -1,20 +1,15 @@
 ---
+import Logo from './Icons/Logo.astro';
 import ThemeSwitcher from './ThemeSwitcher.astro';
 ---
 
-<header class="absolute left-0 top-0 w-full bg-white dark:bg-black z-50 font-display transition-all duration-300">
+<header class="absolute lelft-0 top-0 w-full bg-transparent z-100 font-display transition-all duration-300">
   <div
     id="header-content"
-    class="container flex justify-between items-center lg:justify-start select-none py-6 bg-white dark:bg-black transition-all duration-300"
+    class="container flex justify-between items-center lg:justify-start select-none py-6 bg-transparent transition-all duration-300"
   >
-    <a href="/" title="Indevitus" class="flex items-center gap-3">
-      <img
-        id="company-logo"
-        src="/badge-white.svg"
-        alt="Indevitus"
-        height="80px"
-        class="h-12 lg:h-16 mix-blend-difference transition-height duration-300"
-      />
+    <a href="/" title="Indevitus" class="flex items-center gap-3 h-12 lg:h-16 text-black dark:text-white transition-colors duration-300">
+      <Logo />
     </a>
 
     <button
@@ -29,13 +24,13 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
     <nav
       id="menu"
-      class="flex flex-col overflow-y-auto fixed w-full h-[100dvh] lg:h-auto bottom-0 left-0 pt-8 pb-24 bg-white dark:bg-black transition-colors duration-300 z-50 invisible lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase"
+      class="flex flex-col overflow-y-auto fixed w-full h-[100dvh] lg:h-auto bottom-0 left-0 pt-8 pb-24 bg-white dark:bg-black lg:bg-transparent lg:dark:bg-transparent transition-colors duration-300 z-100 invisible lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase"
     >
       <ul class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white text-sm">
         <li class="mb-6 lg:mb-0">
           <a
             href="#contact"
-            class="relative after:content-[''] after:absolute after:-top-1 after:-bottom-1 after:-left-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:w-0 after:mix-blend-difference after:bg-white hover:after:w-1/2"
+            class="relative after:content-[''] after:absolute after:-top-1 after:-bottom-1 after:-left-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:w-0 after:mix-blend-darken after:dark:mix-blend-difference after:bg-white hover:after:w-1/2"
             >Contact</a>
         </li>
       </ul>
@@ -50,17 +45,13 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
 <script>
   const BREAKPOINT_LG = 1024;
-  const FOOTER_COLLISION_OFFSET = 10;
-  const SLIDE_UP_ANIMATION_DURATION = 500;
 
   const header = document.querySelector('header');
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
-  const headerContent = document.getElementById('header-content');
-  const companyLogo = document.getElementById('company-logo');
+  const heroIllustration = document.getElementById('hero-illustration');
 
   let mobileMenuOpen = false;
-  let lastScrollTop = 0;
 
   function bodyScrollLock () {
     document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'auto';
@@ -74,12 +65,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       menu?.classList.replace(visibilityClass === 'visible' ? 'invisible' : 'visible', visibilityClass);
       menu.style.top = `${header?.offsetHeight}px`;
       hamburger?.classList.toggle('is-opened', mobileMenuOpen);
-      if (mobileMenuOpen) {
-        headerContent?.classList.remove('transition-all', 'duration-300');
-      } else {
-        headerContent?.classList.add('transition-all', 'duration-300');
-      }
-
+      heroIllustration?.classList.toggle('!opacity-0', mobileMenuOpen);
       bodyScrollLock();
     }
   }
@@ -93,71 +79,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     }
   }
 
-  function animateSlideUpHeader() {
-    header?.classList.remove('animate-slide-down');
-    header?.classList.add('animate-slide-up');
-
-    setTimeout(() => {
-      headerContent?.classList.remove('!py-2');
-      companyLogo?.classList.remove('lg:!h-12', '!h-10');
-    }, SLIDE_UP_ANIMATION_DURATION)
-  }
-
-  function animateSlideDownHeader() {
-    header?.classList.add('!fixed');
-    header?.classList.remove('animate-slide-up');
-    header?.classList.add('animate-slide-down');
-    headerContent?.classList.add('!py-2');
-    companyLogo?.classList.add('lg:!h-12', '!h-10');
-  }
-
-  function animateFromFooterCollision(isFooterObserved: boolean) {
-    if (isFooterObserved) {
-      header?.classList.remove('animate-slide-down');
-      header?.classList.add('animate-slide-up');
-    } else {
-      header?.classList.remove('animate-slide-up');
-      header?.classList.add('animate-slide-down');
-    }
-  }
-
-  function headerStickyToggle () {
-    const hero = document.getElementById('hero');
-    const footerRect = document.querySelector('footer')?.getBoundingClientRect();
-
-    if (header && footerRect && companyLogo && hero) {
-      const isFooterObserved = footerRect.top <= header?.offsetHeight - FOOTER_COLLISION_OFFSET
-      const heroOffset = (hero?.offsetHeight - 112) + 40;
-      const isSticky = window.scrollY >= heroOffset;
-      const isHeaderInitialPosition = window.scrollY === 0;
-      const st = document.documentElement.scrollTop;
-
-      if (isHeaderInitialPosition) {
-        header.classList.remove('!fixed');
-        header.classList.remove('animate-slide-up');
-      }
-
-      if (st < lastScrollTop) {
-        if (st < heroOffset && !isHeaderInitialPosition) {
-          animateSlideUpHeader();
-        }
-      } else {
-        if (isSticky) {
-          animateSlideDownHeader();
-        }
-      }
-
-      lastScrollTop = st <= 0 ? 0 : st;
-
-      if (isSticky) {
-        animateFromFooterCollision(isFooterObserved);
-      }
-    }
-  }
-
   window.onresize = onResize;
-  window.onscroll = headerStickyToggle;
-  window.onload = headerStickyToggle;
 
   if (hamburger) {
     hamburger.addEventListener("click", mobileMenuToggle);
