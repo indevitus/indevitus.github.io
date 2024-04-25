@@ -57,8 +57,7 @@ const job = JOB_DESCRIPTION.find(el => el.id === career)
                 job?.summary?.map(item => {
                   return (
                     <div class="flex items-center col-span-6 md:col-span-3 lg:mt-12">
-                      <img class="dark:hidden" src={item.icon} alt={item?.title} width="30"/>
-                      <img class="hidden dark:block" src={item.iconDark} alt={item?.title} width="30"/>
+                      <img class="mix-blend-difference" src={item.icon} alt={item.title} width="30" />
                       <div class="ml-4">
                         <p class="text-gray-400 mb-1">{ item?.title }</p>
                         <p>{ item?.content }</p>
