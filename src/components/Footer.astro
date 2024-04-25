@@ -32,17 +32,16 @@ const SOCIAL_ICONS = [
 ]
 ---
 
-<footer class="relative overflow-hidden pb-6">
+<footer class={`relative ${!simplified && 'overflow-hidden'} pb-6 bg-black text-white`}>
   <div class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around font-display`}>
-    <div class={simplified ? 'block' : 'hidden'}>
-      <p>Share:</p>
+    <div class={simplified ? 'block max-w-fit mx-auto -translate-y-1/2 shadow-3xl bg-white p-8 md:p-12 rounded-lg' : 'hidden'}>
+      <p class="text-black font-semibold text-lg">Share:</p>
       <div class="flex items-center mt-4 mb-8">
         {
           SOCIAL_ICONS.map(item => {
             return (
               <a href={ item.url } aria-label={item.id} target="_blank" class="hover:scale-75 transition-transform">
-                <img class="dark:hidden" src={item.icon} alt={item?.id} width="48"/>
-                <img class="hidden dark:block" src={item.iconDark} alt={item?.id} width="48"/>
+                <img src={item.icon} alt={item?.id} width="48"/>
               </a>
             )
           })
@@ -67,7 +66,7 @@ const SOCIAL_ICONS = [
           </a>
         </div>
         :
-        <a href="/" title="Indevitus" class="flex items-center gap-3 mb-1">
+        <a href="/" title="Indevitus" class="flex items-center gap-3 mb-12">
           <img
             id="company-logo"
             src="/badge-white.svg"
