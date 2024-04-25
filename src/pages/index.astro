@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import Team from "../components/Team.astro";
 import Hero from "../components/Hero.astro";
 import ClientSpotlight from "../components/ClientSpotlight.astro";
@@ -28,8 +27,7 @@ const openPositions = [
 	integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 	crossorigin=""></script>
 
-<Layout title="Welcome to Indevitus">
-	<Header />
+<Layout title="We are Indevitus">
 	<main class="dark:text-white">
 		<section id="home">
 			<Hero />
@@ -55,12 +53,11 @@ const openPositions = [
 
 		<section
 			id="map"
-			class="border-b border-t border-black dark:border-white z-[1]"
+			class="border-b border-t border-black z-[1]"
 		>
 			<Map />
 		</section>
 	</main>
-	<Footer />
 </Layout>
 
 <style is:global>

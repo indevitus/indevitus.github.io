@@ -31,7 +31,7 @@ const { simplified } = Astro.props;
 // ]
 ---
 
-<footer class={`relative overflow-hidden pb-6 ${simplified && 'bg-black text-white'}`}>
+<footer class="relative overflow-hidden pb-6">
   <div class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around font-display`}>
     <!-- <div class={simplified ? 'block max-w-fit mx-auto -translate-y-1/2 shadow-3xl bg-white p-8 md:p-12 rounded-lg' : 'hidden'}>
       <p class="text-black font-semibold text-lg">Share:</p>
@@ -51,7 +51,7 @@ const { simplified } = Astro.props;
       {
         !simplified ?
         <div id="contact" class="lg:w-2/3 dark:text-white mb-10">
-          <p class="text-5xl lg:text-7xl font-bold pb-8 lg:max-w-[90%]">Solutions that are tailored to your needs</p>
+          <p class="text-5xl lg:text-7xl font-bold pb-8 lg:max-w-[90%]">Still not convinced?</p>
           <p class="text-xl lg:text-2xl pb-10 lg:max-w-[90%]">
             In today's competitive marketplace, partnering with the right outsourcing provider can make all the difference.
             <br/>Contact us today to learn more about how we can help you unlock the full potential of your business.
@@ -65,7 +65,7 @@ const { simplified } = Astro.props;
           </a>
         </div>
         :
-        <a href="/" title="Indevitus" class="flex items-center gap-3 mb-12">
+        <a href="/" title="Indevitus" class="flex items-center gap-3 mb-6">
           <img
             id="company-logo"
             src="/badge-white.svg"
@@ -115,7 +115,7 @@ const { simplified } = Astro.props;
     </div>
   </div>
   {Array.from(Array(20).keys()).map(el => {
-    return <span class={`illustration w-[20px] h-[20px] animate-[rotate_25s_linear_infinite] block absolute -bottom-[150px] pointer-events-none ${simplified ? 'bg-[rgba(255,_255,_255,_0.5)] md:bg-[rgba(255,_255,_255,_0.8)]' : 'bg-[rgba(0,_0,_0,_0.5)] md:bg-[rgba(0,_0,_0,_0.8)]'} dark:bg-[rgba(255,_255,_255,_0.5)] dark:md:bg-[rgba(255,_255,_255,_0.8)]`} />
+    return <span class={`illustration w-[20px] h-[20px] animate-[rotate_25s_linear_infinite] block absolute -bottom-[150px] pointer-events-none dark:bg-[rgba(255,_255,_255,_0.5)] dark:md:bg-[rgba(255,_255,_255,_0.8)]`} />
   })}
 </footer>
 
