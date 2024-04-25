@@ -9,6 +9,17 @@ import Map from "../components/Map.astro";
 
 import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 import Hiring from '../components/Hiring.astro';
+
+const openPositions = [
+	{
+		title: 'Dot net developer',
+		description: '3 Years + Experience'
+	},
+	{
+		title: 'Senior Frontend developerr',
+		description: '4 Years + Experience'
+	}
+]
 ---
 
 <script src="../scripts/main.js"></script>
@@ -39,7 +50,7 @@ import Hiring from '../components/Hiring.astro';
 			id="hiring"
 			class="pt-4"
 		>
-			<Hiring />
+			<Hiring openPositions={openPositions}/>
 		</section>
 
 		<section

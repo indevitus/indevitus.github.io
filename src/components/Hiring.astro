@@ -1,5 +1,7 @@
 ---
 import Megaphone from './Icons/Megaphone.astro';
+const { openPositions } = Astro.props;
+
 ---
 
 <div class="relative pt-20 sm:py-20">
@@ -22,14 +24,14 @@ import Megaphone from './Icons/Megaphone.astro';
 
   <div class="lg:col-span-7 h-full border-t-[1.5px] lg:border-l-[1.5px] lg:border-t-0">
     <ul class="pt-5 lg:pl-28 lg:pt-0 space-y-4 mb-10 text-black max-w-fit mx-auto lg:mx-0">
-      <li class="w-fit">
-        <p class="bg-white shadow-lg text-xl sm:text-3xl xl:text-4xl p-1 pr-3 font-bold mb-1 whitespace-nowrap font-archivoBlack">Dot net developer</p>
-        <span class="text-base text-white">3 Years + Experience</span>
-      </li>
-      <li class="w-fit">
-        <p class="bg-white shadow-lg text-xl sm:text-3xl xl:text-4xl p-1 pr-3 font-bold mb-1 whitespace-nowrap">Senior Frontend developer</p>
-        <span class="text-base sm:text-xl text-white">4 Years + Experience</span>
-      </li>
+      {
+        openPositions.map((openPosition) => (
+        <li class="w-fit">
+          <p class="bg-white shadow-lg text-xl sm:text-3xl xl:text-4xl p-1 pr-3 font-bold mb-1 whitespace-nowrap font-archivoBlack">{ openPosition.title }</p>
+          <span class="text-base text-white">{ openPosition.description }</span>
+        </li>
+        ))
+      }
     </ul>
 
     <a
