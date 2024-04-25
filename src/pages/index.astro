@@ -8,6 +8,18 @@ import ClientSpotlight from "../components/ClientSpotlight.astro";
 import Map from "../components/Map.astro";
 
 import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
+import Hiring from '../components/Hiring.astro';
+
+const openPositions = [
+	{
+		title: 'Dot net developer',
+		description: '3 Years + Experience'
+	},
+	{
+		title: 'Senior Frontend developerr',
+		description: '4 Years + Experience'
+	}
+]
 ---
 
 <script src="../scripts/main.js"></script>
@@ -23,6 +35,20 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 			<Hero />
 		</section>
 
+		<section
+			id="clients"
+			class="container relative"
+		>
+			<ClientSpotlight />
+		</section>
+
+		<section
+			id="hiring"
+			class="pt-4"
+		>
+			<Hiring openPositions={openPositions}/>
+		</section>
+
 		<section id="team">
 			<Team />
 		</section>
@@ -32,13 +58,6 @@ import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 			class="border-b border-t border-black dark:border-white z-[1]"
 		>
 			<Map />
-		</section>
-
-		<section
-			id="clients"
-			class="container border-b border-black dark:border-neutral-100"
-		>
-			<ClientSpotlight />
 		</section>
 	</main>
 	<Footer />
