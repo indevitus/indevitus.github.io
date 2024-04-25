@@ -1,38 +1,37 @@
 ---
-import Logo from './Icons/Logo.astro';
 import ThemeSwitcher from './ThemeSwitcher.astro';
 
 const { simplified } = Astro.props;
 
-const SOCIAL_ICONS = [
-  {
-    id: 'facebook',
-    icon: '/facebook.svg',
-    iconDark: '/facebook-dark.svg',
-    url: 'https://www.facebook.com/'
-  },
-  {
-    id: 'twitter',
-    icon: '/twitter.svg',
-    iconDark: '/twitter.svg',
-    url: 'https://twitter.com/'
-  },
-  {
-    id: 'linkedin',
-    icon: '/linkedin.svg',
-    iconDark: '/linkedin-dark.svg',
-    url: 'https://www.linkedin.com/'
-  },
-  {
-    id: 'instagram',
-    icon: '/instagram.svg',
-    iconDark: '/instagram-dark.svg',
-    url: 'https://www.instagram.com/'
-  }
-]
+// const SOCIAL_ICONS = [
+//   {
+//     id: 'facebook',
+//     icon: '/facebook.svg',
+//     iconDark: '/facebook-dark.svg',
+//     url: 'https://www.facebook.com/'
+//   },
+//   {
+//     id: 'twitter',
+//     icon: '/twitter.svg',
+//     iconDark: '/twitter.svg',
+//     url: 'https://twitter.com/'
+//   },
+//   {
+//     id: 'linkedin',
+//     icon: '/linkedin.svg',
+//     iconDark: '/linkedin-dark.svg',
+//     url: 'https://www.linkedin.com/'
+//   },
+//   {
+//     id: 'instagram',
+//     icon: '/instagram.svg',
+//     iconDark: '/instagram-dark.svg',
+//     url: 'https://www.instagram.com/'
+//   }
+// ]
 ---
 
-<footer class={`relative ${!simplified && 'overflow-hidden'} pb-6 bg-black text-white`}>
+<footer class={`relative overflow-hidden pb-6 ${simplified && 'bg-black text-white'}`}>
   <div class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around font-display`}>
     <!-- <div class={simplified ? 'block max-w-fit mx-auto -translate-y-1/2 shadow-3xl bg-white p-8 md:p-12 rounded-lg' : 'hidden'}>
       <p class="text-black font-semibold text-lg">Share:</p>
@@ -115,12 +114,9 @@ const SOCIAL_ICONS = [
       <ThemeSwitcher />
     </div>
   </div>
-  {
-    !simplified &&
-    <a id="logo" class="absolute bottom-36 -right-[84px] h-[240px] -rotate-[10deg] cursor-pointer xs:right-0 dark:text-white sm:h-[350px] xl:h-[550px]">
-      <Logo class="h-full" />
-    </a>
-  }
+  {Array.from(Array(20).keys()).map(el => {
+    return <span class={`illustration w-[20px] h-[20px] animate-[rotate_25s_linear_infinite] block absolute -bottom-[150px] pointer-events-none ${simplified ? 'bg-[rgba(255,_255,_255,_0.8)]' : 'bg-[rgba(0,_0,_0,_0.8)]'} dark:bg-[rgba(255,_255,_255,_0.8)]`} />
+  })}
 </footer>
 
 <script>
@@ -143,13 +139,170 @@ const SOCIAL_ICONS = [
 </script>
 
 <style>
-#logo {
-  transform: perspective(800px) rotateY(-10deg) scale(0.9) rotateX(10deg);
-  transition: 0.6s ease all;
-  border-radius: 2rem;
+.illustration:nth-child(1) {
+  left: 59%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
 }
 
-#logo:hover {
-  transform: perspective(800px) rotateY(0) translateY(-50px) rotateX(10deg) scale(1);
+.illustration:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.illustration:nth-child(3) {
+  left: 34%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.illustration:nth-child(4) {
+  left: 58%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.illustration:nth-child(5) {
+  left: 69%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.illustration:nth-child(6) {
+  left: 74%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.illustration:nth-child(7) {
+  left: 93%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.illustration:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.illustration:nth-child(9) {
+  left: 46%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.illustration:nth-child(10) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+.illustration:nth-child(11) {
+  left: 83%;
+  width: 50px;
+  height: 50px;
+  animation-delay: 3s;
+  animation-duration: 18s;
+}
+
+.illustration:nth-child(12) {
+  left: 99%;
+  width: 10px;
+  height: 10px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.illustration:nth-child(13) {
+  left: 94%;
+  width: 33px;
+  height: 33px;
+  animation-delay: 1s;
+  animation-duration: 10s;
+}
+
+.illustration:nth-child(14) {
+  left: 82%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.illustration:nth-child(15) {
+  left: 87%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 14s;
+}
+
+.illustration:nth-child(16) {
+  left: 55%;
+  width: 40px;
+  height: 40px;
+  animation-delay: 0s;
+  animation-duration: 25s;
+}
+
+.illustration:nth-child(17) {
+  left: 61%;
+  width: 45px;
+  height: 45px;
+  animation-delay: 1s;
+  animation-duration: 17s;
+}
+
+.illustration:nth-child(18) {
+  left: 68%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+  animation-duration: 22s;
+}
+
+.illustration:nth-child(19) {
+  left: 73%;
+  width: 55px;
+  height: 55px;
+  animation-delay: 5s;
+  animation-duration: 14s;
+}
+
+.illustration:nth-child(20) {
+  left: 84%;
+  width: 40px;
+  height: 40px;
+  animation-delay: 0s;
+  animation-duration: 13s;
+}
+
+@keyframes rotate {
+  0%{
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100%{
+    transform: translateY(-1500px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
 }
 </style>
