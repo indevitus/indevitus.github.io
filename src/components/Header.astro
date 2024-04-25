@@ -3,12 +3,12 @@ import Logo from './Icons/Logo.astro';
 import ThemeSwitcher from './ThemeSwitcher.astro';
 ---
 
-<header class="absolute lelft-0 top-0 w-full bg-transparent z-100 font-display transition-all duration-300">
+<header class="absolute left-0 top-0 w-full bg-transparent z-100 font-display transition-all duration-300">
   <div
     id="header-content"
     class="container flex justify-between items-center lg:justify-start select-none py-6 bg-transparent transition-all duration-300"
   >
-    <a href="/" title="Indevitus" class="flex items-center gap-3 h-12 lg:h-16 text-black dark:text-white transition-colors duration-300">
+    <a href="/" title="Indevitus" class="block h-12 lg:h-16 text-black dark:text-white transition-colors duration-300">
       <Logo />
     </a>
 
@@ -26,7 +26,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       id="menu"
       class="flex flex-col overflow-y-auto fixed w-full h-[100dvh] lg:h-auto bottom-0 left-0 pt-8 pb-24 bg-white dark:bg-black lg:bg-transparent lg:dark:bg-transparent transition-colors duration-300 z-100 invisible lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase"
     >
-      <ul class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white text-sm">
+      <ul class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white font-semibold text-sm">
         <li class="mb-6 lg:mb-0">
           <a
             href="#contact"
