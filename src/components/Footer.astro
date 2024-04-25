@@ -7,26 +7,26 @@ const { simplified } = Astro.props;
 const SOCIAL_ICONS = [
   {
     id: 'facebook',
-    icon: 'facebook.svg',
-    iconDark: 'facebook-dark.svg',
+    icon: '/facebook.svg',
+    iconDark: '/facebook-dark.svg',
     url: 'https://www.facebook.com/'
   },
   {
     id: 'twitter',
-    icon: 'twitter.svg',
-    iconDark: 'twitter.svg',
+    icon: '/twitter.svg',
+    iconDark: '/twitter.svg',
     url: 'https://twitter.com/'
   },
   {
     id: 'linkedin',
-    icon: 'linkedin.svg',
-    iconDark: 'linkedin-dark.svg',
+    icon: '/linkedin.svg',
+    iconDark: '/linkedin-dark.svg',
     url: 'https://www.linkedin.com/'
   },
   {
     id: 'instagram',
-    icon: 'instagram.svg',
-    iconDark: 'instagram-dark.svg',
+    icon: '/instagram.svg',
+    iconDark: '/instagram-dark.svg',
     url: 'https://www.instagram.com/'
   }
 ]
@@ -34,7 +34,7 @@ const SOCIAL_ICONS = [
 
 <footer class={`relative ${!simplified && 'overflow-hidden'} pb-6 bg-black text-white`}>
   <div class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around font-display`}>
-    <div class={simplified ? 'block max-w-fit mx-auto -translate-y-1/2 shadow-3xl bg-white p-8 md:p-12 rounded-lg' : 'hidden'}>
+    <!-- <div class={simplified ? 'block max-w-fit mx-auto -translate-y-1/2 shadow-3xl bg-white p-8 md:p-12 rounded-lg' : 'hidden'}>
       <p class="text-black font-semibold text-lg">Share:</p>
       <div class="flex items-center mt-4 mb-8">
         {
@@ -47,7 +47,7 @@ const SOCIAL_ICONS = [
           })
         }
       </div>
-    </div>
+    </div> -->
     <div class="pt-12 flex flex-col justify-evenly flex-1">
       {
         !simplified ?
