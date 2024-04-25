@@ -25,6 +25,36 @@
     background-color: theme('colors.black');
     color: theme('colors.white');
   }
+
+  .halftone {
+    background-image: radial-gradient(
+            circle at center,
+            rgba(0, 0, 0, 0.1) 0.3rem,
+            transparent 0
+        ),
+        radial-gradient(
+            circle at center,
+            rgba(0, 0, 0, 0.1) 0.3rem,
+            transparent 0
+        );
+    background-size: 21.3rem 12.3rem;
+    background-position: 0 0, 11.65rem 5.65rem;
+  }
+
+  .dark .halftone {
+    background-image: radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.2) 0.3rem,
+            transparent 0
+        ),
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.2) 0.3rem,
+            transparent 0
+        );
+    background-size: 21.3rem 12.3rem;
+    background-position: 0 0, 11.65rem 5.65rem;
+  }
 }
 
 @keyframes slideDown {
@@ -42,5 +72,18 @@
   }
   100% {
     transform: translateY(-100%);
+  }
+}
+
+@keyframes rotate {
+  0%{
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100%{
+    transform: translateY(-1500px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
   }
 }
