@@ -1,12 +1,13 @@
 ---
 import Logo from './Icons/Logo.astro';
 import ThemeSwitcher from './ThemeSwitcher.astro';
+const { headerWithoutIllustration } = Astro.props;
 ---
 
-<header class="absolute left-0 top-0 w-full bg-transparent z-100 font-display transition-all duration-300">
+<header class={`absolute left-0 top-0 w-full ${headerWithoutIllustration ? 'bg-white dark:bg-black'  : 'bg-transparent'} z-100 font-display transition-all duration-300`}>
   <div
     id="header-content"
-    class="container flex justify-between items-center lg:justify-start select-none py-6 bg-transparent transition-all duration-300"
+    class="container flex justify-between items-center lg:justify-start select-none py-2 lg:py-6 bg-transparent transition-all duration-300"
   >
     <a href="/" title="Indevitus" class="block text-black dark:text-white transition-colors duration-300 w-12 lg:w-16">
       <Logo />
@@ -29,14 +30,14 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
       <ul class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white font-semibold text-sm">
         <li class="mb-6 lg:mb-0">
           <a
-            href="#contact"
+            href="/#contact"
             class="relative after:content-[''] after:absolute after:-top-1 after:-bottom-1 after:-left-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:w-0 after:mix-blend-darken after:dark:mix-blend-difference after:bg-white hover:after:w-1/2"
             >Contact</a>
         </li>
         <li class="mb-6 lg:mb-0">
           <a
             href="/careers/frontend"
-            class="relative after:content-[''] after:absolute after:-top-1 after:-bottom-1 after:-left-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:w-0 after:mix-blend-difference after:bg-white hover:after:w-1/2"
+            class="relative after:content-[''] after:absolute after:-top-1 after:-bottom-1 after:-left-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:w-0 after:mix-blend-darken after:dark:mix-blend-difference after:bg-white hover:after:w-1/2"
             >Careers</a>
         </li>
       </ul>
