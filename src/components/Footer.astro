@@ -69,17 +69,12 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 </footer>
 
 <script>
-    const SLIDE_UP_ANIMATION_DURATION = 500;
     const logo = document.getElementById('logo');
-    const headerContent = document.getElementById('header-content');
-    const companyLogo = document.getElementById('company-logo');
 
     const scrollToTop = () => {
         setTimeout(() => {
-            headerContent?.classList.remove('border-b', 'border-black', 'dark:border-neutral-100', '!py-2');
-            companyLogo?.classList.remove('lg:!h-12', '!h-10');
             window.scrollTo({ top: 0, behavior: 'smooth' })
-        }, SLIDE_UP_ANIMATION_DURATION)
+        }, 300)
     }
 
     if (logo) {
