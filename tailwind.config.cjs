@@ -29,6 +29,9 @@ module.exports = {
 			transitionProperty: {
 				'height': 'height',
 			},
+			transitionDuration: {
+        '250': '250ms',
+      },
 			screens: {
 				'2xl': '1280px',
 				'3xl': '1280px',
