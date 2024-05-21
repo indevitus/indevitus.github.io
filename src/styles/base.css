@@ -92,7 +92,7 @@
 
   .btn--svg__border--left path,
   .btn--svg__border--right path {
-    stroke-dasharray: 61.8204345703125 61.8204345703125;
+    stroke-dasharray: 62 62;
     transition-duration: 0s;
     transition-timing-function: ease-in-out;
     transition-property: stroke-dashoffset;
@@ -100,11 +100,11 @@
   }
 
   .btn--svg__border--left path {
-    stroke-dashoffset: -61.8204345703125;
+    stroke-dashoffset: -62;
   }
 
   .btn--svg__border--right path {
-    stroke-dashoffset: 61.8204345703125;
+    stroke-dashoffset: 62;
   }
 }
 
