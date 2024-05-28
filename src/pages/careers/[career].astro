@@ -57,7 +57,7 @@ const job = JOB_DESCRIPTION.find(el => el.id === career)
                 job?.summary?.map(item => {
                   return (
                     <div class="flex items-center col-span-6 md:col-span-3 lg:mt-12">
-                      <img class="dark:[filter:invert(100%)_sepia(0%)_saturate(0%)_hue-rotate(187deg)_brightness(102%)_contrast(107%)]" src={item.icon} alt={item.title} width="30" />
+                      <img class="icon-blend" src={item.icon} alt={item.title} width="30" />
                       <div class="ml-4">
                         <p class="text-gray-400 mb-1">{ item?.title }</p>
                         <p>{ item?.content }</p>
@@ -77,5 +77,9 @@ const job = JOB_DESCRIPTION.find(el => el.id === career)
 <style>
 .careers--hero {
   background-image: linear-gradient(45deg, rgba(0, 0, 0, .84) 100%, rgba(0, 0, 0, 0) 100%), url('/indevitus-team-carting.JPG');
+}
+
+html.dark .icon-blend {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(187deg) brightness(102%) contrast(107%);
 }
 </style>

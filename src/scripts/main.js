@@ -18,26 +18,6 @@ window.isMobile = function() {
         }
     }
 
-    if (window.isMobile()) {
-        if (document.querySelector('.glide-team')) {
-            traverseAndAddClass('.__glide', 'glide');
-            traverseAndAddClass('.__glide__track', 'glide__track');
-            traverseAndAddClass('.__glide__bullets', 'glide__bullets');
-            traverseAndAddClass('.__glide__bullet', 'glide__bullet');
-            traverseAndAddClass('.__glide__slides', 'glide__slides');
-            traverseAndAddClass('.__glide__slide', 'glide__slide');
-
-            document.querySelectorAll('.__glide__slide.hidden').forEach(element => {
-                element.remove();
-            });
-        }
-
-        let teamGlider;
-        if (document.querySelector('.glide-team')) {
-            teamGlider = new Glide('.glide-team', { autoplay: 2000, gap: 0 }).mount();
-        }
-    }
-
     if(document.querySelector('.glide-clients')) {
         traverseAndAddClass('.__glide', 'glide');
         traverseAndAddClass('.__glide__track', 'glide__track');

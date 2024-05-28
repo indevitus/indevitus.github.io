@@ -329,21 +329,18 @@
 
 <style>
     .image {
-        position:relative;
-        transform: scale(0.9, 0.9);
-        transition: transform 0.2s ease-in;
+      @apply relative scale-90 transition-transform duration-200 ease-in;
     }
 
     .image__foreground {
-        transform: translateY(-10px) scale(1.10);
-        transition: transform 0.2s ease-in;
+      @apply -translate-y-[10px] scale-110 transition-transform duration-200 ease-in;
     }
 
     .image:hover {
-        transform: scale(1, 1);
+      @apply scale-100;
     }
 
     .image:hover .image__foreground {
-        transform: translateY(-13px) scale(1.12, 1.12);
+      @apply -translate-y-[13px] scale-112;
     }
 </style>
