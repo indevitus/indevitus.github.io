@@ -10,7 +10,7 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Poppins', 'sans-serif'],
+				sans: ['Poppins', ...defaultTheme.fontFamily.sans],
 				archivoBlack: ['Archivo Black', 'Poppins', 'sans-serif']
 			},
 			container: {
