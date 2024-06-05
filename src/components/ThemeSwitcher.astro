@@ -1,10 +1,13 @@
 ---
 import Moon from './Icons/Moon.astro';
 import Sun from './Icons/Sun.astro';
+
+const { title } = Astro.props;
 ---
+
 <div class="flex">
   <button
-    id="theme-toggle"
+    id={`theme-toggle-light-${title}`}
     aria-label="toggle light theme"
     class="w-6 h-6 hidden dark:block text-white transition-transform hover:scale-75 duration-300"
   >
@@ -12,7 +15,7 @@ import Sun from './Icons/Sun.astro';
   </button>
 
   <button
-    id="theme-toggle"
+    id={`theme-toggle-dark-${title}`}
     aria-label="toggle dark theme"
     class="block w-6 h-6 dark:hidden transition-transform hover:scale-75 duration-300"
   >
@@ -22,7 +25,7 @@ import Sun from './Icons/Sun.astro';
 
 <script>
   const element = document.documentElement;
-  const themeToggler = document.querySelectorAll("#theme-toggle");
+  const themeToggler = document.querySelectorAll('[id^="theme-toggle-dark-"], [id^="theme-toggle-light-"]');
 
   const theme = (() => {
     const windowThemePreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';

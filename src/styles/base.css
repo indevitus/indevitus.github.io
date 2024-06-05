@@ -69,7 +69,7 @@
   }
 
   .btn--svg__label {
-    @apply font-display font-bold text-white dark:text-black z-[3] text-center w-full transition-all duration-250 ease-in-out;
+    @apply font-bold text-white dark:text-black z-[3] text-center w-full transition-all duration-250 ease-in-out;
   }
 
   .btn svg,

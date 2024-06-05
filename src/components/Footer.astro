@@ -32,7 +32,7 @@ const { simplified } = Astro.props;
 ---
 
 <footer class="relative overflow-hidden pb-6">
-  <div class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around font-display`}>
+  <div class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around`}>
     <!-- <div class={simplified ? 'block max-w-fit mx-auto -translate-y-1/2 shadow-3xl bg-white p-8 md:p-12 rounded-lg' : 'hidden'}>
       <p class="text-black font-semibold text-lg">Share:</p>
       <div class="flex items-center mt-4 mb-8">
@@ -58,7 +58,7 @@ const { simplified } = Astro.props;
           </p>
           <a
             href="https://www.linkedin.com/company/indevitus/"
-            class="font-display rounded inline-block transition-colors duration-300 ease-in-out bg-black dark:bg-white hover:!bg-black/70 dark:hover:!bg-white/90 text-white dark:text-black whitespace-nowrap px-3 lg:px-5 py-1 lg:py-2"
+            class="rounded inline-block transition-colors duration-300 ease-in-out bg-black dark:bg-white hover:!bg-black/70 dark:hover:!bg-white/90 text-white dark:text-black whitespace-nowrap px-3 lg:px-5 py-1 lg:py-2"
             target="_blank"
           >
             Get in touch
@@ -68,10 +68,11 @@ const { simplified } = Astro.props;
         <a href="/" title="Indevitus" class="flex items-center gap-3 mb-6">
           <img
             id="company-logo"
+            loading="lazy"
             src="/badge-white.svg"
             alt="Indevitus"
             height="80px"
-            class="h-12 lg:h-16 mix-blend-difference transition-height duration-300"
+            class="h-12 w-12 lg:w-16 lg:h-16 mix-blend-difference transition-height duration-300"
           />
         </a>
       }
@@ -111,7 +112,7 @@ const { simplified } = Astro.props;
         <p class="relative text-xs sm:text-sm pl-4 xs:pl-8 before:absolute before:w-[6px] before:h-[6px] before:left-[5px] before:xs:left-3 before:top-1/2 before:-translate-y-1/2 before:rounded-full before:bg-black before:dark:bg-white">&copy; Indevitus.com { new Date().getFullYear() } - All rights reserved</p>
       </div>
 
-      <ThemeSwitcher />
+      <ThemeSwitcher title="footer"/>
     </div>
   </div>
   {Array.from(Array(20).keys()).map(el => {
