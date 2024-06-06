@@ -17,13 +17,11 @@
   }
 
   .dark ::selection {
-    background-color: theme('colors.white');
-    color: theme('colors.black');
+    @apply bg-white text-black;
   }
 
   ::selection {
-    background-color: theme('colors.black');
-    color: theme('colors.white');
+    @apply bg-black text-white;
   }
 
   .halftone {
@@ -54,57 +52,6 @@
         );
     background-size: 21.3rem 12.3rem;
     background-position: 0 0, 11.65rem 5.65rem;
-  }
-
-  .btn {
-    @apply text-base tracking-wider leading-4 relative inline-block h-[42px] w-[190px] overflow-hidden rounded-3xl;
-  }
-
-  .btn:hover .btn--svg__label {
-    @apply text-black dark:text-white;
-  }
-
-  .btn:hover .btn--svg__circle circle {
-    @apply scale-0;
-  }
-
-  .btn--svg__label {
-    @apply font-bold text-white dark:text-black z-[3] text-center w-full transition-all duration-250 ease-in-out;
-  }
-
-  .btn svg,
-  .btn--svg__label {
-    @apply absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] origin-center;
-  }
-
-  .btn--svg__circle circle {
-    @apply transition-all duration-250 ease-in-out scale-110 origin-center;
-  }
-
-  .btn:hover .btn--svg__border--left path,
-  .btn:hover .btn--svg__border--right path {
-    stroke-dashoffset: 0;
-    transition-delay: 0.25s;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
-    transition-property: stroke-dashoffset;
-  }
-
-  .btn--svg__border--left path,
-  .btn--svg__border--right path {
-    stroke-dasharray: 62 62;
-    transition-duration: 0s;
-    transition-timing-function: ease-in-out;
-    transition-property: stroke-dashoffset;
-    transition-delay: 0.5s;
-  }
-
-  .btn--svg__border--left path {
-    stroke-dashoffset: -62;
-  }
-
-  .btn--svg__border--right path {
-    stroke-dashoffset: 62;
   }
 }
 
