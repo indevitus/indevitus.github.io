@@ -4,7 +4,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 const { headerWithoutIllustration } = Astro.props;
 ---
 
-<header class={`absolute left-0 top-0 w-full ${headerWithoutIllustration ? 'bg-white dark:bg-black'  : 'bg-transparent'} z-100 font-display transition-all duration-300`}>
+<header class={`absolute left-0 top-0 w-full ${headerWithoutIllustration ? 'bg-white dark:bg-black'  : 'bg-transparent'} z-100  transition-all duration-300`}>
   <div
     id="header-content"
     class="container flex justify-between items-center lg:justify-start select-none py-2 lg:py-6 bg-transparent transition-all duration-300"

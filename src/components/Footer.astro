@@ -32,7 +32,7 @@ const { simplified } = Astro.props;
 ---
 
 <footer class="relative overflow-hidden pb-6">
-  <div class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around font-display`}>
+  <div class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around `}>
     <!-- <div class={simplified ? 'block max-w-fit mx-auto -translate-y-1/2 shadow-3xl bg-white p-8 md:p-12 rounded-lg' : 'hidden'}>
       <p class="text-black font-semibold text-lg">Share:</p>
       <div class="flex items-center mt-4 mb-8">
@@ -47,7 +47,7 @@ const { simplified } = Astro.props;
         }
       </div>
     </div> -->
-    <div class="pt-12 flex flex-col justify-evenly flex-1">
+    <div class="pt-16 lg:pt-24 flex flex-col justify-evenly flex-1">
       {
         !simplified ?
         <div id="contact" class="lg:w-2/3 dark:text-white mb-10">
@@ -58,7 +58,7 @@ const { simplified } = Astro.props;
           </p>
           <a
             href="https://www.linkedin.com/company/indevitus/"
-            class="font-display rounded inline-block transition-colors duration-300 ease-in-out bg-black dark:bg-white hover:!bg-black/70 dark:hover:!bg-white/90 text-white dark:text-black whitespace-nowrap px-3 lg:px-5 py-1 lg:py-2"
+            class=" rounded inline-block transition-colors duration-300 ease-in-out bg-black dark:bg-white hover:!bg-black/70 dark:hover:!bg-white/90 text-white dark:text-black whitespace-nowrap px-3 lg:px-5 py-1 lg:py-2"
             target="_blank"
           >
             Get in touch
