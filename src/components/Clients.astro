@@ -275,26 +275,6 @@
 
 <style>
     .glide__slide {
-        height: auto !important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        @apply !h-auto flex justify-center items-center flex-col;
     }
-
-    @screen lg {
-        .icon_transition {
-            transition: transform 0.3s cubic-bezier(0.46, -0.45, 0.51, 1.41), transform 0.3s cubic-bezier(0.46, -0.45, 0.51, 1.41);
-        }
-
-        .icon_transition:hover {
-            transform: translateY(-0.5rem);
-        }
-    }
-
-    html #bootstrap-b { fill: white; }
-    html.dark #bootstrap-b { fill: black !important; }
-
-    html #vue-1 { fill: #333; }
-    html.dark #vue-1 { fill: #222 !important; }
 </style>

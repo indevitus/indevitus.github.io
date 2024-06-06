@@ -2,7 +2,7 @@
 import ComputerLogo from './ComputerLogo.astro'
 ---
 
-<div id="hero" class="relative z-0 py-12 overflow-hidden xl:overflow-visible">
+<div id="hero" class="relative z-0 py-16 overflow-hidden xl:overflow-visible">
   <div class="container grid lg:grid-cols-12 gap-x-12 min-h-screen items-center">
     <div data-aos="fade" data-aos-delay="100" data-aos-duration="1400" class="relative z-[100] lg:col-span-7 lg:pt-22 order-last lg:order-first">
       <p class="text-5xl lg:text-7xl font-archivoBlack font-bold pb-8 lg:max-w-[90%]">Solutions that are tailored to your needs</p>
@@ -38,3 +38,56 @@ import ComputerLogo from './ComputerLogo.astro'
     </div>
   </div>
 </div>
+
+<style>
+  .btn {
+    @apply text-base tracking-wider leading-4 relative inline-block h-[42px] w-[190px] overflow-hidden rounded-3xl;
+  }
+
+  .btn:hover .btn--svg__label {
+    @apply text-black dark:text-white;
+  }
+
+  .btn:hover .btn--svg__circle circle {
+    @apply scale-0;
+  }
+
+  .btn--svg__label {
+    @apply font-display font-bold text-white dark:text-black z-[3] text-center w-full transition-all duration-250 ease-in-out;
+  }
+
+  .btn svg,
+  .btn--svg__label {
+    @apply absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] origin-center;
+  }
+
+  .btn--svg__circle circle {
+    @apply transition-all duration-250 ease-in-out scale-110 origin-center;
+  }
+
+  .btn:hover .btn--svg__border--left path,
+  .btn:hover .btn--svg__border--right path {
+    stroke-dashoffset: 0;
+    transition-delay: 0.25s;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-property: stroke-dashoffset;
+  }
+
+  .btn--svg__border--left path,
+  .btn--svg__border--right path {
+    stroke-dasharray: 62 62;
+    transition-duration: 0s;
+    transition-timing-function: ease-in-out;
+    transition-property: stroke-dashoffset;
+    transition-delay: 0.5s;
+  }
+
+  .btn--svg__border--left path {
+    stroke-dashoffset: -62;
+  }
+
+  .btn--svg__border--right path {
+    stroke-dashoffset: 62;
+  }
+</style>

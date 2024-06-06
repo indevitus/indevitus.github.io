@@ -1,4 +1,4 @@
-<div class="container relative py-16 px-8 lg:px-0 mb-6 lg:mb-12">
+<div class="container relative py-16 lg:py-24 px-8 lg:px-0">
   <div class="absolute z-[-1] right-[calc(-50vw_+_50%)] top-0 w-screen h-full"></div>
     <div class="grid md:grid-cols-12">
         <div class="text-xl lg:text-3xl lg:leading-[3rem] md:col-span-10">
@@ -329,21 +329,18 @@
 
 <style>
     .image {
-        position:relative;
-        transform: scale(0.9, 0.9);
-        transition: transform 0.2s ease-in;
+      @apply relative scale-90 transition-transform duration-200 ease-in;
     }
 
     .image__foreground {
-        transform: translateY(-10px) scale(1.10);
-        transition: transform 0.2s ease-in;
+      @apply -translate-y-[10px] scale-110 transition-transform duration-200 ease-in;
     }
 
     .image:hover {
-        transform: scale(1, 1);
+      @apply scale-100;
     }
 
     .image:hover .image__foreground {
-        transform: translateY(-13px) scale(1.12, 1.12);
+      @apply -translate-y-[13px] scale-112;
     }
 </style>
