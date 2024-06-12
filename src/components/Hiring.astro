@@ -5,17 +5,17 @@ const { openPositions } = Astro.props;
 ---
 
 <div class="relative pt-20 sm:py-20">
-  <div class="absolute left-0 bottom-0 top-auto z-10 h-[70%] sm:h-[80%] w-full text-gold/80">
+  <div class="absolute left-0 bottom-0 top-auto z-10 h-[70%] sm:h-[80%] w-full text-gold">
     <svg class="absolute left-0 bottom-0 w-full h-full" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"> <polygon points="100 10 100 0 -4 10"></polygon> </svg>
   </div>
 </div>
 
-<div class="bg-gold/80 lg:grid lg:grid-cols-12 lg:gap-x-16 py-10 px-3 lg:px-12 items-center overflow-hidden">
+<div class="bg-gold lg:grid lg:grid-cols-12 lg:gap-x-16 py-10 px-3 lg:px-12 items-center overflow-hidden">
   <div class="lg:col-span-5 flex justify-center mb-11 lg:mb-0">
     <div class="relative px-5 xs:px-8 py-4 font-bold text-4xl sm:text-5xl uppercase shadow-lg bg-white text-black rounded-lg max-w-[268px] min-h-[200px] max-h-[156px] xs:max-h-[unset] text-center -rotate-[4deg]">
       We are
       <span class="text-5xl sm:text-6xl">Hiring</span>
-      <span class="absolute text-sm bg-red-500 right-0 bottom-2 text-white left-[10%] xs:left-[40%] py-[6px] rounded-l rounded-b font-normal">Join our team</span>
+      <span class="absolute text-sm bg-red-600 right-0 bottom-2 text-white left-[10%] xs:left-[40%] py-[6px] rounded-l rounded-b font-normal">Join our team</span>
       <div class="absolute -left-[140px] rotate-180 -scale-y-[1] -bottom-[36px] text-white w-52 min-w-[12rem] -z-[1]">
         <Megaphone />
       </div>
@@ -28,7 +28,7 @@ const { openPositions } = Astro.props;
         openPositions.map((openPosition: {title: string, description: string}) => (
         <li class="w-fit">
           <p class="bg-white shadow-lg text-xl sm:text-3xl xl:text-4xl p-1 pr-3 font-bold mb-1 whitespace-nowrap font-archivoBlack">{ openPosition.title }</p>
-          <span class="text-base text-white">{ openPosition.description }</span>
+          <span class="text-base text-black font-semibold">{ openPosition.description }</span>
         </li>
         ))
       }
@@ -45,7 +45,7 @@ const { openPositions } = Astro.props;
 </div>
 
 <div class="relative pb-20 sm:py-20">
-  <div class="absolute left-0 top-0 xs:top-[1px] bottom-auto z-10 h-[70%] sm:h-[80%] rotate-180 w-full text-gold/80">
+  <div class="absolute left-0 top-0 xs:top-[1px] bottom-auto z-10 h-[70%] sm:h-[80%] rotate-180 w-full text-gold">
     <svg class="absolute left-0 bottom-0 xs:-bottom-[1px] w-full h-full" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"> <polygon points="100 10 100 0 -4 10"></polygon> </svg>
   </div>
 </div>
