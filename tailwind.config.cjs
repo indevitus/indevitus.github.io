@@ -23,7 +23,8 @@ module.exports = {
 				'gray': {
 					'default': '#808080',
 					'light': '#bdbdbd'
-				}
+				},
+				'blue-diamond' : '#0a66c2'
 			},
 			transitionProperty: {
 				'height': 'height',

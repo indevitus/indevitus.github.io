@@ -40,6 +40,43 @@ window.isMobile = function() {
         }).mount();
     }
 
+    if(document.querySelector('.glide-team')) {
+        traverseAndAddClass('.__glide', 'glide');
+        traverseAndAddClass('.__glide__track', 'glide__track');
+        traverseAndAddClass('.__glide__bullets', 'glide__bullets');
+        traverseAndAddClass('.__glide__bullet', 'glide__bullet');
+        traverseAndAddClass('.__glide__slides', 'glide__slides');
+        traverseAndAddClass('.__glide__slide', 'glide__slide');
+
+        var glide = new Glide('.glide-team', {
+            type: 'carousel',
+            autoplay: 3000,
+            gap: 60,
+            swipeThreshold: true,
+            dragThreshold: true,
+            perView: 3,
+            breakpoints: {
+                768: {
+                    perView: 2,
+                }
+            }
+        });
+
+        const BREAKPOINTS_LG = 1024;
+        window.addEventListener('DOMContentLoaded', () => {
+            const handleResize = (innerWidth) => {
+                if(innerWidth >= BREAKPOINTS_LG){
+                    glide.destroy();
+                } else {
+                    glide.mount();
+                }
+            }
+
+            handleResize(window.innerWidth);
+            window.addEventListener('resize', (event) => {handleResize(event.target.innerWidth)})
+        })
+    }
+
     if (document.querySelector('.glide-testimonials')) {
         traverseAndAddClass('.glide-testimonials .__glide', 'glide');
         traverseAndAddClass('.glide-testimonials .__glide__track', 'glide__track');
