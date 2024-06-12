@@ -51,13 +51,15 @@ window.isMobile = function() {
         var glide = new Glide('.glide-team', {
             type: 'carousel',
             autoplay: 3000,
-            gap: 60,
-            swipeThreshold: true,
+            gap: 30,
             dragThreshold: true,
             perView: 3,
             breakpoints: {
+                425: {
+                    perView: 1.5,
+                },
                 768: {
-                    perView: 2,
+                    perView: 2
                 }
             }
         });
