@@ -66,7 +66,7 @@ window.isMobile = function() {
             }
         }
 
-        var glide = new Glide('.glide-team', glideSettingsTeam);
+        let glide = new Glide('.glide-team', glideSettingsTeam);
 
         window.addEventListener('DOMContentLoaded', () => {
             const handleResize = (innerWidth) => {
