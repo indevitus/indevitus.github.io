@@ -48,7 +48,9 @@ window.isMobile = function() {
         traverseAndAddClass('.__glide__slides', 'glide__slides');
         traverseAndAddClass('.__glide__slide', 'glide__slide');
 
-        var glide = new Glide('.glide-team', {
+        let glideInitialized = false;
+        const BREAKPOINTS_LG = 1024;
+        const glideSettingsTeam = {
             type: 'carousel',
             autoplay: 3000,
             gap: 30,
@@ -62,20 +64,28 @@ window.isMobile = function() {
                     perView: 2
                 }
             }
-        });
+        }
 
-        const BREAKPOINTS_LG = 1024;
+        var glide = new Glide('.glide-team', glideSettingsTeam);
+
         window.addEventListener('DOMContentLoaded', () => {
             const handleResize = (innerWidth) => {
                 if(innerWidth >= BREAKPOINTS_LG){
-                    glide.destroy();
+                    if(glideInitialized){
+                        glideInitialized = false;
+                        glide.destroy();
+                    }
                 } else {
-                    glide.mount();
+                    if(!glideInitialized){
+                        glideInitialized = true;
+                        glide = new Glide('.glide-team', glideSettingsTeam);
+                        glide.mount();
+                    }
                 }
             }
 
             handleResize(window.innerWidth);
-            window.addEventListener('resize', (event) => {handleResize(event.target.innerWidth)})
+            window.addEventListener('resize', (event) => handleResize(event.target.innerWidth))
         })
     }
 
