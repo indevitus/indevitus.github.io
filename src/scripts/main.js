@@ -70,17 +70,13 @@ window.isMobile = function() {
 
         window.addEventListener('DOMContentLoaded', () => {
             const handleResize = (innerWidth) => {
-                if(innerWidth >= BREAKPOINTS_LG){
-                    if(glideInitialized){
-                        glideInitialized = false;
-                        glide.destroy();
-                    }
-                } else {
-                    if(!glideInitialized){
-                        glideInitialized = true;
-                        glide = new Glide('.glide-team', glideSettingsTeam);
-                        glide.mount();
-                    }
+                if(innerWidth >= BREAKPOINTS_LG && glideInitialized){
+                    glideInitialized = false;
+                    glide.destroy();
+                } else if(innerWidth < BREAKPOINTS_LG && !glideInitialized){
+                    glideInitialized = true;
+                    glide = new Glide('.glide-team', glideSettingsTeam);
+                    glide.mount();
                 }
             }
 
