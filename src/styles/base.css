@@ -53,6 +53,10 @@
     background-size: 21.3rem 12.3rem;
     background-position: 0 0, 11.65rem 5.65rem;
   }
+
+  .dark .icon-blend {
+    @apply [filter:invert(100%)_sepia(0%)_saturate(0%)_hue-rotate(187deg)_brightness(102%)_contrast(107%)];
+  }
 }
 
 @keyframes rotate {

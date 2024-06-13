@@ -1,0 +1,121 @@
+---
+export function getStaticPaths() {
+  return [
+    {params: {career: 'frontend'}},
+    {params: {career: 'backend'}},
+    {params: {career: 'fullstack'}},
+  ];
+}
+
+import Hiring from "../layouts/Hiring.astro";
+import {JOB_DESCRIPTION as jobs } from '../data'
+
+const { career } = Astro.params;
+---
+
+<Hiring title="We are Indevitus">
+  <main class="dark:text-white">
+    <section class="careers--hero flex justify-center items-center py-[10rem] lg:py-[16rem] bg-cover bg-top bg-no-repeat mb-16 lg:mb-24">
+      <div class="container">
+        <div class="text-center flex items-center flex-col text-white">
+          <h1 class="font-bold text-4xl lg:text-8xl mb-12">Join us</h1>
+          <p class="w-full md:w-[70%] text-lg mb-6">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, ratione dolorem laboriosam expedita aliquam, ipsa molestiae aliquid magnam quis laudantium eveniet vel omnis officiis ullam? Eum aspernatur dolorum possimus adipisci?</p>
+          <div class="flex flex-col xs:flex-row gap-4">
+            <a class="bg-gold py-4 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-black/70 hover:text-white text-black whitespace-nowrap" href="#job-section">Join the team</a>
+            <a class="bg-transparent border-2 border-white py-3.5 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-black/70 text-white whitespace-nowrap" href="#culture">Culture</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="culture" class="container grid lg:grid-cols-4 gap-y-12 lg:gap-24 mb-16 lg:mb-24">
+      <div class="lg:col-span-2">
+        <span>BENEFITS</span>
+        <p class="font-bold text-3xl lg:text-5xl mb-8 mt-4">Why you Should Join Our Awesome Team</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, repudiandae velit amet est dignissimos perspiciatis, incidunt quaerat eligendi assumenda magni ipsum! Quisquam ut dolorem maiores, autem doloribus tempora est omnis?</p>
+      </div>
+
+      <div class="lg:col-span-2 grid grid-cols-1 xs:grid-cols-2 gap-y-10 gap-x-7">
+        <div class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left ">
+          <div class="p-[18px] w-fit mb-8 bg-blue-100 rounded">
+            <img loading="lazy" class="w-[38px] h-[38px]" src="team-work.svg" alt="Team Work" />
+          </div>
+          <p class="font-bold text-lg mb-4">Team work</p>
+          <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta optio ea consequatur ipsam </p>
+        </div>
+
+        <div class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left ">
+          <div class="p-[18px] w-fit mb-8 bg-green-100 rounded">
+            <img loading="lazy" class="w-[38px] h-[38px]" src="future.svg" alt="Secured Future" />
+          </div>
+          <p class="font-bold text-lg mb-4">Secured Future</p>
+          <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta optio ea consequatur ipsam </p>
+        </div>
+
+        <div class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left ">
+          <div class="p-[18px] w-fit mb-8 bg-stone-100 rounded">
+            <img loading="lazy" class="w-[38px] h-[38px]" src="learning.svg" alt="Learning Opportunity" />
+          </div>
+          <p class="font-bold text-lg mb-4">Learning Opportunity</p>
+          <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta optio ea consequatur ipsam </p>
+        </div>
+
+        <div class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left ">
+          <div class="p-[18px] w-fit mb-8 bg-pink-100 rounded">
+            <img loading="lazy" class="w-[38px] h-[38px]" src="upgrade-skills.svg" alt="Upgrade Skills" />
+          </div>
+          <p class="font-bold text-lg mb-4">Upgrade Skill</p>
+          <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta optio ea consequatur ipsam </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="job-section" class="my-16 lg:my-24 container">
+      <div class="flex flex-col justify-center items-center gap-4 text-center mb-10">
+        <p>Come Join Us</p>
+        <p class="font-bold text-2xl lg:text-3xl">Career Openings</p>
+        <p class="w-full lg:w-[70%]">We are always looking for creative, talented self-starters to join the JMC family. Check out our open roles below and fill out an application.</p>
+      </div>
+
+      <div class="flex flex-col justify-center items-center gap-5">
+        {
+          jobs?.map((job) => {
+            const jobExperience = job?.summary?.filter(item => item.title === "Experience")[0].content;
+            const datePosted = job?.summary?.filter(item => item.title === "Date posted")[0].content;
+
+            return (
+              <a href={`/careers/${job.id}`} class="w-full lg:w-[70%] flex flex-col sm:flex-row justify-between items-center sm:gap-20 lg:gap-24 p-4 card-shadow card-hover">
+                <p class="font-semibold text-xl capitalize mb-4 sm:mb-0">{job.id}</p>
+
+                <div class="w-full sm:w-1/2 flex justify-around lg:justify-between items-center text-center">
+                  <div>
+                    <span class="opacity-60 text-sm">Experience</span>
+                    <p class="font-semibold text-lg">{jobExperience}</p>
+                  </div>
+                  <div>
+                    <span class="opacity-60 text-sm">Date posted</span>
+                    <p class="font-semibold text-lg">{datePosted}</p>
+                  </div>
+                </div>
+              </a>
+            )
+          })
+        }
+      </div>
+    </section>
+  </main>
+</Hiring>
+
+<style>
+.careers--hero {
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, .84) 100%, rgba(0, 0, 0, 0) 100%), url('/indevitus-team-carting.JPG');
+}
+
+.card-shadow {
+  @apply transition-all duration-300 ease-in [box-shadow:rgba(0,0,0,0.5)_0px_0px_0.25em,_rgba(0,0,0,0.25)_0px_0.25em_1em] dark:[box-shadow:rgba(67,71,85,0.70)_0px_0px_0.25em,_rgba(90,125,188,0.08)_0px_0.25em_1em];
+}
+
+.card-hover:hover {
+  @apply scale-[1.02] [box-shadow:rgba(0,0,0,0.5)_0px_0px_0.6em_3px,_rgba(0,0,0,0.25)_0px_0.6em_1em] dark:[box-shadow:rgba(67,71,85,0.70)_0px_0px_0.6em_3px,_rgba(90,125,188,0.08)_0px_0.6em_1em];
+}
+</style>
