@@ -35,7 +35,7 @@ import '../styles/base.css';
   </head>
   <body class="dark:bg-black bg-white transition-all duration-300 relative cursor-none hover:cursor-none overflow-x-hidden">
     <div id="progressBar" class="fixed top-0 left-0 w-[6px] h-0 z-[100] transition-all duration-500 ease-out bg-gold"/>
-    <div id="cursorDot" class="hidden lg:block w-6 h-6 bg-white mix-blend-difference absolute z-[101] rounded-full pointer-events-none" />
+    <div id="cursorDot" class="hidden lg:block w-6 h-6 bg-white mix-blend-difference fixed z-[101] rounded-full pointer-events-none overflow-hidden" />
 	  <Header />
     <slot />
     <Footer simplified />
@@ -49,15 +49,15 @@ import '../styles/base.css';
 
   function moveCursor(event: MouseEvent) {
     if (cursorDot) {
-      let mouseX = event.pageX - 7
-      const mouseY = event.pageY - 7
+      const mouseX = event.clientX - 7;
+      const mouseY = event.clientY - 7;
 
       cursorDot.style.top = `${mouseY}px`
       cursorDot.style.left = `${mouseX}px`
     }
   }
 
-  document.addEventListener('mousemove', moveCursor)
+  document.addEventListener('mousemove', (event) => moveCursor(event))
 
   const scrollProgressBar = () => {
     let scrollDistance = -body.getBoundingClientRect().top;
