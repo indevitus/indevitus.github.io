@@ -400,7 +400,7 @@ export const JOB_DESCRIPTION = [
         id: 2,
         icon: '/briefcase.svg',
         title: 'Job Type',
-        content: 'Web Designer Developer',
+        content: 'Web Designer',
       },
       {
         id: 3,
