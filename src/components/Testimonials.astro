@@ -1,14 +1,21 @@
+---
+import { CLIENT_LIST as clients } from "../data";
+
+const clientTestemonials = clients.filter((client) => client.testimonials)
+---
+
 <div class="px-8 md:p-0 lg:px-0">
-    <div class="__glide glide-testimonials">
-        <div class="__glide__track" data-glide-el="track">
-            <ul class="__glide__slides text-md md:text-lg text-center italic">
-                <li class="__glide__slide flex flex-col items-center justify-between space-y-4">
-                    <blockquote>"Indevitus is a reliable partner that delivers quality work on time and within budget. Highly recommended!" - Sal, co-founder, cadrelo.com</blockquote>
-                </li>
-                <li class="__glide__slide flex flex-col items-center justify-between space-y-4">
-                    <blockquote>"Indevitus exceeded our expectations. Their team is polished, proficient, accessible and professional. Big thumbs up!" - Todd, founder, BuySellAds.com</blockquote>
-                </li>
-            </ul>
-        </div>
+  <div class="__glide glide-testimonials">
+    <div class="__glide__track" data-glide-el="track">
+      <ul class="__glide__slides text-md md:text-lg text-center italic">
+        {
+          clientTestemonials.map((client) => (
+            <li class="__glide__slide flex flex-col items-center justify-between space-y-4">
+              <blockquote>{client.testimonials}</blockquote>
+            </li>
+          ))
+        }
+      </ul>
     </div>
+  </div>
 </div>
