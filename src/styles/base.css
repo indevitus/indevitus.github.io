@@ -57,6 +57,10 @@
   .dark .icon-blend {
     @apply [filter:invert(100%)_sepia(0%)_saturate(0%)_hue-rotate(187deg)_brightness(102%)_contrast(107%)];
   }
+
+  .glide__slide {
+    @apply !h-auto flex justify-center items-center flex-col;
+  }
 }
 
 @keyframes rotate {
