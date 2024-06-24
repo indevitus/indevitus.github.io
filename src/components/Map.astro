@@ -1,11 +1,23 @@
 <div id="map-inner" class="h-[500px] sm:h-[600px]"></div>
 
 <script>
+  import * as L from 'leaflet'
   import { GestureHandling } from "leaflet-gesture-handling";
   import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css"
 
+  declare module 'leaflet' {
+    interface MapOptions{
+      gestureHandling: boolean
+    }
+    interface TileLayerOptions {
+      foo?: string,
+      ext?: string
+    }
+  }
+
   L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
-  const options = {
+
+  const options: L.MapOptions = {
     zoomControl: false,
     attributionControl: false,
     center: [44.053798, 17.449204],
