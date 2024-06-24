@@ -1,0 +1,21 @@
+---
+import { JOB_DESCRIPTION as jobs } from "../data";
+
+const hiringJobs = ['senior-frontend', 'web-design'];
+const openPositions = jobs.filter((job: any) => hiringJobs.includes(job.id))
+---
+
+<ul class="pt-5 lg:pl-28 lg:pt-0 space-y-4 mb-10 text-black max-w-fit mx-auto lg:mx-0">
+  {
+    openPositions?.map((openPosition: any) => {
+      const jobExperience = openPosition?.summary?.filter((item:any) => item.title === "Experience")[0].content;
+
+      return(
+      <li class="w-fit">
+        <p class="bg-white shadow-lg text-xl sm:text-3xl xl:text-4xl p-1 pr-3 font-bold mb-1 whitespace-nowrap font-archivoBlack">{ openPosition.title }</p>
+        <span class="text-base text-black font-semibold">{ jobExperience.includes('year') ? `${jobExperience} experience` : jobExperience}</span>
+      </li>
+      )}
+    )
+  }
+</ul>
