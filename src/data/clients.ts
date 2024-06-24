@@ -1,7 +1,7 @@
 export const CLIENT_LIST = [
   {
     id: 'bragg',
-    title: 'Bragg gaming',
+    title: 'Bragg Gaming',
     website: 'https://bragg.group/',
   },
   {
@@ -10,7 +10,7 @@ export const CLIENT_LIST = [
     website: 'https://trampolin.studio/',
   },
   {
-    id: 'engagefactory',
+    id: 'engage-factory',
     title: 'Engage Factory',
     website: 'https://engagefactory.com/',
   },
@@ -42,14 +42,13 @@ export const CLIENT_LIST = [
     website: 'https://www.p-m.si/',
   },
   {
-    id: 'timelesstech',
-    title: 'Timeless tech',
+    id: 'timeless-tech',
+    title: 'Timeless Tech',
     website: 'https://timelesstech.io/',
   },
   {
     id: 'adstar-agency',
-    title: 'Adastra-agency',
+    title: 'AdStar-Digital Agency',
     website: 'https://adstar-agency.com/',
   },
-
 ]
