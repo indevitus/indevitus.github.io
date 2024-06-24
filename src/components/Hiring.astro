@@ -1,10 +1,7 @@
 ---
 import Megaphone from './Icons/Megaphone.astro';
-import { JOB_DESCRIPTION as jobs } from "../data";
 import TriangleIllustration from "./Icons/TriangleIllustration.astro";
-
-const hiringJobs = ['senior-frontend', 'web-design'];
-const openPositions = jobs.filter((job: any) => hiringJobs.includes(job.id))
+import OpenPositions from "./OpenPositions.astro";
 ---
 
 <div class="relative pt-20 sm:py-20">
@@ -26,20 +23,7 @@ const openPositions = jobs.filter((job: any) => hiringJobs.includes(job.id))
   </div>
 
   <div class="lg:col-span-7 h-full border-t-[1.5px] lg:border-l-[1.5px] lg:border-t-0">
-    <ul class="pt-5 lg:pl-28 lg:pt-0 space-y-4 mb-10 text-black max-w-fit mx-auto lg:mx-0">
-      {
-        openPositions?.map((openPosition: any) => {
-          const jobExperience = openPosition?.summary?.filter((item:any) => item.title === "Experience")[0].content;
-
-          return(
-          <li class="w-fit">
-            <p class="bg-white shadow-lg text-xl sm:text-3xl xl:text-4xl p-1 pr-3 font-bold mb-1 whitespace-nowrap font-archivoBlack">{ openPosition.title }</p>
-            <span class="text-base text-black font-semibold">{ jobExperience.includes('year') ? `${jobExperience} experience` : jobExperience}</span>
-          </li>
-          )}
-        )
-      }
-    </ul>
+    <OpenPositions />
 
     <a
       href="/careers"
