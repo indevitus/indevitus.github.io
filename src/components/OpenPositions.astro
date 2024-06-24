@@ -12,8 +12,10 @@ const openPositions = jobs.filter((job: any) => hiringJobs.includes(job.id))
 
       return(
       <li class="w-fit">
-        <p class="bg-white shadow-lg text-xl sm:text-3xl xl:text-4xl p-1 pr-3 font-bold mb-1 whitespace-nowrap font-archivoBlack">{ openPosition.title }</p>
-        <span class="text-base text-black font-semibold">{ jobExperience.includes('year') ? `${jobExperience} experience` : jobExperience}</span>
+        <a href={`careers/${openPosition.id}`} >
+          <p class="bg-white shadow-lg xs:text-lg sm:text-3xl lg:text-2xl 2xl:text-3xl p-2 px-2 sm:px-3 font-bold mb-1 whitespace-nowrap font-archivoBlack hover:scale-[1.03] transition-all duration-300 ease-out">{ openPosition.title }</p>
+          <span class="text-base text-black font-semibold">{ jobExperience.includes('year') ? `${jobExperience} experience` : jobExperience}</span>
+        </a>
       </li>
       )}
     )
