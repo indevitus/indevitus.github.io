@@ -2,7 +2,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
 	darkMode: 'class',
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx}'],
 	theme: {
 		screens: {
 			'xs': '420px',
@@ -17,14 +17,20 @@ module.exports = {
 				padding: '1rem'
 			},
 			colors: {
-				'gold': '#c6932e',
-				black: '#080808',
-				white: '#ffffff',
+				'transparent': 'transparent',
+				'primary': '#c6932e',
+				'secondary': '#080808',
+				'black': '#000000',
+				'white': '#ffffff',
+				'maximum-red': '#dc2626',
 				'gray': {
-					'default': '#808080',
-					'light': '#bdbdbd'
+					'default': '#9ca3af',
+					'darker': '#6b7280'
 				},
-				'blue-diamond' : '#0a66c2'
+				'light-blue': '#dbeafe',
+				'light-green': '#dcfce7',
+				'light-stone': '#f5f5f4',
+				'light-pink': '#fce7f3'
 			},
 			transitionProperty: {
 				'height': 'height',
