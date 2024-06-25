@@ -15,7 +15,9 @@ import OpenPositions from "./OpenPositions.astro";
     <div class="relative px-5 xs:px-8 py-4 font-bold text-4xl sm:text-5xl uppercase shadow-lg bg-white text-black rounded-lg max-w-[268px] min-h-[200px] max-h-[156px] xs:max-h-[unset] text-center -rotate-[4deg]">
       We are
       <span class="text-5xl sm:text-6xl">Hiring</span>
-      <span class="absolute text-sm bg-red-600 right-0 bottom-2 text-white left-[10%] xs:left-[40%] py-[6px] rounded-l rounded-b font-normal">Join our team</span>
+      <a href="/careers#job-section">
+        <span class="absolute text-sm bg-red-600 right-0 bottom-2 text-white left-[10%] xs:left-[40%] py-[6px] rounded-l rounded-b font-normal">Join our team</span>
+      </a>
       <div class="absolute -left-[140px] rotate-180 -scale-y-[1] -bottom-[36px] text-white w-52 min-w-[12rem] -z-[1]">
         <Megaphone />
       </div>
@@ -26,7 +28,7 @@ import OpenPositions from "./OpenPositions.astro";
     <OpenPositions />
 
     <a
-      href="/careers"
+      href="/careers#job-section"
       class="rounded block max-w-fit mx-auto bg-black text-white whitespace-nowrap px-4 lg:px-5 py-2 lg:py-2 lg:ml-28"
     >
       See open positions
