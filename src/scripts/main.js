@@ -11,6 +11,7 @@ import 'aos/dist/aos.css';
         }
     }
 
+    // Clients slider
     if(document.querySelector('.glide-clients')) {
         traverseAndAddClass('.__glide', 'glide');
         traverseAndAddClass('.__glide__track', 'glide__track');
@@ -34,6 +35,7 @@ import 'aos/dist/aos.css';
         }).mount();
     }
 
+    // Team slider
     if(document.querySelector('.glide-team')) {
         traverseAndAddClass('.__glide', 'glide');
         traverseAndAddClass('.__glide__track', 'glide__track');
@@ -46,9 +48,9 @@ import 'aos/dist/aos.css';
         const BREAKPOINTS_LG = 1024;
         const glideSettingsTeam = {
             type: 'carousel',
-            autoplay: 3000,
+            autoplay: 2500,
+            swipeThreshold: 40,
             gap: 30,
-            dragThreshold: true,
             perView: 3,
             breakpoints: {
                 425: {
@@ -79,6 +81,7 @@ import 'aos/dist/aos.css';
         })
     }
 
+    // Testimonials slider
     if (document.querySelector('.glide-testimonials')) {
         traverseAndAddClass('.glide-testimonials .__glide', 'glide');
         traverseAndAddClass('.glide-testimonials .__glide__track', 'glide__track');
