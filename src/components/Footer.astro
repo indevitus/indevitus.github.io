@@ -24,7 +24,7 @@ const { simplified } = Astro.props;
           </a>
         </div>
         :
-        <a href="/" title="Indevitus" class="flex items-center gap-3 mb-6">
+        <div class="flex items-center gap-3 mb-6">
           <img
             id="company-logo"
             loading="lazy"
@@ -33,7 +33,7 @@ const { simplified } = Astro.props;
             height="80px"
             class="h-12 w-12 lg:w-16 lg:h-16 mix-blend-difference transition-height duration-300"
           />
-        </a>
+        </div>
       }
 
       <div class="grid grid-cols-1 lg:grid-cols-2 space-y-4 lg:space-y-0">
@@ -78,7 +78,7 @@ const { simplified } = Astro.props;
 </footer>
 
 <script>
-  const logo = document.getElementById('logo');
+  const logo = document.getElementById('company-logo');
 
   const scrollToTop = () => {
     setTimeout(() => {
