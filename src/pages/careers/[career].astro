@@ -24,7 +24,7 @@ const job = JOB_DESCRIPTION.find(el => el.id === career)
           <div class="text-center flex items-center flex-col text-white">
             <h1 class="font-bold text-4xl lg:text-8xl mb-12">{ job?.title }</h1>
             <span class="text-lg mb-6">{ job?.type }</span>
-            <a class="bg-gold py-4 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-black/70 hover:text-white text-black whitespace-nowrap" href="#">Apply now</a>
+            <a class="bg-primary py-4 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap" href="#">Apply now</a>
           </div>
         </div>
       </section>
@@ -53,14 +53,14 @@ const job = JOB_DESCRIPTION.find(el => el.id === career)
 
           <div class="lg:col-span-4 order-1 lg:order-2">
             <div class="grid grid-cols-12 gap-4 justify-between lg:block py-12 lg:px-8 lg:sticky lg:top-0 flex-wrap">
-              <a class="hidden bg-gold py-4 px-12 rounded-lg lg:inline-block transition-colors duration-300 ease-in-out hover:bg-black/70 hover:text-white text-black whitespace-nowrap" href="#">Apply now</a>
+              <a class="hidden bg-primary py-4 px-12 rounded-lg lg:inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap" href="#">Apply now</a>
               {
                 job?.summary?.map(item => {
                   return (
                     <div class="flex items-center col-span-6 md:col-span-3 lg:mt-12">
                       <img loading="lazy" class="icon-blend w-[30px] h-[30px]" src={item.icon} alt={item.title} width="30" />
                       <div class="ml-4">
-                        <p class="text-gray-500 dark:text-gray-400 mb-1">{ item?.title }</p>
+                        <p class="text-gray-darker dark:text-gray-default mb-1">{ item?.title }</p>
                         <p>{ item?.content }</p>
                       </div>
                     </div>
