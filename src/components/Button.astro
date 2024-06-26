@@ -1,9 +1,9 @@
 ---
-const { link, title } = Astro.props
+const { link, title, text } = Astro.props
 ---
 
-<button id="button" class="blob-btn">
-  {title}
+<button id={`button-${title}`} class="blob-btn" data-link={link}>
+  {text}
   <span class="blob-btn__inner">
     <span class="blob-btn__blobs">
       <span class="blob-btn__blob"></span>
@@ -14,11 +14,26 @@ const { link, title } = Astro.props
   </span>
 </button>
 
-<script define:vars={{link}}>
-  const button = document.getElementById('button');
+<script>
+  const buttons = document.querySelectorAll('[id^="button-"]');
 
-  button?.addEventListener('click', () => {
-    window.location.href = link;
+  function isValidURL(text: string) {
+    let res = text.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+    return (res !== null)
+  };
+
+  buttons.forEach(button => {
+    const link = button.getAttribute('data-link')
+
+    button.addEventListener("click", () => {
+      if(link){
+        if(isValidURL(link)){
+          window.open(link, '_blank')
+        } else{
+          window.location.href = link;
+        }
+      }
+    });
   });
 </script>
 
