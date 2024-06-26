@@ -74,7 +74,7 @@ import {JOB_DESCRIPTION as jobs } from '../data/index'
 
             return (
               <a href={`/careers/${job.id}`} class="w-full lg:w-[70%] flex flex-col sm:flex-row justify-between items-center sm:gap-20 lg:gap-24 p-4 card-shadow card-hover">
-                <div>
+                <div class="flex flex-col">
                   <p class="font-semibold text-xl capitalize mb-4 sm:mb-0">{job.id}</p>
                   <span class="text-gray-darker dark:text-gray-default text-xs">{job?.type}</span>
                 </div>
@@ -86,7 +86,7 @@ import {JOB_DESCRIPTION as jobs } from '../data/index'
                   </div>
                   <div class="w-1/2">
                     <span class="text-gray-darker dark:text-gray-default text-sm">Work model</span>
-                    <p>{job?.work_model}</p>
+                    <p class="capitalize">{job?.work_model}</p>
                   </div>
                 </div>
               </a>
