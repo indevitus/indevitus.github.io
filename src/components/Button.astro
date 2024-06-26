@@ -24,11 +24,11 @@ const { link, title } = Astro.props
 
 <style>
 .blob-btn {
-  @apply z-[1] relative px-8 py-4 text-center uppercase text-black font-bold bg-transparent transition-colors duration-500 rounded-[30px];
+  @apply z-[1] relative px-8 py-4 text-center uppercase text-black dark:text-white font-bold transition-colors duration-500 rounded-[30px];
 }
 
 .blob-btn:before {
-  @apply content-[""] z-[1] absolute left-0 top-0 w-full h-full border-2 border-solid border-secondary rounded-[30px];
+  @apply content-[""] z-[1] absolute left-0 top-0 w-full h-full border border-solid border-secondary rounded-[30px];
 }
 
 .blob-btn:after {
@@ -36,7 +36,7 @@ const { link, title } = Astro.props
 }
 
 .blob-btn:hover {
-  @apply text-white rounded-[30px];
+  @apply text-white dark:text-black rounded-[30px];
 }
 
 .blob-btn:hover:after {
@@ -44,7 +44,7 @@ const { link, title } = Astro.props
 }
 
 .blob-btn__inner {
-  @apply -z-[1] overflow-hidden absolute left-0 top-0 w-full h-full rounded-[30px] bg-white;
+  @apply -z-[1] overflow-hidden absolute left-0 top-0 w-full h-full rounded-[30px] bg-white dark:bg-secondary;
 }
 
 .blob-btn__blobs {
@@ -52,7 +52,7 @@ const { link, title } = Astro.props
 }
 
 .blob-btn__blob {
-  @apply absolute top-[2px] w-[calc(100%/3)] h-full bg-black rounded-full transition-transform duration-[450ms] [transform:translate3d(0,_150%,_0)_scale(1.7)];
+  @apply absolute top-[2px] w-[calc(100%/3)] h-full bg-secondary dark:bg-white rounded-full transition-transform duration-[450ms] [transform:translate3d(0,_150%,_0)_scale(1.7)];
 }
 
 @supports (filter: url('#goo')) {
