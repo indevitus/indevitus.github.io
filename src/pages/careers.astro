@@ -71,11 +71,13 @@ import {JOB_DESCRIPTION as jobs } from '../data/index'
         {
           jobs?.map((job) => {
             const jobExperience = job?.summary?.filter(item => item.title === "Experience")[0].content;
-            const datePosted = job?.summary?.filter(item => item.title === "Date posted")[0].content;
 
             return (
               <a href={`/careers/${job.id}`} class="w-full lg:w-[70%] flex flex-col sm:flex-row justify-between items-center sm:gap-20 lg:gap-24 p-4 card-shadow card-hover">
-                <p class="font-semibold text-xl capitalize mb-4 sm:mb-0">{job.id}</p>
+                <div>
+                  <p class="font-semibold text-xl capitalize mb-4 sm:mb-0">{job.id}</p>
+                  <span class="text-gray-darker dark:text-gray-default text-xs">{job?.type}</span>
+                </div>
 
                 <div class="w-full sm:w-1/2 flex justify-around lg:justify-between items-center text-center">
                   <div class="w-1/2">
@@ -83,8 +85,8 @@ import {JOB_DESCRIPTION as jobs } from '../data/index'
                     <p>{jobExperience}</p>
                   </div>
                   <div class="w-1/2">
-                    <span class="text-gray-darker dark:text-gray-default text-sm">Date posted</span>
-                    <p>{datePosted}</p>
+                    <span class="text-gray-darker dark:text-gray-default text-sm">Work model</span>
+                    <p>{job?.work_model}</p>
                   </div>
                 </div>
               </a>
@@ -102,10 +104,10 @@ import {JOB_DESCRIPTION as jobs } from '../data/index'
 }
 
 .card-shadow {
-  @apply transition-all duration-300 ease-in [box-shadow:rgba(0,0,0,0.5)_0px_0px_0.25em,_rgba(0,0,0,0.25)_0px_0.25em_1em] dark:[box-shadow:rgba(67,71,85,0.70)_0px_0px_0.25em,_rgba(90,125,188,0.08)_0px_0.25em_1em];
+  @apply transition-all duration-300 ease-in [box-shadow:rgba(0,0,0,0.16)_0px_0px_6px,_rgba(0,0,0,0.23)_0px_0_6px] dark:[box-shadow:rgba(67,71,85,0.70)_0px_0px_0.25em,_rgba(90,125,188,0.08)_0px_0.25em_1em];
 }
 
 .card-hover:hover {
-  @apply scale-[1.02] [box-shadow:rgba(0,0,0,0.5)_0px_0px_0.6em_3px,_rgba(0,0,0,0.25)_0px_0.6em_1em] dark:[box-shadow:rgba(67,71,85,0.70)_0px_0px_0.6em_3px,_rgba(90,125,188,0.08)_0px_0.6em_1em];
+  @apply scale-[1.02] [box-shadow:rgba(0,0,0,0.22)_0px_0px_0.6em_3px,_rgba(0,0,0,0.25)_0px_0.6em_1em] dark:[box-shadow:rgba(67,71,85,0.70)_0px_0px_0.6em_3px,_rgba(90,125,188,0.08)_0px_0.6em_1em];
 }
 </style>
