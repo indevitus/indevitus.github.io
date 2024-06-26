@@ -3,6 +3,7 @@ export const JOB_DESCRIPTION = [
     id: 'senior-frontend',
     title: 'Senior Front-End Developer',
     type: 'Full Time',
+    work_model: 'remote/office',
     summary: [
       {
         id: 1,
@@ -196,6 +197,7 @@ export const JOB_DESCRIPTION = [
     id: 'medior-frontend',
     title: 'Medior Front-End Developer',
     type: 'Full Time',
+    work_model: 'remote/office',
     summary: [
       {
         id: 1,
@@ -389,6 +391,7 @@ export const JOB_DESCRIPTION = [
     id: 'web-design',
     title: 'Web Designer Internship',
     type: 'Full Time',
+    work_model: 'office',
     summary: [
       {
         id: 1,
@@ -582,6 +585,7 @@ export const JOB_DESCRIPTION = [
     id: 'intern-frontend',
     title: 'Front-End Internship',
     type: 'Full Time',
+    work_model: 'office',
     summary: [
       {
         id: 1,
