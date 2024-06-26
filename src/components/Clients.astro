@@ -8,7 +8,7 @@ import { CLIENT_LIST as clients } from "../data";
       <ul class="__glide__slides">
         {
           clients?.map((client: any, index: number) => (
-              <li data-aos="fade" data-aos-delay={index * 100} data-aos-duration="1000" class="__glide__slide flex items-center justify-between space-y-4">
+              <li data-aos="fade" data-aos-delay={index * 100} data-aos-duration="1000" class="__glide__slide flex items-center justify-center space-y-4">
                 <a href={client.website} target="_blank" title={client.title}>
                   <img class="icon-blend" src={`/clients/${client.id}.svg`} alt={`Logo of ${client.title}`}/>
                 </a>
