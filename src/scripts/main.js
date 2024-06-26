@@ -55,9 +55,10 @@ import 'aos/dist/aos.css';
             breakpoints: {
                 425: {
                     perView: 1.5,
+                    swipeThreshold: 20,
                 },
                 768: {
-                    perView: 2
+                    perView: 2,
                 }
             }
         }
