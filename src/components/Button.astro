@@ -56,7 +56,7 @@ const { link, title, text } = Astro.props
 }
 
 .blob-btn:after {
-  @apply content-[""] -z-[2] absolute left-[3px] top-[3px] w-full h-full transition-all duration-1000 delay-200 rounded-[30px];
+  @apply content-[""] -z-[2] absolute left-[3px] top-[3px] w-full h-full transition-all duration-500 delay-200 rounded-[30px];
 }
 
 .blob-btn:hover {
@@ -64,7 +64,7 @@ const { link, title, text } = Astro.props
 }
 
 .blob-btn:hover:after {
-  @apply transition-all duration-300 left-0 top-0 rounded-[30px];
+  @apply transition-all duration-[450ms] left-0 top-0 rounded-[30px];
 }
 
 .blob-btn__inner {
