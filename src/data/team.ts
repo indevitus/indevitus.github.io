@@ -1,56 +1,65 @@
 export const TEAM_INFO = [
   {
-    id:'adnan',
-    name:'Adnan Rizvan',
+    id: 1,
+    full_name: 'Adnan Rizvan',
+    name: 'Adnan',
     position: 'Senior Developer',
     linkedIn: 'https://www.linkedin.com/in/rizvanadnan/'
   },
   {
-    id:'haris',
-    name:'Haris Begić',
+    id: 2,
+    full_name: 'Haris Begić',
+    name: 'Haris',
     position: 'Software Engineer',
     linkedIn: 'https://www.linkedin.com/in/haris-begi%C4%87-2b73531a9/'
   },
   {
-    id:'aldin',
-    name:'Aldin Mikara',
+    id: 3,
+    full_name: 'Aldin Mikara',
+    name: 'Aldin',
     position: 'Frontend Developer',
     linkedIn: 'https://www.linkedin.com/in/aldin-mikara-08b9a7201/'
   },
   {
-    id:'harun',
-    name:'Harun Mešan',
+    id: 4,
+    full_name: 'Harun Mešan',
+    name: 'Harun',
     position: 'Frontend Developer',
     linkedIn: 'https://www.linkedin.com/in/harun-me%C5%A1an-34b535227/'
   },
   {
-    id:'mehmed',
-    name:'Mehmed Karadža',
+    id: 5,
+    full_name: 'Mehmed Karadža',
+    name: 'Mehmed',
     position: 'Frontend Developer',
     linkedIn: 'https://www.linkedin.com/in/mehmedkaradza'
   },
   {
-    id:'emir',
-    name:'Emir Gajip',
+    id: 6,
+    full_name: 'Emir Gajip',
+    name: 'Emir',
     position: 'Frontend Developer',
     linkedIn: 'https://www.linkedin.com/in/emir-gajip-b2979a202/'
   },
   {
-    id:'nejra',
-    name:'Nejra Duvnjak',
+    id: 7,
+    full_name: 'Nejra Duvnjak',
+    name:'Nejra',
     position: 'Junior Frontend Developer',
     linkedIn: 'https://www.linkedin.com/in/nejra-duvnjak-61296b233/'
   },
   {
-    id:'dino',
-    name:'Dino Halilović',
+    id: 8,
+    full_name: 'Dino Halilović',
+    name:'Dino',
     position: 'Frontend Developer',
     linkedIn: 'https://www.linkedin.com/in/dino-halke/'
   },
   {
-    id:'husan',
-    name:'Husan Omerinović',
+    id: 9,
+    full_name: 'Husan Omerinović',
+    name: 'Husan',
     position: 'Junior Frontend Developer',
     linkedIn: 'https://www.linkedin.com/in/husan-omerinovic-69b5b8286/'
-  },
+  }
 ]
