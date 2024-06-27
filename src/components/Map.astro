@@ -50,20 +50,16 @@
     iconSize: [40, 40]
   });
 
-  let currentMapLayer = light_mode_map;
-
   const toggleMapLayer = () => {
     if (document.documentElement.classList.contains("dark")) {
       map.removeLayer(dark_mode_map);
       map.addLayer(light_mode_map);
-      currentMapLayer = dark_mode_map;
       let singleMarkerDark = L.marker([44.053798, 17.449204], {icon: myIconDark});
       let popup = singleMarkerDark.bindPopup('Indevitus').openPopup();
       popup.addTo(map);
     } else {
       map.removeLayer(light_mode_map);
       map.addLayer(dark_mode_map);
-      currentMapLayer = light_mode_map;
       let singleMarkerLight = L.marker([44.053798, 17.449204], {icon: myIconLight});
       let popup = singleMarkerLight.bindPopup('Indevitus').openPopup();
       popup.addTo(map);
