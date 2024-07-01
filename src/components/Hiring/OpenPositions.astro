@@ -19,9 +19,7 @@ const openPositions = jobs.filter((job: any) => hiringJobs.includes(job.id));
               {openPosition.title}
             </p>
             <span class="text-base text-black font-semibold">
-              {jobExperience.includes("year")
-                ? `${jobExperience} experience`
-                : jobExperience}
+              {jobExperience.includes("year") ? `${jobExperience} experience` : jobExperience}
             </span>
           </a>
         </li>

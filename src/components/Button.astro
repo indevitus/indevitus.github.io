@@ -1,5 +1,5 @@
 ---
-const { link, title, text } = Astro.props;
+const { link = '/', title, text } = Astro.props;
 ---
 
 <button id={`button-${title}`} class="blob-btn" data-link={link}>
