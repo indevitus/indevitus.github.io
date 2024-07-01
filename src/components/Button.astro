@@ -3,7 +3,7 @@ const { link, title, text } = Astro.props
 ---
 
 <button id={`button-${title}`} class="blob-btn" data-link={link}>
-  {text}
+  <span>{text}</span>
   <span class="blob-btn__inner">
     <span class="blob-btn__blobs">
       <span class="blob-btn__blob"></span>
