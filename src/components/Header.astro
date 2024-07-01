@@ -4,12 +4,18 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 const { headerWithoutIllustration } = Astro.props;
 ---
 
-<header class={`absolute left-0 top-0 w-full ${headerWithoutIllustration ? 'bg-white dark:bg-secondary'  : 'bg-transparent'} z-100 transition-all duration-300`}>
+<header
+  class={`absolute left-0 top-0 w-full ${headerWithoutIllustration ? 'bg-white dark:bg-secondary' : 'bg-transparent'} z-100 transition-all duration-300`}
+>
   <div
     id="header-content"
     class="container flex justify-between items-center lg:justify-start select-none py-2 lg:py-6 bg-transparent transition-all duration-300"
   >
-    <a href="/" title="Indevitus" class="block text-black dark:text-white transition-colors duration-300 w-12 lg:w-16">
+    <a
+      href="/"
+      title="Indevitus"
+      class="block text-black dark:text-white transition-colors duration-300 w-12 lg:w-16"
+    >
       <Logo />
     </a>
 
@@ -25,30 +31,33 @@ const { headerWithoutIllustration } = Astro.props;
 
     <nav
       id="menu"
-      class={`flex flex-col overflow-y-auto fixed w-full h-dvh lg:h-auto bottom-0 left-0 py-8 bg-white dark:bg-secondary ${headerWithoutIllustration ? 'lg:bg-white lg:dark:bg-secondary' : 'lg:bg-transparent lg:dark:bg-transparent' } transition-colors duration-300 z-100 invisible lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase`}
+      class={`flex flex-col overflow-y-auto fixed w-full h-dvh lg:h-auto bottom-0 left-0 py-8 bg-white dark:bg-secondary ${headerWithoutIllustration ? 'lg:bg-white lg:dark:bg-secondary' : 'lg:bg-transparent lg:dark:bg-transparent'} transition-colors duration-300 z-100 invisible lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase`}
     >
-      <ul class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white font-semibold text-sm">
+      <ul
+        class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white font-semibold text-sm"
+      >
         <li class="mb-6 lg:mb-0">
           <a
             href="/#contact"
-            class={`relative after:content-[''] after:absolute after:-top-1 after:-bottom-1 after:-left-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:w-0 ${ headerWithoutIllustration ? 'after:mix-blend-difference' : 'after:mix-blend-darken after:dark:mix-blend-difference'} after:bg-white hover:after:w-1/2`}
-            >Contact</a>
+            class={`relative after:content-[''] after:absolute after:-top-1 after:-bottom-1 after:-left-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:w-0 ${headerWithoutIllustration ? 'after:mix-blend-difference' : 'after:mix-blend-darken after:dark:mix-blend-difference'} after:bg-white hover:after:w-1/2`}
+            >Contact</a
+          >
         </li>
         <li class="mb-6 lg:mb-0">
           <a
             href="/careers"
-            class={`relative after:content-[''] after:absolute after:-top-1 after:-bottom-1 after:-left-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:w-0 ${ headerWithoutIllustration ? 'after:mix-blend-difference' : 'after:mix-blend-darken after:dark:mix-blend-difference'} after:bg-white hover:after:w-1/2`}
-            >Careers</a>
+            class={`relative after:content-[''] after:absolute after:-top-1 after:-bottom-1 after:-left-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:w-0 ${headerWithoutIllustration ? 'after:mix-blend-difference' : 'after:mix-blend-darken after:dark:mix-blend-difference'} after:bg-white hover:after:w-1/2`}
+            >Careers</a
+          >
         </li>
       </ul>
 
       <div class="container lg:px-0 lg:ml-8 mt-auto py-2 lg:py-0">
-        <ThemeSwitcher title="header"/>
+        <ThemeSwitcher title="header" />
       </div>
     </nav>
   </div>
 </header>
-
 
 <script>
   const BREAKPOINT_LG = 1024;
@@ -60,16 +69,19 @@ const { headerWithoutIllustration } = Astro.props;
 
   let mobileMenuOpen = false;
 
-  function bodyScrollLock () {
+  function bodyScrollLock() {
     document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'auto';
   }
 
-  function mobileMenuToggle () {
+  function mobileMenuToggle() {
     mobileMenuOpen = !mobileMenuOpen;
     const visibilityClass = mobileMenuOpen ? 'visible' : 'invisible';
 
     if (menu) {
-      menu?.classList.replace(visibilityClass === 'visible' ? 'invisible' : 'visible', visibilityClass);
+      menu?.classList.replace(
+        visibilityClass === 'visible' ? 'invisible' : 'visible',
+        visibilityClass,
+      );
       menu.style.top = `${header?.offsetHeight}px`;
       hamburger?.classList.toggle('is-opened', mobileMenuOpen);
       heroIllustration?.classList.toggle('!opacity-0', mobileMenuOpen);
@@ -89,7 +101,7 @@ const { headerWithoutIllustration } = Astro.props;
   window.onresize = onResize;
 
   if (hamburger) {
-    hamburger.addEventListener("click", mobileMenuToggle);
+    hamburger.addEventListener('click', mobileMenuToggle);
   }
 </script>
 

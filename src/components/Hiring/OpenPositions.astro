@@ -1,23 +1,31 @@
 ---
-import { JOB_DESCRIPTION as jobs } from "../../data";
+import { JOB_DESCRIPTION as jobs } from '../../data';
 
 const hiringJobs = ['senior-frontend', 'web-design'];
-const openPositions = jobs.filter((job: any) => hiringJobs.includes(job.id))
+const openPositions = jobs.filter((job: any) => hiringJobs.includes(job.id));
 ---
 
-<ul class="pt-5 lg:pl-28 lg:pt-0 space-y-4 mb-10 text-black max-w-fit mx-auto lg:mx-0">
+<ul
+  class="pt-5 lg:pl-28 lg:pt-0 space-y-4 mb-10 text-black max-w-fit mx-auto lg:mx-0"
+>
   {
     openPositions?.map((openPosition: any) => {
-      const jobExperience = openPosition?.summary.experience
+      const jobExperience = openPosition?.summary.experience;
 
-      return(
-      <li class="w-fit">
-        <a href={`careers/${openPosition.id}`} >
-          <p class="bg-white shadow-lg xs:text-lg sm:text-3xl lg:text-2xl 2xl:text-3xl p-2 px-2 sm:px-3 font-bold mb-1 whitespace-nowrap font-archivoBlack hover:scale-[1.03] transition-all duration-300 ease-out">{ openPosition.title }</p>
-          <span class="text-base text-black font-semibold">{ jobExperience.includes('year') ? `${jobExperience} experience` : jobExperience}</span>
-        </a>
-      </li>
-      )}
-    )
+      return (
+        <li class="w-fit">
+          <a href={`careers/${openPosition.id}`}>
+            <p class="bg-white shadow-lg xs:text-lg sm:text-3xl lg:text-2xl 2xl:text-3xl p-2 px-2 sm:px-3 font-bold mb-1 whitespace-nowrap font-archivoBlack hover:scale-[1.03] transition-all duration-300 ease-out">
+              {openPosition.title}
+            </p>
+            <span class="text-base text-black font-semibold">
+              {jobExperience.includes("year")
+                ? `${jobExperience} experience`
+                : jobExperience}
+            </span>
+          </a>
+        </li>
+      );
+    })
   }
 </ul>

@@ -1,17 +1,17 @@
 <div id="map-inner" class="h-[500px] sm:h-[600px]"></div>
 
 <script>
-  import * as L from 'leaflet'
-  import { GestureHandling } from "leaflet-gesture-handling";
-  import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css"
+  import * as L from 'leaflet';
+  import { GestureHandling } from 'leaflet-gesture-handling';
+  import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css';
 
   declare module 'leaflet' {
-    interface MapOptions{
-      gestureHandling: boolean
+    interface MapOptions {
+      gestureHandling: boolean;
     }
     interface TileLayerOptions {
-      foo?: string,
-      ext?: string
+      foo?: string;
+      ext?: string;
     }
   }
 
@@ -23,58 +23,77 @@
     center: [44.053798, 17.449204],
     gestureHandling: true,
     minZoom: 14,
-    maxZoom: 18
-  }
+    maxZoom: 18,
+  };
 
   let map = L.map('map', options).setView([44.053798, 17.449204], 25);
-  let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+  let osm = L.tileLayer(
+    'https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}',
+    {
+      foo: 'bar',
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    },
+  );
   osm.addTo(map);
 
-  let dark_mode_map = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.{ext}', {
-    attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    ext: 'png'
-  });
+  let dark_mode_map = L.tileLayer(
+    'https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.{ext}',
+    {
+      attribution:
+        '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      ext: 'png',
+    },
+  );
 
-  let light_mode_map = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd'
-  });
+  let light_mode_map = L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+    },
+  );
 
   let myIconDark = L.icon({
     iconUrl: 'location-icon-white.png',
-    iconSize: [40, 40]
+    iconSize: [40, 40],
   });
 
   let myIconLight = L.icon({
     iconUrl: 'location-icon-black.png',
-    iconSize: [40, 40]
+    iconSize: [40, 40],
   });
 
   const toggleMapLayer = () => {
     if (document.documentElement.classList.contains("dark")) {
       map.removeLayer(dark_mode_map);
       map.addLayer(light_mode_map);
-      let singleMarkerDark = L.marker([44.053798, 17.449204], {icon: myIconDark});
+      let singleMarkerDark = L.marker([44.053798, 17.449204], {
+        icon: myIconDark,
+      });
       let popup = singleMarkerDark.bindPopup('Indevitus').openPopup();
       popup.addTo(map);
     } else {
       map.removeLayer(light_mode_map);
       map.addLayer(dark_mode_map);
-      let singleMarkerLight = L.marker([44.053798, 17.449204], {icon: myIconLight});
+      let singleMarkerLight = L.marker([44.053798, 17.449204], {
+        icon: myIconLight,
+      });
       let popup = singleMarkerLight.bindPopup('Indevitus').openPopup();
       popup.addTo(map);
     }
-  }
+  };
 
   const htmlElement = document.querySelector('html');
 
   function observerCallback(mutationList: any) {
     if (mutationList[0].attributeName === 'class') {
-      toggleMapLayer()
+      toggleMapLayer();
     }
   }
-  const observer = new MutationObserver(observerCallback)
-  observer.observe(htmlElement as Node, { attributes: true })
+  const observer = new MutationObserver(observerCallback);
+  observer.observe(htmlElement as Node, { attributes: true });
 
   toggleMapLayer();
 </script>

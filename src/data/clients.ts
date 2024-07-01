@@ -23,13 +23,15 @@ export const CLIENT_LIST = [
     id: 'buysellads',
     title: 'BuySellAds',
     website: 'https://www.buysellads.com/',
-    testimonials: '"Indevitus exceeded our expectations. Their team is polished, proficient, accessible and professional. Big thumbs up!" - Todd, founder, BuySellAds.com'
+    testimonials:
+      '"Indevitus exceeded our expectations. Their team is polished, proficient, accessible and professional. Big thumbs up!" - Todd, founder, BuySellAds.com',
   },
   {
     id: 'cadrelo',
     title: 'Cadrelo',
     website: 'https://cadrelo.com/',
-    testimonials: '"Indevitus is a reliable partner that delivers quality work on time and within budget. Highly recommended!" - Sal, co-founder, cadrelo.com'
+    testimonials:
+      '"Indevitus is a reliable partner that delivers quality work on time and within budget. Highly recommended!" - Sal, co-founder, cadrelo.com',
   },
   {
     id: 'optiweb',
@@ -51,4 +53,4 @@ export const CLIENT_LIST = [
     title: 'AdStar-Digital Agency',
     website: 'https://adstar-agency.com/',
   },
-]
+];

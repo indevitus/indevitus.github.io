@@ -1,15 +1,28 @@
 ---
-import ComputerLogo from './Icons/ComputerLogo.astro'
-import BlobIllustration from "./Icons/BlobIllustration.astro"
-import Button from "./Button.astro"
+import ComputerLogo from './Icons/ComputerLogo.astro';
+import BlobIllustration from './Icons/BlobIllustration.astro';
+import Button from './Button.astro';
 ---
 
 <div id="hero" class="relative z-0 py-16 overflow-hidden xl:overflow-visible">
-  <div class="container grid lg:grid-cols-12 gap-x-12 min-h-screen items-center">
-    <div data-aos="fade" data-aos-delay="100" data-aos-duration="1400" class="relative z-[100] lg:col-span-7 lg:pt-22 order-last lg:order-first">
-      <p class="text-5xl lg:text-7xl font-archivoBlack font-bold pb-8 lg:max-w-[90%]">Solutions that are tailored to your needs</p>
+  <div
+    class="container grid lg:grid-cols-12 gap-x-12 min-h-screen items-center"
+  >
+    <div
+      data-aos="fade"
+      data-aos-delay="100"
+      data-aos-duration="1400"
+      class="relative z-[100] lg:col-span-7 lg:pt-22 order-last lg:order-first"
+    >
+      <p
+        class="text-5xl lg:text-7xl font-archivoBlack font-bold pb-8 lg:max-w-[90%]"
+      >
+        Solutions that are tailored to your needs
+      </p>
       <p class="text-xl lg:text-3xl lg:leading-[3rem] pb-10">
-        By harnessing the collective expertise of our talented professionals, we deliver solutions that drive real business results and create value for our clients.
+        By harnessing the collective expertise of our talented professionals, we
+        deliver solutions that drive real business results and create value for
+        our clients.
       </p>
       <Button
         link="https://www.linkedin.com/company/indevitus/"
@@ -18,12 +31,22 @@ import Button from "./Button.astro"
       />
     </div>
 
-    <div class="relative lg:col-span-5 mx-auto  text-black w-[300px] xs:w-[400px] lg:w-full pt-[96px] lg:pt-0 xl:mr-[-70px]">
-      <div class="relative z-[100]" data-aos="fade" data-aos-delay="100" data-aos-duration="1400">
-        <ComputerLogo  />
+    <div
+      class="relative lg:col-span-5 mx-auto text-black w-[300px] xs:w-[400px] lg:w-full pt-[96px] lg:pt-0 xl:mr-[-70px]"
+    >
+      <div
+        class="relative z-[100]"
+        data-aos="fade"
+        data-aos-delay="100"
+        data-aos-duration="1400"
+      >
+        <ComputerLogo />
       </div>
 
-      <span id="hero-illustration" class="absolute rotate-[118deg] right-0 -top-[86%] -left-3/4 lg:-rotate-[4deg] text-primary z-50 pointer-events-none">
+      <span
+        id="hero-illustration"
+        class="absolute rotate-[118deg] right-0 -top-[86%] -left-3/4 lg:-rotate-[4deg] text-primary z-50 pointer-events-none"
+      >
         <BlobIllustration />
       </span>
     </div>

@@ -1,19 +1,19 @@
 ---
 export function getStaticPaths() {
   return [
-    {params: {career: 'senior-frontend'}},
-    {params: {career: 'medior-frontend'}},
-    {params: {career: 'web-design'}},
-    {params: {career: 'intern-frontend'}},
+    { params: { career: 'senior-frontend' } },
+    { params: { career: 'medior-frontend' } },
+    { params: { career: 'web-design' } },
+    { params: { career: 'intern-frontend' } },
   ];
 }
 
-import Hiring from "../../layouts/Hiring.astro";
-import { JOB_DESCRIPTION } from '../../data'
+import Hiring from '../../layouts/Hiring.astro';
+import { JOB_DESCRIPTION } from '../../data';
 
 const { career } = Astro.params;
 
-const job = JOB_DESCRIPTION.find(el => el.id === career)
+const job = JOB_DESCRIPTION.find((el) => el.id === career);
 
 const iconDisplay: { [key: string]: string } = {
   location: '/location-icon-black.png',
@@ -23,7 +23,7 @@ const iconDisplay: { [key: string]: string } = {
   working_hours: '/clock.svg',
   working_days: '/days.svg',
   vacancy: '/vacancy.svg',
-}
+};
 
 const formatKey = (text: string) => {
   return text.replace(/_/g, ' ');
@@ -33,12 +33,17 @@ const formatKey = (text: string) => {
 <Hiring title="We are Indevitus">
   <main class="dark:text-white">
     <div>
-      <section class="careers--hero flex justify-center items-center py-[10rem] lg:py-[16rem] bg-cover bg-top bg-no-repeat lg:mb-24">
+      <section
+        class="careers--hero flex justify-center items-center py-[10rem] lg:py-[16rem] bg-cover bg-top bg-no-repeat lg:mb-24"
+      >
         <div class="container">
           <div class="text-center flex items-center flex-col text-white">
-            <h1 class="font-bold text-4xl lg:text-8xl mb-12">{ job?.title }</h1>
-            <span class="text-lg mb-6">{ job?.type }</span>
-            <a class="bg-primary py-4 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap" href="#">Apply now</a>
+            <h1 class="font-bold text-4xl lg:text-8xl mb-12">{job?.title}</h1>
+            <span class="text-lg mb-6">{job?.type}</span>
+            <a
+              class="bg-primary py-4 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap"
+              href="#">Apply now</a
+            >
           </div>
         </div>
       </section>
@@ -46,39 +51,52 @@ const formatKey = (text: string) => {
       <section class="container mb-24">
         <div class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-8">
           <div class="mb-8 lg:col-span-8 order-2 lg:order-1">
-            <h2 class="uppercase font-bold text-3xl lg:text-5xl mb-8">{ job?.title }</h2>
+            <h2 class="uppercase font-bold text-3xl lg:text-5xl mb-8">
+              {job?.title}
+            </h2>
             {
               job?.description.map((element) => {
                 return (
-                  <p class="text-2xl lg:text-3xl mb-5">{ element?.title }</p>
-                  <ul class="mb-4">
-                    {element.content.map(content => {
-                      return (
-                        <li>
-                          { content?.text }
-                        </li>
-                      )
-                    })}
-                  </ul>
-                )
+                  <>
+                    <p class="text-2xl lg:text-3xl mb-5">{element?.title}</p>
+                    <ul class="mb-4">
+                      {element.content.map((content) => {
+                        return <li>{content?.text}</li>;
+                      })}
+                    </ul>
+                  </>
+                );
               })
             }
           </div>
 
           <div class="lg:col-span-4 order-1 lg:order-2">
-            <div class="grid grid-cols-12 gap-4 justify-between lg:block py-12 lg:px-8 lg:sticky lg:top-0 flex-wrap">
-              <a class="hidden bg-primary py-4 px-12 rounded-lg lg:inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap" href="#">Apply now</a>
+            <div
+              class="grid grid-cols-12 gap-4 justify-between lg:block py-12 lg:px-8 lg:sticky lg:top-0 flex-wrap"
+            >
+              <a
+                class="hidden bg-primary py-4 px-12 rounded-lg lg:inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap"
+                href="#">Apply now</a
+              >
               {
                 Object.entries(job?.summary ?? {}).map(([key, value]) => {
                   return (
                     <div class="flex items-center col-span-6 md:col-span-3 lg:mt-12">
-                      <img loading="lazy" class="icon-blend w-[30px] h-[30px]" src={iconDisplay[key]} alt={key} width="30" />
+                      <img
+                        loading="lazy"
+                        class="icon-blend w-[30px] h-[30px]"
+                        src={iconDisplay[key]}
+                        alt={key}
+                        width="30"
+                      />
                       <div class="ml-4">
-                        <p class="text-gray-darker dark:text-gray-default mb-1 capitalize">{ formatKey(key) }</p>
-                        <p>{ value }</p>
+                        <p class="text-gray-darker dark:text-gray-default mb-1 capitalize">
+                          {formatKey(key)}
+                        </p>
+                        <p>{value}</p>
                       </div>
                     </div>
-                  )
+                  );
                 })
               }
             </div>
@@ -89,12 +107,13 @@ const formatKey = (text: string) => {
   </main>
 </Hiring>
 
-<script>
-
-</script>
-
 <style>
-.careers--hero {
-  background-image: linear-gradient(45deg, rgba(0, 0, 0, .84) 100%, rgba(0, 0, 0, 0) 100%), url('/indevitus-team-carting.JPG');
-}
+  .careers--hero {
+    background-image: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.84) 100%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url('/indevitus-team-carting.JPG');
+  }
 </style>

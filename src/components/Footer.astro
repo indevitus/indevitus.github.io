@@ -5,35 +5,43 @@ const { simplified } = Astro.props;
 ---
 
 <footer class="relative overflow-hidden pb-6">
-  <div class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around`}>
+  <div
+    class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around`}
+  >
     <div class="pt-16 lg:pt-24 flex flex-col justify-evenly flex-1">
       {
-        !simplified ?
-        <div id="contact" class="lg:w-2/3 dark:text-white mb-10">
-          <p class="text-5xl lg:text-7xl font-bold pb-8 lg:max-w-[90%]">Still not convinced?</p>
-          <p class="text-xl lg:text-2xl pb-10 lg:max-w-[90%]">
-            In today's competitive marketplace, partnering with the right outsourcing provider can make all the difference.
-            <br/>Contact us today to learn more about how we can help you unlock the full potential of your business.
-          </p>
-          <a
-            href="https://www.linkedin.com/company/indevitus/"
-            class="rounded inline-block transition-colors duration-300 ease-in-out bg-secondary dark:bg-white hover:!bg-secondary/70 dark:hover:!bg-white/90 text-white dark:text-black whitespace-nowrap px-3 lg:px-5 py-1 lg:py-2"
-            target="_blank"
-          >
-            Get in touch
-          </a>
-        </div>
-        :
-        <div class="flex items-center gap-3 mb-6">
-          <img
-            id="company-logo"
-            loading="lazy"
-            src="/badge-white.svg"
-            alt="Indevitus"
-            height="80px"
-            class="h-12 w-12 lg:w-16 lg:h-16 mix-blend-difference transition-height duration-300"
-          />
-        </div>
+        !simplified ? (
+          <div id="contact" class="lg:w-2/3 dark:text-white mb-10">
+            <p class="text-5xl lg:text-7xl font-bold pb-8 lg:max-w-[90%]">
+              Still not convinced?
+            </p>
+            <p class="text-xl lg:text-2xl pb-10 lg:max-w-[90%]">
+              In today's competitive marketplace, partnering with the right
+              outsourcing provider can make all the difference.
+              <br />
+              Contact us today to learn more about how we can help you unlock
+              the full potential of your business.
+            </p>
+            <a
+              href="https://www.linkedin.com/company/indevitus/"
+              class="rounded inline-block transition-colors duration-300 ease-in-out bg-secondary dark:bg-white hover:!bg-secondary/70 dark:hover:!bg-white/90 text-white dark:text-black whitespace-nowrap px-3 lg:px-5 py-1 lg:py-2"
+              target="_blank"
+            >
+              Get in touch
+            </a>
+          </div>
+        ) : (
+          <div class="flex items-center gap-3 mb-6">
+            <img
+              id="company-logo"
+              loading="lazy"
+              src="/badge-white.svg"
+              alt="Indevitus"
+              height="80px"
+              class="h-12 w-12 lg:w-16 lg:h-16 mix-blend-difference transition-height duration-300"
+            />
+          </div>
+        )
       }
 
       <div class="grid grid-cols-1 lg:grid-cols-2 space-y-4 lg:space-y-0">
@@ -66,15 +74,21 @@ const { simplified } = Astro.props;
         >
           <img class="w-6 icon-blend" src="/linkedin.svg" alt="LinkedIn" />
         </a>
-        <p class="relative text-xs sm:text-sm pl-4 xs:pl-8 before:absolute before:w-[6px] before:h-[6px] before:left-[5px] before:xs:left-3 before:top-1/2 before:-translate-y-1/2 before:rounded-full before:bg-secondary before:dark:bg-white">&copy; Indevitus.com { new Date().getFullYear() } - All rights reserved</p>
+        <p
+          class="relative text-xs sm:text-sm pl-4 xs:pl-8 before:absolute before:w-[6px] before:h-[6px] before:left-[5px] before:xs:left-3 before:top-1/2 before:-translate-y-1/2 before:rounded-full before:bg-secondary before:dark:bg-white"
+        >
+          &copy; Indevitus.com {new Date().getFullYear()} - All rights reserved
+        </p>
       </div>
 
-      <ThemeSwitcher title="footer"/>
+      <ThemeSwitcher title="footer" />
     </div>
   </div>
-  {Array.from(Array(20).keys()).map(el => {
-    return <span class="illustration" />
-  })}
+  {
+    Array.from(Array(20).keys()).map((el) => {
+      return <span class="illustration" />;
+    })
+  }
 </footer>
 
 <script>
@@ -82,152 +96,152 @@ const { simplified } = Astro.props;
 
   const scrollToTop = () => {
     setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }, 300)
-  }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 300);
+  };
 
   if (logo) {
-    logo.addEventListener('click', scrollToTop)
+    logo.addEventListener('click', scrollToTop);
   }
 </script>
 
 <style>
-.illustration {
-  @apply w-[20px] h-[20px] animate-[rotate_25s_linear_infinite] block absolute -bottom-[150px] pointer-events-none dark:bg-[rgba(255,_255,_255,_0.5)] dark:md:bg-[rgba(255,_255,_255,_0.8)];
-}
+  .illustration {
+    @apply w-[20px] h-[20px] animate-[rotate_25s_linear_infinite] block absolute -bottom-[150px] pointer-events-none dark:bg-[rgba(255,_255,_255,_0.5)] dark:md:bg-[rgba(255,_255,_255,_0.8)];
+  }
 
-.illustration:nth-child(1) {
-  @apply left-[59%] w-[40px] h-[40px] md:w-[80px] md:h-[80px];
+  .illustration:nth-child(1) {
+    @apply left-[59%] w-[40px] h-[40px] md:w-[80px] md:h-[80px];
 
-  animation-delay: 0s;
-}
+    animation-delay: 0s;
+  }
 
-.illustration:nth-child(2) {
-  @apply left-[10%] w-[20px] h-[20px];
+  .illustration:nth-child(2) {
+    @apply left-[10%] w-[20px] h-[20px];
 
-  animation-delay: 2s;
-  animation-duration: 12s;
-}
+    animation-delay: 2s;
+    animation-duration: 12s;
+  }
 
-.illustration:nth-child(3) {
-  @apply left-[34%] w-[20px] h-[20px];
+  .illustration:nth-child(3) {
+    @apply left-[34%] w-[20px] h-[20px];
 
-  animation-delay: 4s;
-}
+    animation-delay: 4s;
+  }
 
-.illustration:nth-child(4) {
-  @apply left-[58%] w-[30px] h-[30px] md:w-[60px] md:h-[60px];
+  .illustration:nth-child(4) {
+    @apply left-[58%] w-[30px] h-[30px] md:w-[60px] md:h-[60px];
 
-  animation-delay: 0s;
-  animation-duration: 18s;
-}
+    animation-delay: 0s;
+    animation-duration: 18s;
+  }
 
-.illustration:nth-child(5) {
-  @apply left-[69%] w-[20px] h-[20px];
+  .illustration:nth-child(5) {
+    @apply left-[69%] w-[20px] h-[20px];
 
-  animation-delay: 0s;
-}
+    animation-delay: 0s;
+  }
 
-.illustration:nth-child(6) {
-  @apply left-[74%] w-[60px] h-[60px] md:w-[110px] md:h-[110px];
+  .illustration:nth-child(6) {
+    @apply left-[74%] w-[60px] h-[60px] md:w-[110px] md:h-[110px];
 
-  animation-delay: 3s;
-}
+    animation-delay: 3s;
+  }
 
-.illustration:nth-child(7) {
-  @apply left-[93%] w-[60px] h-[60px] md:w-[150px] md:h-[150px];
+  .illustration:nth-child(7) {
+    @apply left-[93%] w-[60px] h-[60px] md:w-[150px] md:h-[150px];
 
-  animation-delay: 7s;
-}
+    animation-delay: 7s;
+  }
 
-.illustration:nth-child(8) {
-  @apply left-[50%] w-[25px] h-[25px];
+  .illustration:nth-child(8) {
+    @apply left-[50%] w-[25px] h-[25px];
 
-  animation-delay: 15s;
-  animation-duration: 45s;
-}
+    animation-delay: 15s;
+    animation-duration: 45s;
+  }
 
-.illustration:nth-child(9) {
-  @apply left-[46%] w-[15px] h-[15px];
+  .illustration:nth-child(9) {
+    @apply left-[46%] w-[15px] h-[15px];
 
-  animation-delay: 2s;
-  animation-duration: 35s;
-}
+    animation-delay: 2s;
+    animation-duration: 35s;
+  }
 
-.illustration:nth-child(10) {
-  @apply left-[20%] w-[15px] h-[15px];
+  .illustration:nth-child(10) {
+    @apply left-[20%] w-[15px] h-[15px];
 
-  animation-delay: 2s;
-  animation-duration: 35s;
-}
+    animation-delay: 2s;
+    animation-duration: 35s;
+  }
 
-.illustration:nth-child(11) {
-  @apply left-[83%] w-[50px] h-[50px];
+  .illustration:nth-child(11) {
+    @apply left-[83%] w-[50px] h-[50px];
 
-  animation-delay: 3s;
-  animation-duration: 18s;
-}
+    animation-delay: 3s;
+    animation-duration: 18s;
+  }
 
-.illustration:nth-child(12) {
-  @apply left-[99%] w-[10px] h-[10px];
+  .illustration:nth-child(12) {
+    @apply left-[99%] w-[10px] h-[10px];
 
-  animation-delay: 0s;
-  animation-duration: 18s;
-}
+    animation-delay: 0s;
+    animation-duration: 18s;
+  }
 
-.illustration:nth-child(13) {
-  @apply left-[94%] w-[33px] h-[33px];
+  .illustration:nth-child(13) {
+    @apply left-[94%] w-[33px] h-[33px];
 
-  animation-delay: 1s;
-  animation-duration: 10s;
-}
+    animation-delay: 1s;
+    animation-duration: 10s;
+  }
 
-.illustration:nth-child(14) {
-  @apply left-[82%] w-[60px] h-[60px];
+  .illustration:nth-child(14) {
+    @apply left-[82%] w-[60px] h-[60px];
 
-  animation-delay: 0s;
-  animation-duration: 18s;
-}
+    animation-delay: 0s;
+    animation-duration: 18s;
+  }
 
-.illustration:nth-child(15) {
-  @apply left-[87%] w-[60px] h-[60px];
+  .illustration:nth-child(15) {
+    @apply left-[87%] w-[60px] h-[60px];
 
-  animation-delay: 0s;
-  animation-duration: 14s;
-}
+    animation-delay: 0s;
+    animation-duration: 14s;
+  }
 
-.illustration:nth-child(16) {
-  @apply left-[55%] w-[40px] h-[40px];
+  .illustration:nth-child(16) {
+    @apply left-[55%] w-[40px] h-[40px];
 
-  animation-delay: 0s;
-  animation-duration: 25s;
-}
+    animation-delay: 0s;
+    animation-duration: 25s;
+  }
 
-.illustration:nth-child(17) {
-  @apply left-[61%] w-[45px] h-[45px];
+  .illustration:nth-child(17) {
+    @apply left-[61%] w-[45px] h-[45px];
 
-  animation-delay: 1s;
-  animation-duration: 17s;
-}
+    animation-delay: 1s;
+    animation-duration: 17s;
+  }
 
-.illustration:nth-child(18) {
-  @apply left-[68%] w-[20px] h-[20px];
+  .illustration:nth-child(18) {
+    @apply left-[68%] w-[20px] h-[20px];
 
-  animation-delay: 0s;
-  animation-duration: 22s;
-}
+    animation-delay: 0s;
+    animation-duration: 22s;
+  }
 
-.illustration:nth-child(19) {
-  @apply left-[73%] w-[55x] h-[55px];
+  .illustration:nth-child(19) {
+    @apply left-[73%] w-[55x] h-[55px];
 
-  animation-delay: 5s;
-  animation-duration: 14s;
-}
+    animation-delay: 5s;
+    animation-duration: 14s;
+  }
 
-.illustration:nth-child(20) {
-  @apply left-[84%] w-[40x] h-[40px];
+  .illustration:nth-child(20) {
+    @apply left-[84%] w-[40x] h-[40px];
 
-  animation-delay: 0s;
-  animation-duration: 13s;
-}
+    animation-delay: 0s;
+    animation-duration: 13s;
+  }
 </style>

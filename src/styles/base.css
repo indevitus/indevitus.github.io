@@ -13,7 +13,7 @@
   }
 
   .container {
-    @apply sm:mx-auto ;
+    @apply sm:mx-auto;
   }
 
   ::selection {
@@ -25,25 +25,37 @@
   }
 
   .halftone {
-    background-image: radial-gradient(circle at center,
+    background-image: radial-gradient(
+        circle at center,
         rgba(0, 0, 0, 0.1) 0.3rem,
-        transparent 0),
-      radial-gradient(circle at center,
+        transparent 0
+      ),
+      radial-gradient(
+        circle at center,
         rgba(0, 0, 0, 0.1) 0.3rem,
-        transparent 0);
+        transparent 0
+      );
     background-size: 21.3rem 12.3rem;
-    background-position: 0 0, 11.65rem 5.65rem;
+    background-position:
+      0 0,
+      11.65rem 5.65rem;
   }
 
   .dark .halftone {
-    background-image: radial-gradient(circle at center,
+    background-image: radial-gradient(
+        circle at center,
         rgba(255, 255, 255, 0.2) 0.3rem,
-        transparent 0),
-      radial-gradient(circle at center,
+        transparent 0
+      ),
+      radial-gradient(
+        circle at center,
         rgba(255, 255, 255, 0.2) 0.3rem,
-        transparent 0);
+        transparent 0
+      );
     background-size: 21.3rem 12.3rem;
-    background-position: 0 0, 11.65rem 5.65rem;
+    background-position:
+      0 0,
+      11.65rem 5.65rem;
   }
 
   .dark .icon-blend {

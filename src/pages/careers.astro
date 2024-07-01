@@ -1,70 +1,146 @@
 ---
-import Hiring from "../layouts/Hiring.astro";
-import {JOB_DESCRIPTION as jobs } from '../data/index'
+import Hiring from '../layouts/Hiring.astro';
+import { JOB_DESCRIPTION as jobs } from '../data/index';
 ---
 
 <Hiring title="We are Indevitus">
   <main class="dark:text-white">
-    <section class="careers--hero flex justify-center items-center py-[10rem] lg:py-[16rem] bg-cover bg-top bg-no-repeat mb-16 lg:mb-24">
+    <section
+      class="careers--hero flex justify-center items-center py-[10rem] lg:py-[16rem] bg-cover bg-top bg-no-repeat mb-16 lg:mb-24"
+    >
       <div class="container">
         <div class="text-center flex items-center flex-col text-white">
           <h1 class="font-bold text-4xl lg:text-8xl mb-12">Join us</h1>
-          <p class="w-full md:w-[70%] text-lg mb-6">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, ratione dolorem laboriosam expedita aliquam, ipsa molestiae aliquid magnam quis laudantium eveniet vel omnis officiis ullam? Eum aspernatur dolorum possimus adipisci?</p>
+          <p class="w-full md:w-[70%] text-lg mb-6">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae,
+            ratione dolorem laboriosam expedita aliquam, ipsa molestiae aliquid
+            magnam quis laudantium eveniet vel omnis officiis ullam? Eum
+            aspernatur dolorum possimus adipisci?
+          </p>
           <div class="flex flex-col xs:flex-row gap-4">
-            <a class="bg-primary py-4 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap" href="#job-section">Join the team</a>
-            <a class="bg-transparent border-2 border-white py-3.5 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 text-white whitespace-nowrap" href="#culture">Culture</a>
+            <a
+              class="bg-primary py-4 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap"
+              href="#job-section">Join the team</a
+            >
+            <a
+              class="bg-transparent border-2 border-white py-3.5 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 text-white whitespace-nowrap"
+              href="#culture">Culture</a
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <section id="culture" class="container grid lg:grid-cols-4 gap-y-12 lg:gap-24 mb-16 lg:mb-24">
+    <section
+      id="culture"
+      class="container grid lg:grid-cols-4 gap-y-12 lg:gap-24 mb-16 lg:mb-24"
+    >
       <div class="lg:col-span-2">
         <span>BENEFITS</span>
-        <p class="font-bold text-3xl lg:text-5xl mb-8 mt-4 uppercase">Why you Should Join Our Awesome Team</p>
-        <p class="text-lg">At Indevitus, we care for our employees by providing them with the best possible work environment. You are given an opportunity to make a difference from day one. We use the latest technologies to stay ahead of the curve. We work together as a team both inside and outside of the office.</p>
+        <p class="font-bold text-3xl lg:text-5xl mb-8 mt-4 uppercase">
+          Why you Should Join Our Awesome Team
+        </p>
+        <p class="text-lg">
+          At Indevitus, we care for our employees by providing them with the
+          best possible work environment. You are given an opportunity to make a
+          difference from day one. We use the latest technologies to stay ahead
+          of the curve. We work together as a team both inside and outside of
+          the office.
+        </p>
       </div>
 
-      <div class="lg:col-span-2 grid grid-cols-1 xs:grid-cols-2 gap-y-10 gap-x-7">
-        <div class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left ">
+      <div
+        class="lg:col-span-2 grid grid-cols-1 xs:grid-cols-2 gap-y-10 gap-x-7"
+      >
+        <div
+          class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left"
+        >
           <div class="p-[18px] w-fit mb-8 bg-light-blue rounded">
-            <img loading="lazy" class="w-[38px] h-[38px]" src="team-work.svg" alt="Team Work" />
+            <img
+              loading="lazy"
+              class="w-[38px] h-[38px]"
+              src="team-work.svg"
+              alt="Team Work"
+            />
           </div>
           <p class="font-bold text-lg mb-4">Team work</p>
-          <p class="text-sm">Our team consists of strong individuals with a team vision, we cannot do any work alone, we work and socialize, the most important thing is that we all have the same goal!</p>
+          <p class="text-sm">
+            Our team consists of strong individuals with a team vision, we
+            cannot do any work alone, we work and socialize, the most important
+            thing is that we all have the same goal!
+          </p>
         </div>
 
-        <div class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left ">
+        <div
+          class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left"
+        >
           <div class="p-[18px] w-fit mb-8 bg-light-green rounded">
-            <img loading="lazy" class="w-[38px] h-[38px]" src="future.svg" alt="Secured Future" />
+            <img
+              loading="lazy"
+              class="w-[38px] h-[38px]"
+              src="future.svg"
+              alt="Secured Future"
+            />
           </div>
           <p class="font-bold text-lg mb-4">Secured Future</p>
-          <p class="text-sm">We ensure a stable future for our team members through continuous development and opportunities for advancement. </p>
+          <p class="text-sm">
+            We ensure a stable future for our team members through continuous
+            development and opportunities for advancement.
+          </p>
         </div>
 
-        <div class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left ">
+        <div
+          class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left"
+        >
           <div class="p-[18px] w-fit mb-8 bg-light-stone rounded">
-            <img loading="lazy" class="w-[38px] h-[38px]" src="learning.svg" alt="Learning Opportunity" />
+            <img
+              loading="lazy"
+              class="w-[38px] h-[38px]"
+              src="learning.svg"
+              alt="Learning Opportunity"
+            />
           </div>
           <p class="font-bold text-lg mb-4">Learning Opportunity</p>
-          <p class="text-sm">By staying up-to-date with the latest technologies, we ensure that our team members are always ahead of the curve. Join us and take your career to the next level in a forward-thinking environment. </p>
+          <p class="text-sm">
+            By staying up-to-date with the latest technologies, we ensure that
+            our team members are always ahead of the curve. Join us and take
+            your career to the next level in a forward-thinking environment.
+          </p>
         </div>
 
-        <div class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left ">
+        <div
+          class="flex flex-col items-center justify-center text-center xs:items-start xs:justify-start xs:text-left"
+        >
           <div class="p-[18px] w-fit mb-8 bg-light-pink rounded">
-            <img loading="lazy" class="w-[38px] h-[38px]" src="fun.svg" alt="Upgrade Skills" />
+            <img
+              loading="lazy"
+              class="w-[38px] h-[38px]"
+              src="fun.svg"
+              alt="Upgrade Skills"
+            />
           </div>
           <p class="font-bold text-lg mb-4">Fun Activities</p>
-          <p class="text-sm">We believe that a happy team is a productive team. That's why we offer a range of fun activities to keep our employees engaged and energized like teambuilding events and our game room where you can unwind with a friendly game of ping pong or the latest video games.</p>
+          <p class="text-sm">
+            We believe that a happy team is a productive team. That's why we
+            offer a range of fun activities to keep our employees engaged and
+            energized like teambuilding events and our game room where you can
+            unwind with a friendly game of ping pong or the latest video games.
+          </p>
         </div>
       </div>
     </section>
 
     <section id="job-section" class="mt-16 lg:mt-24 container block">
-      <div class="flex flex-col justify-center items-center gap-4 text-center mb-10">
+      <div
+        class="flex flex-col justify-center items-center gap-4 text-center mb-10"
+      >
         <p>Come Join Us</p>
         <p class="font-bold text-2xl lg:text-3xl">Career Openings</p>
-        <p class="w-full lg:w-[70%]">We are always looking for creative, talented self-starters to join the JMC family. Check out our open roles below and fill out an application.</p>
+        <p class="w-full lg:w-[70%]">
+          We are always looking for creative, talented self-starters to join the
+          JMC family. Check out our open roles below and fill out an
+          application.
+        </p>
       </div>
 
       <div class="flex flex-col justify-center items-center gap-5">
@@ -73,24 +149,35 @@ import {JOB_DESCRIPTION as jobs } from '../data/index'
             const jobExperience = job?.summary.experience;
 
             return (
-              <a href={`/careers/${job.id}`} class="w-full lg:w-[70%] flex flex-col sm:flex-row justify-between items-center sm:gap-20 lg:gap-24 p-4 card-shadow card-hover">
+              <a
+                href={`/careers/${job.id}`}
+                class="w-full lg:w-[70%] flex flex-col sm:flex-row justify-between items-center sm:gap-20 lg:gap-24 p-4 card-shadow card-hover"
+              >
                 <div class="flex flex-col">
-                  <p class="font-semibold text-xl capitalize mb-4 sm:mb-0">{job.id}</p>
-                  <span class="text-gray-darker dark:text-gray-default text-xs">{job?.type}</span>
+                  <p class="font-semibold text-xl capitalize mb-4 sm:mb-0">
+                    {job.id}
+                  </p>
+                  <span class="text-gray-darker dark:text-gray-default text-xs">
+                    {job?.type}
+                  </span>
                 </div>
 
                 <div class="w-full sm:w-1/2 flex justify-around lg:justify-between items-center text-center">
                   <div class="w-1/2">
-                    <span class="text-gray-darker dark:text-gray-default text-sm">Experience</span>
+                    <span class="text-gray-darker dark:text-gray-default text-sm">
+                      Experience
+                    </span>
                     <p>{jobExperience}</p>
                   </div>
                   <div class="w-1/2">
-                    <span class="text-gray-darker dark:text-gray-default text-sm">Work model</span>
+                    <span class="text-gray-darker dark:text-gray-default text-sm">
+                      Work model
+                    </span>
                     <p class="capitalize">{job?.work_model}</p>
                   </div>
                 </div>
               </a>
-            )
+            );
           })
         }
       </div>
@@ -99,15 +186,20 @@ import {JOB_DESCRIPTION as jobs } from '../data/index'
 </Hiring>
 
 <style>
-.careers--hero {
-  background-image: linear-gradient(45deg, rgba(0, 0, 0, .84) 100%, rgba(0, 0, 0, 0) 100%), url('/indevitus-team-carting.JPG');
-}
+  .careers--hero {
+    background-image: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.84) 100%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url('/indevitus-team-carting.JPG');
+  }
 
-.card-shadow {
-  @apply transition-all duration-300 ease-in [box-shadow:rgba(0,0,0,0.16)_0px_0px_6px,_rgba(0,0,0,0.23)_0px_0_6px] dark:[box-shadow:rgba(67,71,85,0.70)_0px_0px_0.25em,_rgba(90,125,188,0.08)_0px_0.25em_1em];
-}
+  .card-shadow {
+    @apply transition-all duration-300 ease-in [box-shadow:rgba(0,0,0,0.16)_0px_0px_6px,_rgba(0,0,0,0.23)_0px_0_6px] dark:[box-shadow:rgba(67,71,85,0.70)_0px_0px_0.25em,_rgba(90,125,188,0.08)_0px_0.25em_1em];
+  }
 
-.card-hover:hover {
-  @apply scale-[1.02] [box-shadow:rgba(0,0,0,0.22)_0px_0px_0.6em_3px,_rgba(0,0,0,0.25)_0px_0.6em_1em] dark:[box-shadow:rgba(67,71,85,0.70)_0px_0px_0.6em_3px,_rgba(90,125,188,0.08)_0px_0.6em_1em];
-}
+  .card-hover:hover {
+    @apply scale-[1.02] [box-shadow:rgba(0,0,0,0.22)_0px_0px_0.6em_3px,_rgba(0,0,0,0.25)_0px_0.6em_1em] dark:[box-shadow:rgba(67,71,85,0.70)_0px_0px_0.6em_3px,_rgba(90,125,188,0.08)_0px_0.6em_1em];
+  }
 </style>

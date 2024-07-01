@@ -18,24 +18,36 @@ const { title } = Astro.props;
 
 <script>
   const element = document.documentElement;
-  const themeToggler = document.querySelectorAll('[id^="theme-switcher-"], [id^="theme-switcher-"]');
-
+  const themeToggler = document.querySelectorAll(
+    '[id^="theme-switcher-"], [id^="theme-switcher-"]',
+  );
 
   const theme = (() => {
-    const windowThemePreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    const themePreference = localStorage.getItem('theme') ? localStorage.getItem('theme') : windowThemePreference;
+    const windowThemePreference = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches
+      ? 'dark'
+      : 'light';
+    const themePreference = localStorage.getItem('theme')
+      ? localStorage.getItem('theme')
+      : windowThemePreference;
     return themePreference;
   })();
 
   const setThemePreference = () => {
     element.classList.toggle('dark', theme !== 'light');
-  }
+  };
 
   const toggleThemePreference = () => {
-    element.classList.toggle("dark");
-    localStorage.setItem("theme", element.classList.contains("dark") ? "dark" : "light");
-  }
+    element.classList.toggle('dark');
+    localStorage.setItem(
+      'theme',
+      element.classList.contains('dark') ? 'dark' : 'light',
+    );
+  };
 
   setThemePreference();
-  themeToggler.forEach(toggler => toggler.addEventListener("click", toggleThemePreference))
+  themeToggler.forEach((toggler) =>
+    toggler.addEventListener('click', toggleThemePreference),
+  );
 </script>
