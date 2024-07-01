@@ -53,6 +53,10 @@
   .glide__slide {
     @apply !h-auto flex justify-center items-center flex-col;
   }
+
+  .dark .blob-btn:before {
+    @apply border-white;
+  }
 }
 
 @keyframes rotate {
