@@ -8,7 +8,7 @@ const openPositions = jobs.filter((job: any) => hiringJobs.includes(job.id))
 <ul class="pt-5 lg:pl-28 lg:pt-0 space-y-4 mb-10 text-black max-w-fit mx-auto lg:mx-0">
   {
     openPositions?.map((openPosition: any) => {
-      const jobExperience = openPosition?.summary?.filter((item:any) => item.title === "Experience")[0].content;
+      const jobExperience = openPosition?.summary.experience
 
       return(
       <li class="w-fit">

@@ -14,6 +14,20 @@ import { JOB_DESCRIPTION } from '../../data'
 const { career } = Astro.params;
 
 const job = JOB_DESCRIPTION.find(el => el.id === career)
+
+const iconDisplay: { [key: string]: string } = {
+  location: '/location-icon-black.png',
+  job_type: '/briefcase.svg',
+  date_posted: '/calendar.svg',
+  experience: '/experience.svg',
+  working_hours: '/clock.svg',
+  working_days: '/days.svg',
+  vacancy: '/vacancy.svg',
+}
+
+const formatKey = (text: string) => {
+  return text.replace(/_/g, ' ');
+};
 ---
 
 <Hiring title="We are Indevitus">
@@ -55,13 +69,13 @@ const job = JOB_DESCRIPTION.find(el => el.id === career)
             <div class="grid grid-cols-12 gap-4 justify-between lg:block py-12 lg:px-8 lg:sticky lg:top-0 flex-wrap">
               <a class="hidden bg-primary py-4 px-12 rounded-lg lg:inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap" href="#">Apply now</a>
               {
-                job?.summary?.map(item => {
+                Object.entries(job?.summary ?? {}).map(([key, value]) => {
                   return (
                     <div class="flex items-center col-span-6 md:col-span-3 lg:mt-12">
-                      <img loading="lazy" class="icon-blend w-[30px] h-[30px]" src={item.icon} alt={item.title} width="30" />
+                      <img loading="lazy" class="icon-blend w-[30px] h-[30px]" src={iconDisplay[key]} alt={key} width="30" />
                       <div class="ml-4">
-                        <p class="text-gray-darker dark:text-gray-default mb-1">{ item?.title }</p>
-                        <p>{ item?.content }</p>
+                        <p class="text-gray-darker dark:text-gray-default mb-1 capitalize">{ formatKey(key) }</p>
+                        <p>{ value }</p>
                       </div>
                     </div>
                   )
@@ -74,6 +88,10 @@ const job = JOB_DESCRIPTION.find(el => el.id === career)
     </div>
   </main>
 </Hiring>
+
+<script>
+
+</script>
 
 <style>
 .careers--hero {

@@ -70,7 +70,7 @@ import {JOB_DESCRIPTION as jobs } from '../data/index'
       <div class="flex flex-col justify-center items-center gap-5">
         {
           jobs?.map((job) => {
-            const jobExperience = job?.summary?.filter(item => item.title === "Experience")[0].content;
+            const jobExperience = job?.summary.experience;
 
             return (
               <a href={`/careers/${job.id}`} class="w-full lg:w-[70%] flex flex-col sm:flex-row justify-between items-center sm:gap-20 lg:gap-24 p-4 card-shadow card-hover">

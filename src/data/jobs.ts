@@ -4,50 +4,15 @@ export const JOB_DESCRIPTION = [
     title: 'Senior Front-End Developer',
     type: 'Full Time',
     work_model: 'remote/office',
-    summary: [
-      {
-        id: 1,
-        icon: '/location-icon-black.png',
-        title: 'Location',
-        content: 'Bugojno, Bosnia & Herzegovina',
-      },
-      {
-        id: 2,
-        icon: '/briefcase.svg',
-        title: 'Job Type',
-        content: 'Front-End Developer',
-      },
-      {
-        id: 3,
-        icon: '/calendar.svg',
-        title: 'Date posted',
-        content: '18.06.2024.',
-      },
-      {
-        id: 4,
-        icon: '/experience.svg',
-        title: 'Experience',
-        content: '5 years',
-      },
-      {
-        id: 5,
-        icon: '/clock.svg',
-        title: 'Working Hours',
-        content: '09:00 - 17:00',
-      },
-      {
-        id: 6,
-        icon: '/days.svg',
-        title: 'Working Days',
-        content: 'Monday - Friday',
-      },
-      {
-        id: 7,
-        icon: '/vacancy.svg',
-        title: 'Vacancy',
-        content: '1',
-      }
-    ],
+    summary: {
+      location: 'Bugojno, Bosnia & Herzegovina',
+      job_type: 'Front-End Developer',
+      date_posted: '18.06.2024.',
+      experience: '5 years',
+      working_hours: '09:00 - 17:00',
+      working_days: 'Monday - Friday',
+      vacancy: 1
+    },
     description: [
       {
         id: 'type-of-employee',
@@ -198,50 +163,15 @@ export const JOB_DESCRIPTION = [
     title: 'Medior Front-End Developer',
     type: 'Full Time',
     work_model: 'remote/office',
-    summary: [
-      {
-        id: 1,
-        icon: '/location-icon-black.png',
-        title: 'Location',
-        content: 'Bugojno, Bosnia & Herzegovina',
-      },
-      {
-        id: 2,
-        icon: '/briefcase.svg',
-        title: 'Job Type',
-        content: 'Front-End Developer',
-      },
-      {
-        id: 3,
-        icon: '/calendar.svg',
-        title: 'Date posted',
-        content: '18.06.2024.',
-      },
-      {
-        id: 4,
-        icon: '/experience.svg',
-        title: 'Experience',
-        content: '3 years',
-      },
-      {
-        id: 5,
-        icon: '/clock.svg',
-        title: 'Working Hours',
-        content: '09:00 - 17:00',
-      },
-      {
-        id: 6,
-        icon: '/days.svg',
-        title: 'Working Days',
-        content: 'Monday - Friday',
-      },
-      {
-        id: 7,
-        icon: '/vacancy.svg',
-        title: 'Vacancy',
-        content: '1',
-      }
-    ],
+    summary: {
+      location: 'Bugojno, Bosnia & Herzegovina',
+      job_type: 'Medior-End Developer',
+      date_posted: '18.06.2024.',
+      experience: '3 years',
+      working_hours: '09:00 - 17:00',
+      working_days: 'Monday - Friday',
+      vacancy: 1
+    },
     description: [
       {
         id: 'type-of-employee',
@@ -392,50 +322,15 @@ export const JOB_DESCRIPTION = [
     title: 'Web Designer Internship',
     type: 'Full Time',
     work_model: 'office',
-    summary: [
-      {
-        id: 1,
-        icon: '/location-icon-black.png',
-        title: 'Location',
-        content: 'Bugojno, Bosnia & Herzegovina',
-      },
-      {
-        id: 2,
-        icon: '/briefcase.svg',
-        title: 'Job Type',
-        content: 'Web Designer',
-      },
-      {
-        id: 3,
-        icon: '/calendar.svg',
-        title: 'Date posted',
-        content: '18.06.2024.',
-      },
-      {
-        id: 4,
-        icon: '/experience.svg',
-        title: 'Experience',
-        content: 'Personal Portfolio',
-      },
-      {
-        id: 5,
-        icon: '/clock.svg',
-        title: 'Working Hours',
-        content: '09:00 - 17:00',
-      },
-      {
-        id: 6,
-        icon: '/days.svg',
-        title: 'Working Days',
-        content: 'Monday - Friday',
-      },
-      {
-        id: 7,
-        icon: '/vacancy.svg',
-        title: 'Vacancy',
-        content: '1',
-      }
-    ],
+    summary: {
+      location: 'Bugojno, Bosnia & Herzegovina',
+      job_type: 'Web Designer',
+      date_posted: '18.06.2024.',
+      experience: 'Personal Portfolio',
+      working_hours: '09:00 - 17:00',
+      working_days: 'Monday - Friday',
+      vacancy: 1
+    },
     description: [
       {
         id: 'type-of-employee',
@@ -586,50 +481,15 @@ export const JOB_DESCRIPTION = [
     title: 'Front-End Internship',
     type: 'Full Time',
     work_model: 'office',
-    summary: [
-      {
-        id: 1,
-        icon: '/location-icon-black.png',
-        title: 'Location',
-        content: 'Bugojno, Bosnia & Herzegovina',
-      },
-      {
-        id: 2,
-        icon: '/briefcase.svg',
-        title: 'Job Type',
-        content: 'Front-End Developer',
-      },
-      {
-        id: 3,
-        icon: '/calendar.svg',
-        title: 'Date posted',
-        content: '18.06.2024.',
-      },
-      {
-        id: 4,
-        icon: '/experience.svg',
-        title: 'Experience',
-        content: 'Personal Portfolio',
-      },
-      {
-        id: 5,
-        icon: '/clock.svg',
-        title: 'Working Hours',
-        content: '09:00 - 17:00',
-      },
-      {
-        id: 6,
-        icon: '/days.svg',
-        title: 'Working Days',
-        content: 'Monday - Friday',
-      },
-      {
-        id: 7,
-        icon: '/vacancy.svg',
-        title: 'Vacancy',
-        content: '1',
-      }
-    ],
+    summary: {
+      location: 'Bugojno, Bosnia & Herzegovina',
+      job_type: 'Front-End Developer',
+      date_posted: '18.06.2024.',
+      experience: 'Personal Portfolio',
+      working_hours: '09:00 - 17:00',
+      working_days: 'Monday - Friday',
+      vacancy: 1
+    },
     description: [
       {
         id: 'type-of-employee',
