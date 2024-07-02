@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
 interface Props {
   title: string;
@@ -31,19 +32,7 @@ import '../styles/base.css';
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta name="generator" content={Astro.generator} />
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-0C453CLPPQ"
-    ></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-0C453CLPPQ');
-    </script>
+    <GoogleAnalytics />
     <title>{title}</title>
   </head>
   <body class="dark:bg-secondary bg-white transition-all duration-300 relative cursor-none hover:cursor-none">
