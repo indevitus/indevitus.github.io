@@ -72,7 +72,9 @@ const formatKey = (text: string) => {
             <div
               class="grid grid-cols-12 gap-4 justify-between lg:block py-12 lg:px-8 lg:sticky lg:top-0 flex-wrap"
             >
-            <Button link="#" primary title="carreers-apply">Apply now</Button>
+            <div class="hidden lg:block">
+              <Button link="#" primary title="carreers-apply">Apply now</Button>
+            </div>
               {
                 Object.entries(job?.summary ?? {}).map(([key, value]) => {
                   return (
