@@ -3,7 +3,7 @@ export const JOB_DESCRIPTION = [
     id: 'senior-frontend',
     title: 'Senior Front-End Developer',
     type: 'Full Time',
-    work_model: 'remote/office',
+    work_model: 'remote/on-site',
     summary: {
       location: 'Bugojno, Bosnia & Herzegovina',
       job_type: 'Front-End Developer',
@@ -162,7 +162,7 @@ export const JOB_DESCRIPTION = [
     id: 'medior-frontend',
     title: 'Medior Front-End Developer',
     type: 'Full Time',
-    work_model: 'remote/office',
+    work_model: 'remote/on-site',
     summary: {
       location: 'Bugojno, Bosnia & Herzegovina',
       job_type: 'Medior-End Developer',
@@ -321,7 +321,7 @@ export const JOB_DESCRIPTION = [
     id: 'web-design',
     title: 'Web Designer Internship',
     type: 'Full Time',
-    work_model: 'office',
+    work_model: 'on-site',
     summary: {
       location: 'Bugojno, Bosnia & Herzegovina',
       job_type: 'Web Designer',
@@ -480,7 +480,7 @@ export const JOB_DESCRIPTION = [
     id: 'intern-frontend',
     title: 'Front-End Internship',
     type: 'Full Time',
-    work_model: 'office',
+    work_model: 'on-site',
     summary: {
       location: 'Bugojno, Bosnia & Herzegovina',
       job_type: 'Front-End Developer',
