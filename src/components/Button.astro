@@ -1,8 +1,8 @@
 ---
-const { primary = false, link = '/', title} = Astro.props;
+const { primary = false, link = '/', title, border = false } = Astro.props;
 ---
 
-<button id={`button-${title}`} class="blob-btn" data-link={link}>
+<button id={`button-${title}`} class={`blob-btn ${border ? 'before:border before:border-solid before:border-secondary' : ''}`} data-link={link}>
   <slot />
   <span class={`blob-btn__inner ${primary  ? 'bg-primary' : 'bg-white dark:bg-secondary'}`}>
     <span class="blob-btn__blobs">
@@ -65,7 +65,7 @@ const { primary = false, link = '/', title} = Astro.props;
   }
 
   .blob-btn:before {
-    @apply content-[""] z-[1] absolute left-0 top-0 w-full h-full border border-solid border-secondary rounded-[30px];
+    @apply content-[""] z-[1] absolute left-0 top-0 w-full h-full rounded-[30px];
   }
 
   .blob-btn:after {
@@ -96,6 +96,10 @@ const { primary = false, link = '/', title} = Astro.props;
     .blob-btn__blob {
       transform: translate3d(0, 150%, 0) scale(1.4);
     }
+
+    .blob-btn:hover .blob-btn__blob {
+      transform: translateZ(0) scale(1.4);
+    }
   }
 
   .blob-btn__blob:nth-child(1) {
@@ -120,11 +124,5 @@ const { primary = false, link = '/', title} = Astro.props;
 
   .blob-btn:hover .blob-btn__blob {
     transform: translateZ(0) scale(1.7);
-  }
-
-  @supports (filter: url("#goo")) {
-    .blob-btn:hover .blob-btn__blob {
-      transform: translateZ(0) scale(1.4);
-    }
   }
 </style>

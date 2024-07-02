@@ -10,6 +10,7 @@ export function getStaticPaths() {
 
 import HiringLayout from '../../layouts/HiringLayout.astro';
 import { JOB_DESCRIPTION } from '../../data';
+import Button from "../../components/Button.astro";
 
 const { career } = Astro.params;
 
@@ -40,10 +41,7 @@ const formatKey = (text: string) => {
           <div class="text-center flex items-center flex-col text-white">
             <h1 class="font-bold text-4xl lg:text-8xl mb-12">{job?.title}</h1>
             <span class="text-lg mb-6">{job?.type}</span>
-            <a
-              class="bg-primary py-4 px-12 rounded-lg inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap"
-              href="#">Apply now</a
-            >
+            <Button link="#" primary title="carreers-apply">Apply now</Button>
           </div>
         </div>
       </section>
@@ -74,10 +72,7 @@ const formatKey = (text: string) => {
             <div
               class="grid grid-cols-12 gap-4 justify-between lg:block py-12 lg:px-8 lg:sticky lg:top-0 flex-wrap"
             >
-              <a
-                class="hidden bg-primary py-4 px-12 rounded-lg lg:inline-block transition-colors duration-300 ease-in-out hover:bg-secondary/70 hover:text-white text-black whitespace-nowrap"
-                href="#">Apply now</a
-              >
+            <Button link="#" primary title="carreers-apply">Apply now</Button>
               {
                 Object.entries(job?.summary ?? {}).map(([key, value]) => {
                   return (
