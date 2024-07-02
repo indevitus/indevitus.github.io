@@ -69,6 +69,10 @@
   .dark .blob-btn:before {
     @apply border-white;
   }
+
+  .careers--hero {
+    @apply [background-image:_linear-gradient(45deg,_rgba(0,_0,_0,_0.84)_100%,_rgba(0,_0,_0,_0)_100%),_url('/indevitus-team-carting.JPG')];
+  }
 }
 
 @keyframes rotate {
