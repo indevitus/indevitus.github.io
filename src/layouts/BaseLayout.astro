@@ -1,6 +1,4 @@
 ---
-import GoogleAnalytics from '../components/GoogleAnalytics.astro';
-
 interface Props {
   title: string;
 }
@@ -10,6 +8,7 @@ const { title } = Astro.props;
 // Astro will bundle and optimize this CSS for you automatically
 // This also works for preprocessor files like .scss, .styl, etc.
 import '../styles/base.css';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 ---
 
 <!DOCTYPE html>
