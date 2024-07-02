@@ -31,6 +31,19 @@ import '../styles/base.css';
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta name="generator" content={Astro.generator} />
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0C453CLPPQ"
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-0C453CLPPQ');
+    </script>
     <title>{title}</title>
   </head>
   <body class="dark:bg-secondary bg-white transition-all duration-300 relative cursor-none hover:cursor-none">
