@@ -8,7 +8,7 @@ export function getStaticPaths() {
   ];
 }
 
-import Hiring from '../../layouts/Hiring.astro';
+import HiringLayout from '../../layouts/HiringLayout.astro';
 import { JOB_DESCRIPTION } from '../../data';
 
 const { career } = Astro.params;
@@ -30,7 +30,7 @@ const formatKey = (text: string) => {
 };
 ---
 
-<Hiring title="We are Indevitus">
+<HiringLayout>
   <main class="dark:text-white">
     <div>
       <section
@@ -105,7 +105,7 @@ const formatKey = (text: string) => {
       </section>
     </div>
   </main>
-</Hiring>
+</HiringLayout>
 
 <style>
   .careers--hero {

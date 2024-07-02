@@ -1,9 +1,9 @@
 ---
-import Hiring from '../layouts/Hiring.astro';
+import HiringLayout from '../layouts/HiringLayout.astro';
 import { JOB_DESCRIPTION as jobs } from '../data/index';
 ---
 
-<Hiring title="We are Indevitus">
+<HiringLayout>
   <main class="dark:text-white">
     <section
       class="careers--hero flex justify-center items-center py-[10rem] lg:py-[16rem] bg-cover bg-top bg-no-repeat mb-16 lg:mb-24"
@@ -183,7 +183,7 @@ import { JOB_DESCRIPTION as jobs } from '../data/index';
       </div>
     </section>
   </main>
-</Hiring>
+</HiringLayout>
 
 <style>
   .careers--hero {
