@@ -1,8 +1,14 @@
 ---
-const { primary = false, link = '/', title, border = false } = Astro.props;
+const {
+  primary = false,
+  title,
+  link = '#',
+  border = false,
+  btnType='button',
+} = Astro.props;
 ---
 
-<button id={`button-${title}`} class={`blob-btn ${border ? 'before:border before:border-solid before:border-secondary' : ''}`} data-link={link}>
+<button id={`button-${title}`} type={btnType} class={`blob-btn ${border ? 'before:border before:border-solid before:border-secondary' : ''}`} data-link={link}>
   <slot />
   <span class={`blob-btn__inner ${primary  ? 'bg-primary' : 'bg-white dark:bg-secondary'}`}>
     <span class="blob-btn__blobs">
