@@ -54,3 +54,19 @@ import Button from './Button.astro';
     </div>
   </div>
 </div>
+
+<script>
+  const BREAKPOINT_LG = 1024;
+  const button = document.getElementById('button-hero');
+
+  function updateButtonBorder() {
+    if (window.innerWidth < BREAKPOINT_LG) {
+      button?.classList.remove('before:border');
+    }
+    else {
+      button?.classList.add('before:border');
+    }
+  }
+
+  window.onresize = updateButtonBorder;
+</script>
