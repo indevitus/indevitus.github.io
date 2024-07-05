@@ -11,13 +11,48 @@ import '../styles/base.css';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 ---
 
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://indevitus.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Solutions that are tailored to your needs">
+<meta property="og:description" content="Indevitus">
+<meta property="og:image" content="https://indevitus.comog-image-logo.png">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="indevitus.com">
+<meta property="twitter:url" content="https://indevitus.com">
+<meta name="twitter:title" content="Solutions that are tailored to your needs">
+<meta name="twitter:description" content="Indevitus">
+<meta name="twitter:image" content="https://indevitus.comog-image-logo.png">
+
+<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Indevitus">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="og-image-logo.png" />
+    <!-- HTML Meta Tags -->
+    <meta name="description" content="Indevitus">
+    <title>Solutions that are tailored to your needs</title>
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://indevitus.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Solutions that are tailored to your needs">
+    <meta property="og:description" content="Indevitus">
+    <meta property="og:image" content="https://indevitus.com/og-image-logo.png" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="indevitus.com">
+    <meta property="twitter:url" content="https://indevitus.com">
+    <meta name="twitter:title" content="Solutions that are tailored to your needs">
+    <meta name="twitter:description" content="Indevitus">
+    <meta name="twitter:image" content="https://indevitus.com/og-image-logo.png">
+
     <link rel="apple-touch-icon" sizes="76x76" href="/fav-icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/fav-icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/fav-icon/favicon-16x16.png">
@@ -30,7 +65,6 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
   </head>
   <body class="dark:bg-secondary bg-white transition-all duration-300 relative cursor-none hover:cursor-none">
     <div id="cursorDot" class="hidden lg:block w-6 h-6 bg-white mix-blend-difference fixed z-[101] rounded-full pointer-events-none overflow-hidden" />
