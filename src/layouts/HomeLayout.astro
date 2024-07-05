@@ -1,0 +1,38 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import BaseLayout from "./BaseLayout.astro";
+---
+
+<BaseLayout title="We are Indevitus">
+  <div id="progressBar" class="fixed top-0 left-0 w-[6px] h-0 z-[100] transition-all duration-500 ease-out bg-primary dark:mix-blend-difference" />
+
+  <Header />
+  <slot />
+  <Footer simplified />
+</BaseLayout>
+
+<script>
+  const progressBar = document.querySelector("#progressBar") as HTMLElement;
+  const body = document.body;
+
+  const scrollProgressBar = () => {
+    let scrollDistance = -body.getBoundingClientRect().top;
+    let progressPercentage =
+      (scrollDistance /
+        (body.getBoundingClientRect().height -
+          document.documentElement.clientHeight)) *
+      100;
+
+    let val = Math.round(progressPercentage);
+    if (progressBar) {
+      progressBar.style.height = val + "%";
+
+      if (val < 0) {
+        progressBar.style.height = "0%";
+      }
+    }
+  };
+
+  document.addEventListener("scroll", scrollProgressBar);
+</script>

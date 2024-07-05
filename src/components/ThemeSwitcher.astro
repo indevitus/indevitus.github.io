@@ -1,0 +1,49 @@
+---
+import Moon from './Icons/Moon.astro';
+import Sun from './Icons/Sun.astro';
+
+const { title } = Astro.props;
+---
+
+<div class="flex">
+  <button
+    id={`theme-switcher-${title}`}
+    aria-label="toggle theme switcher"
+    class="w-6 h-6 text-white transition-transform hover:scale-75 duration-300"
+  >
+    <span class="hidden dark:inline"><Sun /></span>
+    <span class="dark:hidden"><Moon /></span>
+  </button>
+</div>
+
+<script>
+  const element = document.documentElement;
+  const themeToggler = document.querySelectorAll(
+    '[id^="theme-switcher-"], [id^="theme-switcher-"]',
+  );
+
+  const theme = (() => {
+    const windowThemePreference = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches ? 'dark' : 'light';
+    const themePreference = localStorage.getItem('theme') ? localStorage.getItem('theme') : windowThemePreference;
+    return themePreference;
+  })();
+
+  const setThemePreference = () => {
+    element.classList.toggle('dark', theme !== 'light');
+  };
+
+  const toggleThemePreference = () => {
+    element.classList.toggle('dark');
+    localStorage.setItem(
+      'theme',
+      element.classList.contains('dark') ? 'dark' : 'light',
+    );
+  };
+
+  setThemePreference();
+  themeToggler.forEach((toggler) =>
+    toggler.addEventListener('click', toggleThemePreference),
+  );
+</script>

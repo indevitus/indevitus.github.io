@@ -1,62 +1,44 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import HomeLayout from '../layouts/HomeLayout.astro';
 import Team from '../components/Team.astro';
-import Testimonials from '../components/Testimonials.astro';
-import Skills from '../components/Skills.astro';
+import Hero from '../components/Hero.astro';
+import ClientSpotlight from '../components/Clients/ClientSpotlight.astro';
+import Map from '../components/Map.astro';
 
-import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
+import '../../node_modules/@glidejs/glide/dist/css/glide.core.min.css';
+import Hiring from '../components/Hiring/Hiring.astro';
 ---
 
 <script src="../scripts/main.js"></script>
 
-<Layout title="Welcome to Indevitus">
-	<Header />
+<HomeLayout>
 	<main class="dark:text-white">
-		<section id="home" class="container border-b border-black dark:border-neutral-100">
-			<div data-aos="fade" data-aos-delay="100" data-aos-duration="1400" class="pt-[106px] lg:pt-[120px]">
-				<div class="pt-8 lg:pt-16 font-display text-5xl lg:text-9xl border-t border-black dark:border-neutral-100">
-					<p class="px-8 lg:px-0">Hello</p>
-				</div>
-				<div class="px-8 lg:px-0 py-4 pb-8 lg:py-8 lg:pb-16">
-					<p class="font-display text-xl lg:text-3xl lg:leading-[3rem]">We are Indevitus. We source exceptional talent and remotely embed them within your company for a reasonable monthly fee.</p>
-				</div>
-			</div>
+		<section id="home" class="overflow-hidden">
+			<Hero />
+		</section>
+
+		<section
+			id="clients"
+			class="container relative"
+		>
+			<ClientSpotlight />
+		</section>
+
+		<section
+			id="hiring"
+		>
+			<Hiring />
 		</section>
 
 		<section id="team">
 			<Team />
 		</section>
 
-		<section class="container" id="skills">
-			<Skills />
-		</section>
-		<section id="clients" class="container">
-			<Testimonials />
-		</section>
-		<section id="contact" class="container border-b border-black dark:border-neutral-100 overflow-hidden">
-			<div class="py-16 font-display text-center" data-aos="fade" data-aos-duration="1400" data-aos-anchor-placement="center-bottom">
-				<p class="px-8 pb-4 lg:pb-8 lg:px-0 text-xl lg:text-3xl">Ready to talk?</p>
-				<p class="px-8 lg:px-0 text-xl lg:text-3xl">
-					<a
-						href="https://www.linkedin.com/company/indevitus/"
-						class="rounded-full inline-block transition duration-300 ease-in-out bg-black dark:bg-white hover:!bg-gray-light text-white dark:text-black whitespace-nowrap px-4 lg:px-8 py-4"
-						target="_blank"
-					>
-						Contact us today
-					</a>
-				</p>
-			</div>
+		<section
+			id="map"
+			class="border-b border-t border-black z-[1]"
+		>
+			<Map />
 		</section>
 	</main>
-	<Footer />
-</Layout>
-
-<style is:global>
-	.glide__slide {
-		height: auto !important;
-	}
-    .glide__bullet--active { background: black; }
-    html.dark .glide__bullet--active { background: white !important; }
-</style>
+</HomeLayout>
