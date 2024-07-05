@@ -48,13 +48,13 @@ export const TEAM_INFO = [
     position: 'Junior Frontend Developer',
     linkedIn: 'https://www.linkedin.com/in/nejra-duvnjak-61296b233/',
   },
-  {
-    id: 8,
-    full_name: 'Dino Halilović',
-    name: 'Dino',
-    position: 'Frontend Developer',
-    linkedIn: 'https://www.linkedin.com/in/dino-halke/',
-  },
+  // {
+  //   id: 8,
+  //   full_name: 'Dino Halilović',
+  //   name: 'Dino',
+  //   position: 'Frontend Developer',
+  //   linkedIn: 'https://www.linkedin.com/in/dino-halke/',
+  // },
   {
     id: 9,
     full_name: 'Husan Omerinović',
