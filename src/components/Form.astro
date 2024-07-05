@@ -49,7 +49,7 @@ const { position } = Astro.props;
   const phoneError = document.getElementById('phoneError');
 
   const isValidInput = (value: string) => /^\d{0,15}$/.test(value);
-  buttonForm?.classList.add('cursor-default')
+  buttonForm?.classList.add('cursor-pointer')
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -59,7 +59,7 @@ const { position } = Astro.props;
     fileError?.classList.toggle('!opacity-100', userFile && userFile.size > MAX_FILE_SIZE);
 
     if(userFile && userFile?.size < MAX_FILE_SIZE && isValidInput(phone.value)){
-      console.log(email.value, firstName.value, lastName.value, phone.value)
+      // logic for form here
     }
   })
 </script>
