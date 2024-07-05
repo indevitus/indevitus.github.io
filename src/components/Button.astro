@@ -5,17 +5,18 @@ const {
   link = '#',
   border = false,
   btnType='button',
+  backgroundColor = false
 } = Astro.props;
 ---
 
-<button id={`button-${title}`} type={btnType} class={`blob-btn ${border ? 'before:border before:border-solid before:border-secondary' : ''}`} data-link={link}>
+<button id={`button-${title}`} type={btnType} class={`blob-btn ${border ? 'before:border before:border-solid before:border-secondary' : ''} ${backgroundColor ? 'text-white' : 'text-black dark:text-white hover:text-white hover:dark:text-black '}`} data-link={link}>
   <slot />
   <span class={`blob-btn__inner ${primary  ? 'bg-primary' : 'bg-white dark:bg-secondary'}`}>
     <span class="blob-btn__blobs">
-      <span class="blob-btn__blob"></span>
-      <span class="blob-btn__blob"></span>
-      <span class="blob-btn__blob"></span>
-      <span class="blob-btn__blob"></span>
+      <span class={`blob-btn__blob ${backgroundColor ? 'bg-secondary' : 'bg-secondary dark:bg-white'}`} />
+      <span class={`blob-btn__blob ${backgroundColor ? 'bg-secondary' : 'bg-secondary dark:bg-white'}`} />
+      <span class={`blob-btn__blob ${backgroundColor ? 'bg-secondary' : 'bg-secondary dark:bg-white'}`} />
+      <span class={`blob-btn__blob ${backgroundColor ? 'bg-secondary' : 'bg-secondary dark:bg-white'}`} />
     </span>
   </span>
 
@@ -67,7 +68,7 @@ const {
 
 <style>
   .blob-btn {
-    @apply z-[1] relative px-8 py-4 text-center uppercase text-black dark:text-white font-bold transition-colors duration-500 rounded-[30px] whitespace-nowrap;
+    @apply z-[1] relative px-8 py-4 text-center uppercase font-bold transition-colors duration-500 rounded-[30px] whitespace-nowrap;
   }
 
   .blob-btn:before {
@@ -79,7 +80,7 @@ const {
   }
 
   .blob-btn:hover {
-    @apply text-white dark:text-black rounded-[30px];
+    @apply rounded-[30px];
   }
 
   .blob-btn:hover:after {
@@ -95,7 +96,7 @@ const {
   }
 
   .blob-btn__blob {
-    @apply absolute top-[2px] w-[calc(100%/4)] h-full bg-secondary dark:bg-white rounded-full transition-transform duration-[450ms] [transform:translate3d(0,_150%,_0)_scale(1.7)];
+    @apply absolute top-[2px] w-[calc(100%/4)] h-full rounded-full transition-transform duration-[450ms] [transform:translate3d(0,_150%,_0)_scale(1.7)];
   }
 
   @supports (filter: url("#goo")) {

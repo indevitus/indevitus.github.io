@@ -31,13 +31,12 @@ const { position } = Astro.props;
     <input type="file" class="file-input block w-full text-sm text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none dark:placeholder-gray-400" aria-describedby="user_portfolio_help" id="user_portfolio" accept="application/pdf, application/vnd.ms-excel" required />
     <span id="file-error" class="text-xs text-maximum-red opacity-0 transition-opacity duration-300 ease-in-out">File size exceeds the maximum limit of 5 MB.</span>
   </div>
-  <Button btnType="submit" title="form" primary border>Submit</Button>
+  <Button btnType="submit" title="form" primary backgroundColor>Submit</Button>
 </form>
 
 <script>
   const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
   const form = document.querySelector('form');
-  const buttonForm = document.getElementById('button-form');
   const position = form?.getAttribute('data-position');
 
   const userPortfolio = (document.getElementById('user_portfolio') as HTMLInputElement);
@@ -49,9 +48,6 @@ const { position } = Astro.props;
   const phoneError = document.getElementById('phoneError');
 
   const isValidInput = (value: string) => /^\d{0,15}$/.test(value);
-
-  console.log(isValidInput('222'))
-  buttonForm?.classList.add('before:!border-secondary')
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
