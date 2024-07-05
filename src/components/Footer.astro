@@ -4,7 +4,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 const { simplified } = Astro.props;
 ---
 
-<footer class="relative overflow-hidden pb-6">
+<footer class="relative overflow-hidden pb-6" id="footer">
   <div
     class={`container dark:text-white ${simplified ? 'min-h-[50vh]' : 'min-h-screen'} flex flex-col justify-around`}
   >
@@ -38,7 +38,7 @@ const { simplified } = Astro.props;
               src="/badge-white.svg"
               alt="Indevitus"
               height="80px"
-              class="h-12 w-12 lg:w-16 lg:h-16 mix-blend-difference transition-height duration-300"
+              class="h-12 w-12 lg:w-16 lg:h-16 mix-blend-difference transition-height duration-300 px-1"
             />
           </div>
         )
