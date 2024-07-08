@@ -14,14 +14,14 @@ const { headerWithoutIllustration } = Astro.props;
     <a
       href="/"
       title="Indevitus"
-      class="block text-black dark:text-white transition-colors duration-300 w-12 lg:w-16"
+      class="block text-black dark:text-white transition-colors duration-300 w-12 lg:w-16 z-[101]"
     >
       <Logo />
     </a>
 
     <button
       id="hamburger"
-      class="no-tap-highlight cursor-pointer bg-transparent lg:hidden"
+      class="no-tap-highlight cursor-pointer bg-transparent lg:hidden z-[101]"
       aria-controls="menu"
       aria-label="hamburger-menu"
     >
@@ -32,14 +32,15 @@ const { headerWithoutIllustration } = Astro.props;
 
     <nav
       id="menu"
-      class={`flex flex-col overflow-y-auto fixed w-full h-dvh lg:h-auto bottom-0 left-0 py-8 bg-white dark:bg-secondary ${headerWithoutIllustration ? 'lg:bg-white lg:dark:bg-secondary' : 'lg:bg-transparent lg:dark:bg-transparent'} transition-colors duration-300 z-100 invisible lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase`}
+      class={`flex flex-col overflow-y-auto fixed w-full min-h-dvh lg:h-auto pt-[100px] top-0 bottom-0 left-0 inset-0 py-8 bg-white dark:bg-secondary ${headerWithoutIllustration ? 'lg:bg-white lg:dark:bg-secondary' : 'lg:bg-transparent lg:dark:bg-transparent'} transition-colors duration-300 z-100 invisible lg:static lg:flex-row lg:visible lg:p-0 lg:w-auto lg:ml-auto lg:overflow-visible uppercase`}
     >
       <ul
         class="container flex flex-col lg:flex-row lg:space-x-8 lg:items-center lg:px-0 text-black dark:text-white font-semibold text-sm"
       >
         <li class="mb-6 lg:mb-0">
           <a
-            href="#footer"
+            id="button-contact"
+            href="#"
             class={`relative after:content-[''] after:absolute after:-top-1 after:-bottom-1 after:-left-[2px] after:transition-[width] after:duration-300 after:ease-in-out after:w-0 ${headerWithoutIllustration ? 'after:mix-blend-difference' : 'after:mix-blend-darken after:dark:mix-blend-difference'} after:bg-white hover:after:w-1/2`}
             >Contact</a
           >
@@ -63,12 +64,22 @@ const { headerWithoutIllustration } = Astro.props;
 <script>
   const BREAKPOINT_LG = 1024;
 
+  const htmlElement = document.documentElement;
+  const body = document.body;
   const header = document.querySelector('header');
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
   const heroIllustration = document.getElementById('hero-illustration');
+  const buttonContact = document.getElementById('button-contact')
 
   let mobileMenuOpen = false;
+
+  buttonContact?.addEventListener('click', () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    if(mobileMenuOpen){
+      mobileMenuToggle();
+    }
+  })
 
   function bodyScrollLock() {
     document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'auto';
@@ -76,6 +87,10 @@ const { headerWithoutIllustration } = Astro.props;
 
   function mobileMenuToggle() {
     mobileMenuOpen = !mobileMenuOpen;
+
+    header?.classList.toggle('!fixed', mobileMenuOpen);
+    body.classList.toggle('overflow-hidden', mobileMenuOpen);
+    htmlElement.classList.toggle('overflow-hidden', mobileMenuOpen);
     const visibilityClass = mobileMenuOpen ? 'visible' : 'invisible';
 
     if (menu) {
@@ -83,7 +98,6 @@ const { headerWithoutIllustration } = Astro.props;
         visibilityClass === 'visible' ? 'invisible' : 'visible',
         visibilityClass,
       );
-      menu.style.top = `${header?.offsetHeight}px`;
       hamburger?.classList.toggle('is-opened', mobileMenuOpen);
       heroIllustration?.classList.toggle('!opacity-0', mobileMenuOpen);
       bodyScrollLock();
