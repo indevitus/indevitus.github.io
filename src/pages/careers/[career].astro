@@ -12,6 +12,7 @@ import HiringLayout from '../../layouts/HiringLayout.astro';
 import { JOB_DESCRIPTION } from '../../data';
 import Button from "../../components/Button.astro";
 import Form from "../../components/Form.astro";
+import Modal from "../../components/Modal.astro";
 
 const { career } = Astro.params;
 
@@ -102,36 +103,9 @@ const formatKey = (text: string) => {
         </div>
       </section>
 
-      <dialog id="dialog" class="dialog">
-        <a id="dialog-close" href="#">
-          <img id="dialog" src="/close.svg" alt="Close" class="h-4 w-4 absolute right-4 top-4 cursor-pointer"/>
-        </a>
+      <Modal title="form">
         <Form position={job?.title} />
-      </dialog>
+      </Modal>
     </div>
   </main>
 </HiringLayout>
-
-<script>
-  const button = document.querySelector('#button-careers-apply');
-  const dialog = document.querySelector("dialog");
-  const dialogClose = document.getElementById('dialog-close')
-
-  dialogClose?.addEventListener('click', () => {
-    dialog?.close();
-  })
-
-  button?.addEventListener('click', () => {
-    dialog?.showModal();
-  })
-</script>
-
-<style>
-  .dialog {
-    @apply fixed max-w-lg top-0 border border-solid border-black transition-all duration-300 ease-in-out p-8 cursor-default;
-  }
-
-  .dialog::backdrop {
-    @apply fixed top-0 right-0 bottom-0 left-0 bg-secondary/90 transition-all duration-300 ease-in-out;
-  }
-</style>

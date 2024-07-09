@@ -1,5 +1,6 @@
 ---
 import Button from "./Button.astro";
+import Modal from "./Modal.astro";
 
 const { position } = Astro.props;
 ---
@@ -34,6 +35,11 @@ const { position } = Astro.props;
   <Button btnType="submit" title="form" primary backgroundColor>Submit</Button>
 </form>
 
+<Modal title="interest">
+  <p class="text-2xl text-center mb-4">Thank you for your interest in joining Indevitus.</p>
+  <p class="text-xl">We have received your application for the {position} position and appreciate you taking the time to apply.</p>
+</Modal>
+
 <script>
   const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
   const form = document.querySelector('form');
@@ -52,7 +58,6 @@ const { position } = Astro.props;
   buttonForm?.classList.add('cursor-pointer')
 
   form?.addEventListener('submit', (e) => {
-    e.preventDefault();
     const userFile = userPortfolio?.files?.[0];
 
     phoneError?.classList.toggle('!opacity-100', !isValidInput(phone.value));
