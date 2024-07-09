@@ -1,14 +1,14 @@
 export const JOB_DESCRIPTION = [
   {
     id: 'senior-frontend',
-    title: 'Senior Front-End Developer',
+    title: 'Senior React Developer',
     type: 'Full Time',
     work_model: 'remote/on-site',
     summary: {
       location: 'Bugojno, Bosnia & Herzegovina',
       job_type: 'Front-End Developer',
       date_posted: '18.06.2024.',
-      experience: '5 years',
+      experience: '4+ years',
       working_hours: '09:00 - 17:00',
       working_days: 'Monday - Friday',
       vacancy: 1,
@@ -160,14 +160,14 @@ export const JOB_DESCRIPTION = [
   },
   {
     id: 'medior-frontend',
-    title: 'Medior Front-End Developer',
+    title: 'Medior Frontend Developer',
     type: 'Full Time',
     work_model: 'remote/on-site',
     summary: {
       location: 'Bugojno, Bosnia & Herzegovina',
       job_type: 'Medior-End Developer',
       date_posted: '18.06.2024.',
-      experience: '3 years',
+      experience: '2+ years',
       working_hours: '09:00 - 17:00',
       working_days: 'Monday - Friday',
       vacancy: 1,
@@ -478,7 +478,7 @@ export const JOB_DESCRIPTION = [
   },
   {
     id: 'intern-frontend',
-    title: 'Front-End Internship',
+    title: 'Frontend Internship',
     type: 'Full Time',
     work_model: 'on-site',
     summary: {
