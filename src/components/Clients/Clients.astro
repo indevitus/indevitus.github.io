@@ -15,6 +15,7 @@ import { CLIENT_LIST as clients } from "../../data";
             >
               <a href={client.website} target="_blank" title={client.title}>
                 <img
+                  loading="lazy"
                   class="icon-blend w-[320px] max-h-[70px]"
                   src={`/clients/${client.id}.svg`}
                   alt={`Logo of ${client.title}`}
