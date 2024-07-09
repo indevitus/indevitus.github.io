@@ -2,25 +2,23 @@
 const { title } = Astro.props
 ---
 
-<dialog id={`dialog-${title}`} class="dialog">
-  <a id="dialog-close" href="#">
+<dialog id={`modal-${title}`} class="dialog">
+  <a id={`dialog-close-${title}`} href="#">
     <img id="dialog" src="/close.svg" alt="Close" class="h-4 w-4 absolute right-4 top-4 cursor-pointer"/>
   </a>
   <slot />
 </dialog>
 
 <script>
-  const button = document.querySelector('#button-careers-apply');
-  const dialog = document.querySelector("dialog");
-  const dialogClose = document.getElementById('dialog-close')
+  const dialog = document.querySelectorAll("dialog");
+  const dialogClose = document.querySelectorAll('[id^="dialog-close-"')
 
-  dialogClose?.addEventListener('click', () => {
-    dialog?.close();
+  dialogClose.forEach((close, index) => {
+    close.addEventListener('click', () => {
+      dialog[index].close();
+    })
   })
 
-  button?.addEventListener('click', () => {
-    dialog?.showModal();
-  })
 </script>
 
 <style>

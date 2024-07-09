@@ -16,6 +16,7 @@
     "@astrojs/sitemap": "^2.0.1",
     "@astrojs/tailwind": "^4.0.0",
     "@glidejs/glide": "^3.6.0",
+    "@sendgrid/mail": "^8.1.3",
     "@types/alpinejs": "^3.7.2",
     "@types/leaflet": "^1.9.12",
     "alpinejs": "^3.12.3",

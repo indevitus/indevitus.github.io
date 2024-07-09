@@ -1,6 +1,5 @@
 ---
 import Button from "./Button.astro";
-import Modal from "./Modal.astro";
 
 const { position } = Astro.props;
 ---
@@ -35,36 +34,60 @@ const { position } = Astro.props;
   <Button btnType="submit" title="form" primary backgroundColor>Submit</Button>
 </form>
 
-<Modal title="interest">
-  <p class="text-2xl text-center mb-4">Thank you for your interest in joining Indevitus.</p>
-  <p class="text-xl">We have received your application for the {position} position and appreciate you taking the time to apply.</p>
-</Modal>
-
 <script>
   const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+
   const form = document.querySelector('form');
   const buttonForm = document.getElementById('button-form');
   const position = form?.getAttribute('data-position');
 
   const userPortfolio = (document.getElementById('user_portfolio') as HTMLInputElement);
-  const fileError = document.getElementById('file-error');
   const email = (document.getElementById('email') as HTMLInputElement);
   const firstName = (document.getElementById('first_name') as HTMLInputElement);
   const lastName = (document.getElementById('last_name') as HTMLInputElement);
   const phone = (document.getElementById('phone') as HTMLInputElement);
+  const fileError = document.getElementById('file-error');
   const phoneError = document.getElementById('phoneError');
+
+  const modalForm = document.getElementById("modal-form") as HTMLDialogElement;
+  const modalInterst = document.getElementById("modal-info") as HTMLDialogElement;
 
   const isValidInput = (value: string) => /^\d{0,15}$/.test(value);
   buttonForm?.classList.add('cursor-pointer')
 
   form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
     const userFile = userPortfolio?.files?.[0];
 
     phoneError?.classList.toggle('!opacity-100', !isValidInput(phone.value));
     fileError?.classList.toggle('!opacity-100', userFile && userFile.size > MAX_FILE_SIZE);
 
     if(userFile && userFile?.size < MAX_FILE_SIZE && isValidInput(phone.value)){
-      // logic for form here
+      modalForm?.close();
+      setTimeout(() => {
+        modalInterst?.showModal()
+      }, (300));
+
+      // import sgMail from '@sendgrid/mail'
+      // const sendKey = import.meta.env.SENDGRID_API_KEY
+
+      //   sgMail.setApiKey(sendKey)
+      //   const msg = {
+      //     to: 'omerinovic27@gmail.com', // Change to your recipient
+      //     from: 'husan.omerinovic@indevitus.com', // Change to your verified sender
+      //     subject: 'Sending with SendGrid is Fun',
+      //     text: 'Hello world',
+      //     html: '<strong>HELLO WORLD</strong>',
+      //   }
+      //   sgMail
+      //     .send(msg)
+      //     .then(() => {
+      //       console.log('Email sent')
+      //     })
+      //     .catch((error) => {
+      //       console.error(error)
+      //     })
     }
   })
 </script>

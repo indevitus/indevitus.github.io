@@ -102,10 +102,24 @@ const formatKey = (text: string) => {
           </div>
         </div>
       </section>
-
+  
       <Modal title="form">
         <Form position={job?.title} />
+      </Modal>
+
+      <Modal title="info">
+        <p class="text-2xl text-center mb-4">Thank you for your interest in joining Indevitus.</p>
+        <p class="text-xl">We have received your application for the {job?.title} position and appreciate you taking the time to apply.</p>
       </Modal>
     </div>
   </main>
 </HiringLayout>
+
+<script>
+  const button = document.querySelector('#button-careers-apply');
+  const modalForm = document.getElementById('modal-form') as HTMLDialogElement
+
+  button?.addEventListener('click', () => {
+    modalForm?.showModal();
+  })
+</script>
