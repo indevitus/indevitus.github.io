@@ -58,11 +58,9 @@ const formatKey = (text: string) => {
                 return (
                   <>
                     <p class="text-2xl lg:text-3xl mb-5">{element?.title}</p>
-                    <ul class="mb-4">
-                      {element.content.map((content) => {
-                        return <li>{content?.text}</li>;
-                      })}
-                    </ul>
+                    <p class="mb-4">
+                      {element.content.map((content) => content?.text).join(' ')}
+                    </p>
                   </>
                 );
               })

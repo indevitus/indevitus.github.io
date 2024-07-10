@@ -67,8 +67,7 @@ export const JOB_DESCRIPTION = [
             id: 4,
             text: `
               While a formal degree or certification in computer science, software engineering, or a related field is advantageous, we prioritize demonstrated skills, experience, and a passion for frontend development above all else.
-              We welcome applicants from diverse educational backgrounds, including self-taught developers, coding bootcamp graduates, and those with non-traditional paths into technology. What matters most is your ability to excel in frontend development and contribute positively to our team.
-            `,
+              We welcome applicants from diverse educational backgrounds, including self-taught developers, coding bootcamp graduates, and those with non-traditional paths into technology. What matters most is your ability to excel in frontend development and contribute positively to our team.`,
           },
         ],
       },
@@ -92,7 +91,7 @@ export const JOB_DESCRIPTION = [
         title: 'Perks & Benefits You’ll Get ',
         content: [
           {
-            id: 19,
+            id: 6,
             text: `Flexible Work Arrangements: Enjoy the flexibility to choose your work hours and occasionally work remotely, empowering you to maintain a healthy work-life balance.
                   Professional Development: We invest in your growth and provide opportunities for ongoing training, skill enhancement, and attendance at conferences and workshops relevant to your role.
                   Generous Vacation Policy: Take time off to recharge and pursue your interests with our generous vacation policy, which includes paid time off and company holidays.
@@ -170,8 +169,7 @@ export const JOB_DESCRIPTION = [
             id: 4,
             text: `
               While a formal degree or certification in computer science, software engineering, or a related field is advantageous, we prioritize demonstrated skills, experience, and a passion for frontend development above all else.
-              We welcome applicants from diverse educational backgrounds, including self-taught developers, coding bootcamp graduates, and those with non-traditional paths into technology. What matters most is your ability to excel in frontend development and contribute positively to our team.
-            `,
+              We welcome applicants from diverse educational backgrounds, including self-taught developers, coding bootcamp graduates, and those with non-traditional paths into technology. What matters most is your ability to excel in frontend development and contribute positively to our team.`,
           },
         ],
       },
@@ -376,8 +374,7 @@ export const JOB_DESCRIPTION = [
             id: 4,
             text: `
               While a formal degree or certification in computer science, software engineering, or a related field is advantageous, we prioritize demonstrated skills, experience, and a passion for frontend development above all else.
-              We welcome applicants from diverse educational backgrounds, including self-taught developers, coding bootcamp graduates, and those with non-traditional paths into technology. What matters most is your ability to excel in frontend development and contribute positively to our team.
-            `,
+              We welcome applicants from diverse educational backgrounds, including self-taught developers, coding bootcamp graduates, and those with non-traditional paths into technology. What matters most is your ability to excel in frontend development and contribute positively to our team.`,
           },
         ],
       },
