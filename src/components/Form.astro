@@ -92,6 +92,7 @@ if(method === 'POST'){
     if(userFile && userFile?.size < MAX_FILE_SIZE && isValidInput(phone.value)){
       setTimeout(() => {
         modalForm?.close();
+        window.location.href = '/'
       }, (300));
     }
   })
