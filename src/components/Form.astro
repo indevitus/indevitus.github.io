@@ -1,12 +1,41 @@
 ---
 import Button from "./Button.astro";
+import sgMail from '@sendgrid/mail'
 
+const sendKey = import.meta.env.SENDGRID_API_KEY
+const method = Astro.request.method
 const { position } = Astro.props;
+
+sgMail.setApiKey(sendKey)
+
+if(method === 'POST'){
+  try{
+    const data = await Astro.request.formData();
+    const email = data.get('email') as string;
+
+    const msg = {
+      to: email,
+      from: 'husan.omerinovic@indevitus.com', // Change to your verified sender
+      subject: 'Sending with SendGrid is Fun',
+      text: 'Hello world',
+      html: '<strong>HELLO WORLD</strong>',
+    }
+    console.log(msg)
+
+    // sgMail.send(msg).then(() => {
+    //   console.log('Email sent')
+    // }).catch((error) => {
+    //   console.error(error)
+    // })
+  } catch(error) {
+    console.error(error);
+  }
+}
 ---
 
 <p class="text-center mt-3 mb-6 text-3xl text-bold">Apply for position {position}</p>
 
-<form class="max-w-md mx-auto" data-position={position}>
+<form method="POST" class="max-w-md mx-auto" action="/info" data-astro-reload data-position={position}>
   <div class="relative z-0 w-full mb-5 group">
       <input type="email" name="email" id="email" class="block py-2 autofill:mt-4 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-primary focus:outline-none focus:ring-0 focus:border-primary peer" placeholder=" " required />
       <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-2 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
@@ -50,44 +79,20 @@ const { position } = Astro.props;
   const phoneError = document.getElementById('phoneError');
 
   const modalForm = document.getElementById("modal-form") as HTMLDialogElement;
-  const modalInterst = document.getElementById("modal-info") as HTMLDialogElement;
 
   const isValidInput = (value: string) => /^\d{0,15}$/.test(value);
   buttonForm?.classList.add('cursor-pointer')
 
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-
+  form?.addEventListener('submit', (event) => {
     const userFile = userPortfolio?.files?.[0];
 
     phoneError?.classList.toggle('!opacity-100', !isValidInput(phone.value));
     fileError?.classList.toggle('!opacity-100', userFile && userFile.size > MAX_FILE_SIZE);
 
     if(userFile && userFile?.size < MAX_FILE_SIZE && isValidInput(phone.value)){
-      modalForm?.close();
       setTimeout(() => {
-        modalInterst?.showModal()
+        modalForm?.close();
       }, (300));
-
-      // import sgMail from '@sendgrid/mail'
-      // const sendKey = import.meta.env.SENDGRID_API_KEY
-
-      //   sgMail.setApiKey(sendKey)
-      //   const msg = {
-      //     to: 'omerinovic27@gmail.com', // Change to your recipient
-      //     from: 'husan.omerinovic@indevitus.com', // Change to your verified sender
-      //     subject: 'Sending with SendGrid is Fun',
-      //     text: 'Hello world',
-      //     html: '<strong>HELLO WORLD</strong>',
-      //   }
-      //   sgMail
-      //     .send(msg)
-      //     .then(() => {
-      //       console.log('Email sent')
-      //     })
-      //     .catch((error) => {
-      //       console.error(error)
-      //     })
     }
   })
 </script>
