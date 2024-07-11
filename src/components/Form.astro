@@ -6,7 +6,7 @@ const { position } = Astro.props;
 
 <p class="text-center mt-3 mb-10 text-4xl text-bold">Apply for position {position}</p>
 
-<form method="POST" class="max-w-md mx-auto" enctype="multipart/form-data" data-position={position}>
+<form class="max-w-md mx-auto" enctype="multipart/form-data" data-position={position}>
   <div class="relative z-0 w-full mb-[1.625rem] group">
       <input type="email" name="email" id="email" class="block py-2 autofill:mt-4 px-0 w-full text-sm text-gray-darkest bg-transparent border-0 border-b-2 border-gray-light appearance-none dark:border-gray-dark dark:focus:border-primary focus:outline-none focus:ring-0 focus:border-primary peer" placeholder=" " required />
       <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-medium dark:text-gray-default duration-300 transform -translate-y-6 scale-75 top-2 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
