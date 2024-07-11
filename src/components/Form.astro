@@ -10,10 +10,9 @@ sgMail.setApiKey(import.meta.env.SENDGRID_API_KEY)
 if(method === 'POST'){
   try{
     const data = await Astro.request.formData();
-    const email = data.get('email') as string;
 
     const msg = {
-      to: email,
+      to: 'omerinovic27@gmail.com',
       from: 'husan.omerinovic@indevitus.com', // Change to your verified sender
       subject: 'Sending with SendGrid is Fun',
       text: 'Hello world',

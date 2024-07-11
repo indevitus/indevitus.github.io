@@ -58,4 +58,5 @@ Set .env environment file:
 ```
 GOOGLE_ANALYTICS_ID=
 SENDGRID_API_KEY=
+PUBLIC_MAP_API_KEY=
 ```
