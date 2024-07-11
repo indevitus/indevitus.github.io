@@ -25,7 +25,12 @@ module.exports = {
         'maximum-red': '#dc2626',
         'gray': {
           'default': '#9ca3af',
+          'light': '#d1d5db',
+          'lighter': '#f9fafb',
+          'medium': '#6b7280',
+          'dark': '#4b5563',
           'darker': '#6b7280',
+          'darkest': '#111827'
         },
         'light-blue': '#dbeafe',
         'light-green': '#dcfce7',

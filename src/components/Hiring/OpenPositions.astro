@@ -6,7 +6,7 @@ const openPositions = jobs.filter((job: any) => hiringJobs.includes(job.id));
 ---
 
 <ul
-  class="pt-5 lg:pl-28 lg:pt-0 space-y-4 mb-10 text-black max-w-fit mx-auto lg:mx-0"
+  class="pt-5 lg:pl-28 lg:pt-0 space-y-4 mb-[4.5rem] text-black max-w-fit mx-auto lg:mx-0"
 >
   {
     openPositions?.map((openPosition: any) => {
@@ -34,6 +34,6 @@ const openPositions = jobs.filter((job: any) => hiringJobs.includes(job.id));
   }
 
   .open-position::before{
-    @apply content-[''] bg-white absolute left-0 top-0 hover:-top-2 w-full h-full -z-[1] transition-all duration-500 ease-in-out;
+    @apply content-[''] bg-white absolute left-0 top-0 hover:-top-3 w-full h-full -z-[1] transition-all duration-300 ease-in-out;
   }
 </style>

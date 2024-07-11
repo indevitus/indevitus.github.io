@@ -23,4 +23,5 @@ export default defineConfig({
     compress(),
   ],
   trailingSlash: 'never',
+  output: 'hybrid'
 });
