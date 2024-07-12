@@ -1,20 +1,20 @@
 ---
-const googleAnalytics = import.meta.env.GOOGLE_ANALYTICS_ID;
+const GOOGLE_ANALYTICS_ID = import.meta.env.GOOGLE_ANALYTICS_ID;
 ---
 
 <script
-  is:inline
+  type="text/partytown"
   async
-  src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalytics}`}
+  src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
 ></script>
 
-<script is:inline>
-  const googleAnalytics = import.meta.env.GOOGLE_ANALYTICS_ID;
+<script type="text/partytown">
+  const GOOGLE_ANALYTICS_ID = import.meta.env.GOOGLE_ANALYTICS_ID;
 
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
-  gtag("config", googleAnalytics);
+  gtag("config", GOOGLE_ANALYTICS_ID);
 </script>
