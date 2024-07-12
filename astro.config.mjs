@@ -17,10 +17,10 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     partytown({
-			config: {
-			  forward: ["dataLayer.push"],
-			},
-		}),
+      config: {
+        forward: ['dataLayer.push'],
+      },
+    }),
     sitemap(),
     robotsTxt(),
     mdx(),
