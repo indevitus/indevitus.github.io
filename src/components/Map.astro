@@ -5,7 +5,6 @@
   import { GestureHandling } from "leaflet-gesture-handling";
   import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 
-  const mapApiKey = import.meta.env.PUBLIC_MAP_API_KEY
   const mapInner = document.getElementById('map-inner')
 
   declare module "leaflet" {
@@ -36,22 +35,13 @@
   };
 
   let map = L.map("map", options).setView([44.053798, 17.449204], 25);
-  let osm = L.tileLayer(
-    "https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}",
-    {
-      foo: "bar",
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }
-  );
-  osm.addTo(map);
 
   mapInner?.addEventListener('mouseenter', () => {
     map.dragging.disable()
   })
 
   let dark_mode_map = L.tileLayer(
-    `https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.png?api_key=${mapApiKey}`,
+    `https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.png`,
     {
       attribution:'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       ext: "png",
@@ -59,7 +49,7 @@
   );
 
   let light_mode_map = L.tileLayer(
-    `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?api_key=${mapApiKey}`,
+    `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png`,
     {
       attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
       subdomains: "abcd",
