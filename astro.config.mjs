@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
 import mdx from '@astrojs/mdx';
 import alpinejs from '@astrojs/alpinejs';
-
+import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
 
 // https://astro.build/config
@@ -16,6 +16,11 @@ export default defineConfig({
       // Useful if you need to define and/or import your own custom `base.css`.
       applyBaseStyles: false,
     }),
+    partytown({
+			config: {
+			  forward: ["dataLayer.push"],
+			},
+		}),
     sitemap(),
     robotsTxt(),
     mdx(),

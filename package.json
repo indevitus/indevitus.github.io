@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/alpinejs": "^0.2.2",
     "@astrojs/mdx": "^0.19.7",
+    "@astrojs/partytown": "^2.1.1",
     "@astrojs/sitemap": "^2.0.1",
     "@astrojs/tailwind": "^4.0.0",
     "@glidejs/glide": "^3.6.0",
