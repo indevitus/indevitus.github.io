@@ -2,7 +2,6 @@
 // Astro will bundle and optimize this CSS for you automatically
 // This also works for preprocessor files like .scss, .styl, etc.
 import '../styles/base.css';
-import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 ---
 
 <!DOCTYPE html>
@@ -37,7 +36,20 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
     <link rel="preconnect stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
-    <GoogleAnalytics />
+    <script
+      type="text/partytown"
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=G-0C453CLPPQ`}
+    ></script>
+
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-0C453CLPPQ");
+    </script>
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta name="generator" content={Astro.generator} />
