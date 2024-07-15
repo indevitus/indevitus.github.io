@@ -35,13 +35,13 @@ const { position } = Astro.props;
 </form>
 
 <script>
+  import sgMail from '@sendgrid/mail'
   const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 
   const form = document.querySelector('form');
   const buttonForm = document.getElementById('button-form');
   const position = form?.getAttribute('data-position');
   const method = form?.getAttribute('data-method');
-
   const userPortfolio = (document.getElementById('user_portfolio') as HTMLInputElement);
   const email = (document.getElementById('email') as HTMLInputElement);
   const firstName = (document.getElementById('first_name') as HTMLInputElement);
@@ -53,7 +53,7 @@ const { position } = Astro.props;
   const isValidInput = (value: string) => /^\d{0,15}$/.test(value);
   buttonForm?.classList.add('cursor-pointer')
 
-  form?.addEventListener('submit', (event) => {
+  form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const userFile = userPortfolio?.files?.[0];
 
@@ -61,13 +61,40 @@ const { position } = Astro.props;
     fileError?.classList.toggle('!opacity-100', userFile && userFile.size > MAX_FILE_SIZE);
 
     if(userFile && userFile?.size < MAX_FILE_SIZE && isValidInput(phone.value)){
-      window.location.href = '/info'
+      sgMail.setApiKey(import.meta.env.PUBLIC_SENDGRID_API_KEY)
+
+      try{
+        const msg = {
+          to: 'omerinovic27@gmail.com',
+          from: 'husan.omerinovic@indevitus.com', // Change to your verified sender
+          subject: `Application for ${position}`,
+          text: 'Hello world',
+          html: `<h2>Hello</h2>
+                 <p>I hope you're doing well.</p>
+                 <p>I wanted to inform you that we have received a new application for the <strong>${position}</strong> position. Below are the details of the applicant:</p>
+                 <br />
+                 <p>Name: ${firstName.value} ${lastName.value}</p>
+                 <p>Email: ${email.value}</p>
+                 <p>Phone: ${phone.value}</p>
+                 <br />
+                 <p>Best regars</p>`
+        }
+
+        await sgMail.send(msg)
+        .then(() => {
+          window.location.href = '/thank-you'
+        }).catch((error) => {
+          console.error(error)
+        })
+      } catch(error) {
+        console.error(error);
+      }
     }
   })
 </script>
 
 <style>
   .file-input::file-selector-button {
-    @apply bg-primary border-none p-2.5 mr-6 text-white hover:bg-primary/70 transition-all duration-300 ease-in-out;
+    @apply bg-primary border-none p-2.5 mr-6 text-white hover:bg-primary/70 transition-all duration-300 ease-in-out cursor-pointer;
   }
 </style>
